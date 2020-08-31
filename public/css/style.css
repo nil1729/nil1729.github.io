@@ -694,6 +694,7 @@ button:focus {
 
 .blog_post img {
   max-width: 100%; }
+
 .blog_post .primary_btn {
   line-height: 38px; }
 
@@ -951,10 +952,12 @@ button:focus {
       transition: all 0.2s linear; }
       .single-post-area .social-links li a:hover {
         color: #4458dc; }
+
 .single-post-area .blog_details {
   padding-top: 26px; }
   .single-post-area .blog_details p {
     margin-bottom: 10px; }
+
 .single-post-area .quotes {
   margin-top: 20px;
   margin-bottom: 30px;
@@ -965,13 +968,16 @@ button:focus {
   line-height: 24px;
   color: #777;
   font-style: italic; }
+
 .single-post-area .arrow {
   position: absolute; }
   .single-post-area .arrow .lnr {
     font-size: 20px;
     font-weight: 600; }
+
 .single-post-area .thumb .overlay-bg {
   background: rgba(0, 0, 0, 0.8); }
+
 .single-post-area .navigation-area {
   border-top: 1px solid #eee;
   padding-top: 30px;
@@ -1027,6 +1033,7 @@ button:focus {
       opacity: 1; }
     .single-post-area .navigation-area .nav-right:hover .thumb img {
       opacity: .5; }
+
 @media (max-width: 991px) {
   .single-post-area .sidebar-widgets {
     padding-bottom: 0px; } }
@@ -1200,6 +1207,7 @@ button:focus {
     resize: none; }
     .contact_form .form-group textarea.form-control {
       height: 134px; }
+
 .contact_form .primary_btn {
   margin-top: 20px; }
 
@@ -1416,6 +1424,7 @@ button:focus {
 @media (max-width: 767.98px) {
   .generic-banner .height {
     height: 400px; } }
+
 .generic-banner .generic-banner-content h2 {
   line-height: 1.2em;
   margin-bottom: 20px; }
@@ -1423,6 +1432,7 @@ button:focus {
 @media (max-width: 991.98px) {
   .generic-banner .generic-banner-content h2 br {
     display: none; } }
+
 .generic-banner .generic-banner-content p {
   text-align: center;
   font-size: 16px; }
@@ -1430,6 +1440,7 @@ button:focus {
 @media (max-width: 991.98px) {
   .generic-banner .generic-banner-content p br {
     display: none; } }
+
 .generic-content h1 {
   font-weight: 600; }
 
@@ -1469,9 +1480,11 @@ button:focus {
 @media (max-width: 767px) {
   .typo-sec {
     margin-bottom: 30px; } }
+
 @media (max-width: 767px) {
   .element-wrap {
     margin-top: 30px; } }
+
 b, sup, sub, u, del {
   color: #f8b600; }
 
@@ -1712,6 +1725,7 @@ h6 {
 @media (max-width: 991px) {
   .progress-table-wrap {
     overflow-x: scroll; } }
+
 .progress-table {
   background: #fff;
   padding: 15px 0px 30px 0px;
@@ -2379,6 +2393,7 @@ h6 {
 @media (max-width: 991px) {
   .left-align-p p {
     margin-top: 20px; } }
+
 .form-select {
   height: 40px;
   width: 100%; }
@@ -2534,12 +2549,6 @@ h6 {
   .single-brand-item:hover {
     border: 1px solid transparent;
     box-shadow: 0px 8px 30px rgba(118, 85, 225, 0.15); }
-    .single-brand-item:hover img {
-      filter: brightness(0%);
-      -o-filter: brightness(0%);
-      -ms-filter: brightness(0%);
-      -moz-filter: brightness(0%);
-      -webkit-filter: brightness(0%); }
 
 .client-info {
   padding: 25px 30px;
@@ -2698,11 +2707,13 @@ h6 {
   @media (max-width: 480px) {
     .portfolio_details_inner .row {
       margin-bottom: 30px; } }
+
 .portfolio_details_inner p {
   margin-bottom: 30px;
   font-size: 14px; }
   .portfolio_details_inner p:last-child {
     margin-bottom: 0px; }
+
 .portfolio_details_inner .portfolio_right_text {
   margin-top: 50px; }
   .portfolio_details_inner .portfolio_right_text h4 {
@@ -2752,6 +2763,7 @@ h6 {
   @media (max-width: 991px) {
     .testimonial_area .owl-carousel .owl-dots {
       display: none !important; } }
+
 .testimonial_area .owl-carousel .owl-item img {
   width: auto !important; }
 
@@ -2871,40 +2883,37 @@ h6 {
 /*----------------------------------------------------*/
 @media (max-width: 1619px) {
   /* Main Menu Area css
-  ============================================================================================ */
+	============================================================================================ */
   .header_area .navbar .search {
     margin-left: 40px; }
-
   /* End Main Menu Area css
-  ============================================================================================ */ }
+	============================================================================================ */ }
+
 @media (max-width: 1199px) {
   /* Main Menu Area css
-  ============================================================================================ */
+	============================================================================================ */
   .header_area .navbar .nav .nav-item {
     margin-right: 28px; }
-
   /* End Main Menu Area css
-  ============================================================================================ */
+	============================================================================================ */
   /* Home Banner Area css
-  ============================================================================================ */
+	============================================================================================ */
   .home_banner_area .banner_inner {
     padding: 100px 0px; }
-
   /* End Home Banner Area css
-  ============================================================================================ */
+	============================================================================================ */
   .header_area .navbar .primary_btn {
     margin-left: 40px; }
-
   .home_banner_area .banner_inner .banner_content h2 br {
     display: none;
     font-size: 36px; }
-
   .home_banner_area .banner_inner .banner_content h2 {
     font-size: 36px;
     line-height: 45px; } }
+
 @media (max-width: 991px) {
   /* Main Menu Area css
-  ============================================================================================ */
+	============================================================================================ */
   .navbar-toggler {
     border: none;
     border-radius: 0px;
@@ -2912,26 +2921,20 @@ h6 {
     cursor: pointer;
     margin-top: 27px;
     margin-bottom: 23px; }
-
   .header_area .navbar {
     background: #000; }
-
   .navbar-toggler[aria-expanded="false"] span:nth-child(2) {
     opacity: 1; }
-
   .navbar-toggler[aria-expanded="true"] span:nth-child(2) {
     opacity: 0; }
-
   .navbar-toggler[aria-expanded="true"] span:first-child {
     transform: rotate(-45deg);
     position: relative;
     top: 7.5px; }
-
   .navbar-toggler[aria-expanded="true"] span:last-child {
     transform: rotate(45deg);
     bottom: 6px;
     position: relative; }
-
   .navbar-toggler span {
     display: block;
     width: 25px;
@@ -2941,22 +2944,17 @@ h6 {
     margin-bottom: 4px;
     transition: all 400ms linear;
     cursor: pointer; }
-
   .navbar .container {
     padding-left: 15px;
     padding-right: 15px; }
-
   .nav {
     padding: 0px 0px; }
-
   .header_area + section,
   .header_area + row,
   .header_area + div {
     margin-top: 117px; }
-
   .header_top .nav {
     padding: 0px; }
-
   .header_area .navbar .nav .nav-item .nav-link {
     line-height: 40px;
     margin-right: 0px;
@@ -2964,286 +2962,231 @@ h6 {
     border-bottom: 1px solid #ededed33;
     border-radius: 0px;
     color: #fff; }
-
   .header_area .navbar .search {
     margin-left: 0px; }
-
   .header_area .navbar-collapse {
     max-height: 340px;
     overflow-y: scroll; }
-
   .header_area .navbar .nav .nav-item.submenu ul .nav-item .nav-link {
     padding: 0px 15px; }
-
   .header_area .navbar .nav .nav-item {
     margin-right: 0px; }
-
   .header_area + section,
   .header_area + row,
   .header_area + div {
     margin-top: 0px; }
-
   .header_area.navbar_fixed .main_menu .navbar .nav .nav-item .nav-link {
     line-height: 40px;
     color: #fff; }
-
   .header_area.white_menu.navbar_fixed .main_menu .navbar .nav .nav-item .nav-link {
     line-height: 40px;
     color: #fff; }
-
   .header_area.white_menu .navbar .nav .nav-item .nav-link {
     color: #222; }
-
   /* End Main Menu Area css
-  ============================================================================================ */
+	============================================================================================ */
   /* Start Home banner Area css
-  ============================================================================================ */
+	============================================================================================ */
   .home_banner_area {
     margin-top: 0; }
-
   .home_right_img {
     display: none; }
-
   /* Footer Area css
-  ============================================================================================ */
+	============================================================================================ */
   .footer_area {
     padding-top: 80px !important;
     padding-bottom: 80px !important;
     background-image: none !important;
     background-color: #fcf8ff; }
-
   /* Blog page Area css
-  ============================================================================================ */
+	============================================================================================ */
   .categories_post img {
     width: 100%; }
-
   .categories_post {
     max-width: 360px;
     margin: 0 auto; }
-
   .blog_categorie_area .col-lg-4 {
     margin-top: 30px; }
-
   .blog_area {
     padding-bottom: 80px; }
-
   .single-post-area .blog_right_sidebar {
     margin-top: 30px; }
-
   /* End Blog page Area css
-  ============================================================================================ */
+	============================================================================================ */
   /* Contact Page Area css
-  ============================================================================================ */
+	============================================================================================ */
   .contact_info {
     margin-bottom: 50px; }
-
   /* End Contact page Area css
-  ============================================================================================ */
+	============================================================================================ */
   .home_banner_area .donation_inner {
     margin-bottom: -30px; }
-
   .home_banner_area .dontation_item {
     max-width: 350px;
     margin: auto; }
-
   /* Footer Area css
-  ============================================================================================ */
+	============================================================================================ */
   .footer_area .col-sm-6 {
     margin-bottom: 30px; }
-
   .footer_area .footer_inner {
     margin-bottom: -30px; }
-
   .news_widget {
     padding-left: 0px; }
-
   /* End End Footer Area css
-  ============================================================================================ */
+	============================================================================================ */
   .home_banner_area .banner_inner .home_left_img {
     display: none; }
-
   .header_area .navbar .primary_btn {
     display: none; }
-
   .left_side_text {
     margin-bottom: 50px; }
-
   .price_item {
     max-width: 360px;
     margin: 0px auto 30px; }
-
   .price_inner {
     margin-bottom: -30px; } }
+
 @media (max-width: 767px) {
   .home_banner_area {
     min-height: 300px; }
-
   .home_banner_area .banner_inner {
     min-height: 300px;
     padding-top: 200px;
     padding-bottom: 50px; }
-
   .home_banner_area .banner_inner .banner_content {
     margin-top: 0px; }
     .home_banner_area .banner_inner .banner_content .primary_btn {
       display: none; }
-
   /* Blog Page Area css
-  ============================================================================================ */
+	============================================================================================ */
   .blog_info.text-right {
     text-align: left !important;
     margin-bottom: 10px; }
-
   /* End Blog Page Area css
-  ============================================================================================ */
+	============================================================================================ */
   .home_banner_area .banner_inner .banner_content h3 {
     font-size: 30px; }
-
   .home_banner_area .banner_inner .banner_content p br {
     display: none; }
-
   .home_banner_area .banner_inner .banner_content h3 span {
     line-height: 45px;
     padding-bottom: 0px;
     padding-top: 0px; }
-
   /* Footer Area css
-  ============================================================================================ */
+	============================================================================================ */
   .footer_area .f_title {
     margin-bottom: 20px; }
-
   .footer-bottom {
     text-align: center; }
-
   .footer-bottom .footer-social {
     text-align: center;
     margin-top: 15px; }
-
   /* End End Footer Area css
-  ============================================================================================ */
+	============================================================================================ */
   .made_life_inner .nav.nav-tabs li {
     flex: 0 0 50%;
     max-width: 50%;
     margin-bottom: 15px; }
-
   .made_life_inner .nav.nav-tabs {
     margin-bottom: -15px; }
-
   .made_life_area.made_white .left_side_text {
     margin-bottom: 0px;
     margin-top: 30px; } }
+
 @media (max-width: 575px) {
   .header_area + section,
   .header_area + row,
   .header_area + div {
     margin-top: 0px; }
-
   /* Home Banner Area css
-  ============================================================================================ */
+	============================================================================================ */
   .home_banner_area .banner_inner .banner_content h2 {
     font-size: 28px;
     line-height: 38px; }
-
   .home_banner_area {
     min-height: 450px; }
-
   .home_banner_area .banner_inner {
     min-height: 450px; }
-
   .home_banner_area .banner_inner .banner_content img {
     display: none; }
-
   .home_banner_area .banner_inner .banner_content h5 {
     margin-top: 0px; }
-
   /* End Home Banner Area css
-  ============================================================================================ */
+	============================================================================================ */
   .section_gap {
     padding-top: 70px;
     padding-bottom: 70px; }
-
   .main_title h2 {
     font-size: 25px; }
-
   /*Recent Update Area css
-  ============================================================================================ */
+	============================================================================================ */
   /* Elements Area css
-  ============================================================================================ */
+	============================================================================================ */
   .sample-text-area {
     padding: 70px 0 70px 0; }
-
   .generic-blockquote {
     padding: 30px 15px 30px 30px; }
-
   /* End Elements Area css
-  ============================================================================================ */
+	============================================================================================ */
   /* Blog Page Area css
-  ============================================================================================ */
+	============================================================================================ */
   .blog_details h2 {
     font-size: 20px;
     line-height: 30px; }
-
   /* End Blog Page Area css
-  ============================================================================================ */
+	============================================================================================ */
   /* Footer Area css
-  ============================================================================================ */
+	============================================================================================ */
   .footer-area {
     padding: 70px 0px; }
-
   .news_widget {
     padding-left: 0 !important; }
-
   /* End End Footer Area css
-  ============================================================================================ */
+	============================================================================================ */
   .pad_top {
     padding-top: 70px; }
-
   .pad_btm {
     padding-bottom: 70px; } }
+
 @media (max-width: 480px) {
   /* Main Menu Area css
-  ============================================================================================ */
+	============================================================================================ */
   .header_area .navbar-collapse {
     max-height: 250px; }
-
   /* End Main Menu Area css
-  ============================================================================================ */
+	============================================================================================ */
   /* Home Banner Area css
-  ============================================================================================ */
+	============================================================================================ */
   .home_banner_area .banner_inner .banner_content {
     padding: 30px 15px;
     margin-top: 0px; }
-
   .home_banner_area .banner_inner .banner_content h3 {
     font-size: 24px; }
-
   /* End Home Banner Area css
-  ============================================================================================ */
+	============================================================================================ */
   .banner_area .banner_inner .banner_content h2 {
     font-size: 32px; }
-
   /* Blog Page Area css
-  ============================================================================================ */
+	============================================================================================ */
   .comments-area .thumb {
     margin-right: 10px; }
-
   /* End Blog Page Area css
-  ============================================================================================ */
+	============================================================================================ */
   .testi_item .media .d-flex {
     padding-right: 0px; }
-
   .testi_item .media .d-flex img {
     width: auto;
     margin-bottom: 15px; }
-
   .testi_item .media {
     display: block; } }
+
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   /* Start Brand Carousel Area css
-  ============================================================================================ */
+	============================================================================================ */
   .brand-carousel .single-brand-item {
     height: 100px;
     width: 140px; } }
+
 /*---------------------------------------------------- */
 /*----------------------------------------------------*/
 /* Footer Area css
@@ -3302,5 +3245,3 @@ h6 {
 /* End Footer Area css
 ============================================================================================ */
 /*---------------------------------------------------- */
-
-/*# sourceMappingURL=style.css.map */
