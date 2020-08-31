@@ -1,0 +1,23 @@
+{
+	"name": "nilanjan-portfolio-vue",
+	"version": "0.1.0",
+	"description": "My Personal Portfolio contains all of my Works, Projects etc.",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"deploy": "gh-pages -d dist"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/nil1729/portfolio.git"
+	},
+	"author": "Nilanjan Deb",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/nil1729/portfolio/issues"
+	},
+	"homepage": "https://nil1729.github.io",
+	"dependencies": {
+		"gh-pages": "^3.1.0"
+	}
+}
