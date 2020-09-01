@@ -2,16 +2,19 @@
   <fragment>
     <app-navbar />
     <router-view />
+    <app-footer />
   </fragment>
 </template>
 
 <script>
 import Navbar from "./components/layouts/Navbar";
 import { Fragment } from "vue-fragment";
+import Footer from "./components/layouts/footer";
 export default {
   name: "App",
   components: {
     "app-navbar": Navbar,
+    "app-footer": Footer,
     Fragment,
   },
 };

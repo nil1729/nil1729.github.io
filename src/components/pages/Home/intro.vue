@@ -9,11 +9,11 @@
               <h1 class="text-uppercase">I am Nilanjan</h1>
               <h5 class="text-uppercase">Web Developer • Undergradute Student</h5>
               <div class="d-flex align-items-center">
-                <a class="primary_btn" href="#">
-                  <span>Get in Touch</span>
-                </a>
                 <a class="primary_btn tr-bg" href="#">
                   <span>My Portfolio</span>
+                </a>
+                <a class="primary_btn tr-bg" href="#">
+                  <span>Get in Touch</span>
                 </a>
               </div>
             </div>
