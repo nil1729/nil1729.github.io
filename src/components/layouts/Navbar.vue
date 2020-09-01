@@ -1,12 +1,13 @@
 <template>
-  <header class="header_area">
+  <header ref="header_navbar" class="header_area" :class="{navbar_fixed}">
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <!-- Brand and toggle get grouped for better mobile display
+          <!-- Brand and toggle get grouped for better mobile display -->
           <a class="navbar-brand logo_h" href="index.html">
-            <img src="img/logo.png" alt />
-          </a>-->
+            Nilanjan Deb
+            <!-- <img src="img/logo.png" alt /> -->
+          </a>
           <button
             class="navbar-toggler"
             type="button"
@@ -83,7 +84,29 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "Navbar",
+  data() {
+    return {
+      navbar_fixed: false,
+    };
+  },
+  created() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      if (this.$refs.header_navbar.getBoundingClientRect().top < -100) {
+        this.navbar_fixed = true;
+      } else {
+        this.navbar_fixed = false;
+      }
+    },
+  },
+};
 </script>
 
 <style lang="scss">
@@ -106,6 +129,11 @@ export default {};
     border: 0px;
     border-radius: 0px;
     width: 100%;
+    .navbar-brand {
+      font-family: $title-font;
+      font-weight: 400;
+      font-size: 20px;
+    }
     .nav {
       .nav-item {
         margin-right: 45px;
