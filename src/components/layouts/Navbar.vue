@@ -4,10 +4,10 @@
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
-          <a class="navbar-brand logo_h" href="index.html">
+          <router-link to="/" class="navbar-brand logo_h">
             Nilanjan Deb
             <!-- <img src="img/logo.png" alt /> -->
-          </a>
+          </router-link>
           <button
             class="navbar-toggler"
             type="button"
@@ -24,19 +24,16 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav justify-content-end">
-              <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home</a>
+              <router-link exact tag="li" to="/" active-class="active" class="nav-item">
+                <a class="nav-link">Home</a>
+              </router-link>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="#">Portfolio</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="services.html">Services</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="portfolio.html">Portfolio</a>
-              </li>
-              <li class="nav-item submenu dropdown">
+              <!-- <li class="nav-item submenu dropdown">
                 <a
                   href="#"
                   class="nav-link dropdown-toggle"
@@ -53,7 +50,7 @@
                     <a class="nav-link" href="portfolio-details.html">Portfolio Details</a>
                   </li>
                 </ul>
-              </li>
+              </li>-->
               <li class="nav-item submenu dropdown">
                 <a
                   href="#"
@@ -62,19 +59,19 @@
                   role="button"
                   aria-haspopup="true"
                   aria-expanded="false"
-                >Blog</a>
-                <ul class="dropdown-menu">
+                >Blogs</a>
+                <!-- <ul class="dropdown-menu">
                   <li class="nav-item">
                     <a class="nav-link" href="blog.html">Blog</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="single-blog.html">Blog Details</a>
                   </li>
-                </ul>
+                </ul>-->
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
-              </li>
+              <router-link tag="li" to="/contact" active-class="active" class="nav-item">
+                <a class="nav-link">Contact me</a>
+              </router-link>
             </ul>
           </div>
         </div>

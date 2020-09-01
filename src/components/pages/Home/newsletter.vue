@@ -89,7 +89,6 @@ export default {
       border: 1px solid #ffffff;
       background: transparent;
       font-weight: 400;
-      border-radius: 5px;
       color: #ffffff;
       &:focus {
         outline: none;
@@ -108,7 +107,6 @@ export default {
     background: #ffffff;
     text-transform: uppercase;
     color: #222222;
-    border-radius: 5px;
     border-width: 0;
     line-height: 43px;
     font-size: 14px;

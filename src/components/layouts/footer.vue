@@ -22,10 +22,9 @@
               <a href="#">
                 <i class="fab fa-twitter"></i>
               </a>
-
-              <a href="#">
+              <!-- <a href="#">
                 <i class="fab fa-medium"></i>
-              </a>
+              </a>-->
             </div>
           </div>
         </div>
@@ -93,6 +92,12 @@ export default {};
       font-weight: 400;
       font-size: initial;
       color: $title-color;
+      .fa-coffee {
+        color: #8b6910;
+      }
+      .fa-heart {
+        color: rgb(241, 30, 30);
+      }
     }
     h4 {
       font-size: 20px;
