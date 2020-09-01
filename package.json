@@ -1,5 +1,5 @@
 {
-	"name": "nilanjan-portfolio-vue",
+	"name": "nilanjan-deb",
 	"version": "0.1.0",
 	"private": true,
 	"description": "My Personal Portfolio contains all of my Works, Projects etc.",
@@ -12,7 +12,10 @@
 	"dependencies": {
 		"core-js": "^3.6.5",
 		"gh-pages": "^3.1.0",
-		"vue": "^2.6.11"
+		"vue": "^2.6.11",
+		"vue-fragment": "^1.5.1",
+		"vue-router": "^3.4.3",
+		"vuex": "^3.5.1"
 	},
 	"repository": {
 		"type": "git",
@@ -31,6 +34,8 @@
 		"babel-eslint": "^10.1.0",
 		"eslint": "^6.7.2",
 		"eslint-plugin-vue": "^6.2.2",
+		"node-sass": "^4.14.1",
+		"sass-loader": "^10.0.1",
 		"vue-template-compiler": "^2.6.11"
 	},
 	"eslintConfig": {
