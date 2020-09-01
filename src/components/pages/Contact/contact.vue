@@ -90,10 +90,13 @@ export default {
 .contact_form {
   .form-group {
     margin-bottom: 10px;
+    .is-invalid {
+      border-color: #dc3545 !important;
+    }
     .form-control {
       font-size: 13px;
       line-height: 26px;
-      color: #999;
+      color: rgb(46, 45, 45);
       border: 1px solid #eeeeee;
       font-family: $title-font;
       border-radius: 0px;
@@ -112,6 +115,9 @@ export default {
       &.form-control {
         height: 134px;
         font-family: $title-font;
+      }
+      &.is-invalid {
+        border-color: #dc3545 !important;
       }
     }
   }

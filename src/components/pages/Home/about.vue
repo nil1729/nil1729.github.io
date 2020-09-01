@@ -1,5 +1,5 @@
 <template>
-  <section class="about_area section_gap">
+  <section class="about_area section_gap" id="about">
     <div class="container">
       <div class="row justify-content-start align-items-center">
         <div class="col-lg-5">
@@ -7,7 +7,6 @@
             <img class src="@/assets/banner/about.svg" alt />
           </div>
         </div>
-
         <div class="offset-lg-1 col-lg-5">
           <div class="main_title text-left">
             <h2>
@@ -42,6 +41,10 @@ export default {};
 <style lang='scss'>
 .about_area {
   position: relative;
+  padding-top: 150px !important;
+  @media (max-width: 1199px) {
+    padding-top: 80px;
+  }
   .main_title {
     margin-bottom: 0px;
     p {

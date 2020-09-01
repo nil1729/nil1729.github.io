@@ -12,7 +12,17 @@
                 <a class="primary_btn tr-bg" href="#">
                   <span>My Portfolio</span>
                 </a>
-                <a class="primary_btn tr-bg" href="#">
+                <a
+                  class="primary_btn tr-bg"
+                  href="#"
+                  v-scroll-to="{
+                      el: '#get-started',
+                      duration: 600,
+                      easing: 'ease-in',
+                      offset: -60,
+                      easing: 'linear',
+                  }"
+                >
                   <span>Get in Touch</span>
                 </a>
               </div>

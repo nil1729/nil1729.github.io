@@ -1,5 +1,5 @@
 <template>
-  <section class="newsletter_area">
+  <section class="newsletter_area" id="get-started">
     <div class="container">
       <div class="row justify-content-center align-items-center">
         <div class="col-lg-12">
@@ -60,6 +60,11 @@ export default {
 // @import "../../utils/scss/_reset.scss";
 .newsletter_area {
   color: #ffffff;
+  padding-top: 80px;
+
+  @media (max-width: 1199px) {
+    padding-top: 30px;
+  }
 }
 
 .subscription_box {

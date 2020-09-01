@@ -8,7 +8,9 @@
           type="text"
           class="form-control"
           placeholder="Enter your Name"
+          :class="{'is-invalid': nameValid===false}"
         />
+        <div class="invalid-feedback">Please enter a Alphabetical Name</div>
       </div>
       <div class="form-group">
         <input
@@ -17,7 +19,9 @@
           type="email"
           class="form-control"
           placeholder="Enter Email Address"
+          :class="{'is-invalid': emailValid===false}"
         />
+        <div class="invalid-feedback">Please enter a valid Email Address</div>
       </div>
       <div class="form-group">
         <input
@@ -41,14 +45,20 @@
       </div>
     </div>
     <div class="col-md-12 text-right">
-      <button type="submit" value="submit" class="primary_btn">
-        <span>Send Message</span>
+      <button
+        type="submit"
+        value="submit"
+        class="primary_btn"
+        :class="{'loading-disabled': loading}"
+      >
+        <span>{{!loading ? 'Send Message' : 'loading ...'}}</span>
       </button>
     </div>
   </form>
 </template>
 
 <script>
+import validator from "validator";
 export default {
   name: "contact-form",
   data() {
@@ -57,22 +67,75 @@ export default {
       name: "",
       subject: "",
       message: "",
+      emailValid: null,
+      nameValid: null,
+      loading: false,
     };
   },
+  watch: {
+    email() {
+      if (this.email != "") {
+        this.emailValid = validator.isEmail(this.email);
+      }
+    },
+    name() {
+      this.nameValid = validator.matches(this.name, /^[a-zA-Z ]*$/);
+    },
+  },
   methods: {
-    handleSubmit() {
-      console.log(this.email, this.name, this.subject, this.message);
-      this.reset();
+    async handleSubmit() {
+      if (!this.doubleCheck()) {
+        return;
+      }
+      this.loading = true;
+      await this.sendFormData();
+      this.loading = false;
+    },
+    doubleCheck() {
+      return (
+        validator.isEmail(this.email) &&
+        validator.matches(this.name, /^[a-zA-Z ]*$/) &&
+        this.subject.trim().length !== 0 &&
+        this.message.trim().length !== 0
+      );
     },
     reset() {
+      this.emailValid = null;
       this.email = "";
       this.name = "";
       this.subject = "";
       this.message = "";
+      this.nameValid = null;
+    },
+    async sendFormData() {
+      const myHeaders = new Headers();
+      const formdata = new FormData();
+      formdata.append("Name", this.name);
+      formdata.append("Email Adresss", this.email);
+      formdata.append("Subject", validator.ltrim(this.subject));
+      formdata.append("Message", validator.ltrim(this.message));
+      this.reset();
+      const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: formdata,
+        redirect: "follow",
+      };
+      try {
+        await fetch(
+          "https://cors-anywhere.herokuapp.com/https://formspree.io/xrgyajyn",
+          requestOptions
+        );
+      } catch (e) {
+        console.log(e);
+      }
     },
   },
 };
 </script>
 
-<style>
+<style lang="scss">
+.loading-disabled {
+  pointer-events: none !important;
+}
 </style>

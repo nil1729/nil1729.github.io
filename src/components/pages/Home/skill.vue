@@ -1,5 +1,5 @@
 <template>
-  <section class="brand_area section_gap_bottom">
+  <section class="brand_area">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8 text-center">
@@ -69,9 +69,9 @@ export default {
 @import "../../utils/scss/_variable.scss";
 @import "../../utils/scss/_predefine.scss";
 .brand_area {
-  padding-bottom: 170px;
+  padding-bottom: 100px;
   @media (max-width: 1199px) {
-    padding-bottom: 80px;
+    padding-bottom: 50px;
   }
 }
 .single-brand-item {

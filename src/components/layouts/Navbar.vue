@@ -27,9 +27,15 @@
               <router-link exact tag="li" to="/" active-class="active" class="nav-item">
                 <a class="nav-link">Home</a>
               </router-link>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-              </li>
+              <router-link
+                :to="{name: 'Home', hash:'#about'}"
+                exact
+                tag="li"
+                active-class="active"
+                class="nav-item"
+              >
+                <a class="nav-link">About</a>
+              </router-link>
               <li class="nav-item">
                 <a class="nav-link" href="#">Portfolio</a>
               </li>
