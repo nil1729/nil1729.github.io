@@ -28,7 +28,7 @@
         <div class="offset-lg-2 col-lg-4 col-md-6">
           <div class="client-info">
             <div class="d-flex mb-50">
-              <span class="lage">{{experience}}+</span>
+              <span class="lage">{{ experience }}+</span>
               <span class="smll">Years of Working Experience</span>
             </div>
             <div class="call-now d-flex">
@@ -37,7 +37,7 @@
               </div>
               <div class="ml-15">
                 <p>Wanna know More ?</p>
-                <h3>Let's Connect!</h3>
+                <h3><router-link to="/contact">Let's Connect!</router-link></h3>
               </div>
             </div>
           </div>
@@ -161,6 +161,9 @@ export default {
     padding-top: 0px;
   }
   h3 {
+    a {
+      color: $title-color;
+    }
     @media (max-width: 480px) {
       font-size: 17px;
     }

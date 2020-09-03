@@ -13,13 +13,16 @@
               <h4>Nilanjan Deb</h4>
             </div>
             <div class="footer_social">
-              <a href="#">
+              <a href="https://github.com/nil1729" target="_blank">
                 <i class="fab fa-github"></i>
               </a>
-              <a href="#">
+              <a
+                href="https://www.linkedin.com/in/nilanjan-deb/"
+                target="_blank"
+              >
                 <i class="fab fa-linkedin-in"></i>
               </a>
-              <a href="#">
+              <a href="https://twitter.com/NilanjanDeb9" target="_blank">
                 <i class="fab fa-twitter"></i>
               </a>
               <!-- <a href="#">
@@ -46,7 +49,7 @@
     <div class="credit_footer text-right">
       <h5 class="col-lg-8 col-sm-12 ml-auto mr-5 lead mt-2">
         Template by
-        <a href="#" target="_blank">Colorlib</a>
+        <a href="https://colorlib.com/" target="_blank">Colorlib</a>
       </h5>
     </div>
   </footer>

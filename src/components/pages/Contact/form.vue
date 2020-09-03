@@ -1,6 +1,10 @@
 <template>
   <fragment>
-    <form v-if="!submitted" class="row contact_form" @submit.prevent="handleSubmit">
+    <form
+      v-if="!submitted"
+      class="row contact_form"
+      @submit.prevent="handleSubmit"
+    >
       <div class="col-md-6">
         <div class="form-group">
           <input
@@ -9,9 +13,11 @@
             type="text"
             class="form-control"
             placeholder="Enter your Name"
-            :class="{'is-invalid': nameValid===false}"
+            :class="{ 'is-invalid': nameValid === false }"
           />
-          <div class="invalid-feedback">Please enter a Alphabetical Name</div>
+          <div class="feedback" :class="{ show: nameValid === false }">
+            Please enter a valid Name
+          </div>
         </div>
         <div class="form-group">
           <input
@@ -19,10 +25,12 @@
             v-model="email"
             type="email"
             class="form-control"
-            placeholder="Enter Email Address"
-            :class="{'is-invalid': emailValid===false}"
+            placeholder="Email Address"
+            :class="{ 'is-invalid': emailValid === false }"
           />
-          <div class="invalid-feedback">Please enter a valid Email Address</div>
+          <div class="feedback" :class="{ show: emailValid === false }">
+            Please enter a valid Email Address
+          </div>
         </div>
         <div class="form-group">
           <input
@@ -30,7 +38,7 @@
             v-model="subject"
             type="text"
             class="form-control"
-            placeholder="Enter Subject"
+            placeholder="Subject"
           />
         </div>
       </div>
@@ -40,8 +48,8 @@
             required
             v-model="message"
             class="form-control"
-            rows="1"
-            placeholder="Enter Message"
+            rows="7"
+            placeholder="Your Message"
           ></textarea>
         </div>
       </div>
@@ -50,16 +58,20 @@
           type="submit"
           value="submit"
           class="primary_btn"
-          :class="{'loading-disabled': loading}"
+          :class="{ 'loading-disabled': loading }"
         >
-          <span>{{!loading ? 'Send Message' : 'loading ...'}}</span>
+          <span>{{ !loading ? "Send Message" : "loading ..." }}</span>
         </button>
       </div>
     </form>
     <div v-else class="mt-3 banner_content text-center success-msg">
       <h5 class="text-uppercase">Message sent</h5>
       <h1 class="text-uppercase">Thank You</h1>
-      <a @click.prevent="submitted = false" class="primary_btn tr-bg mt-2" href="#">
+      <a
+        @click.prevent="submitted = false"
+        class="primary_btn tr-bg mt-2"
+        href="#"
+      >
         <span>Send another Message</span>
       </a>
     </div>
@@ -151,6 +163,16 @@ export default {
 
 <style lang="scss">
 @import "../../utils/scss/_variable.scss";
+.feedback {
+  opacity: 0;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #dc3545;
+  &.show {
+    opacity: 1 !important;
+  }
+}
 .success-msg {
   h1 {
     color: $primary-color2;

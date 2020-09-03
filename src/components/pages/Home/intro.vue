@@ -7,7 +7,9 @@
             <div class="banner_content">
               <h3 class="text-uppercase">Hell0</h3>
               <h1 class="text-uppercase">I am Nilanjan</h1>
-              <h5 class="text-uppercase">Web Developer • Undergradute Student</h5>
+              <h5 class="text-uppercase">
+                Web Developer • Undergradute Student
+              </h5>
               <div class="d-flex align-items-center">
                 <a class="primary_btn tr-bg" href="#">
                   <span>My Portfolio</span>
@@ -16,11 +18,11 @@
                   class="primary_btn tr-bg"
                   href="#"
                   v-scroll-to="{
-                      el: '#get-started',
-                      duration: 600,
-                      easing: 'ease-in',
-                      offset: -60,
-                      easing: 'linear',
+                    el: '#get-started',
+                    duration: 600,
+                    easing: 'ease-in',
+                    offset: -60,
+                    easing: 'linear',
                   }"
                 >
                   <span>Get in Touch</span>
@@ -56,7 +58,7 @@ export default {};
   .banner_inner {
     width: 100%;
     .home_right_img {
-      padding-top: 197px;
+      padding-top: 150px;
       @media (max-width: 1480px) {
         img {
           max-width: 100%;

@@ -113,7 +113,8 @@ export default {
     textarea {
       resize: none;
       &.form-control {
-        height: 134px;
+        min-height: 134px;
+        height: auto;
         font-family: $title-font;
       }
       &.is-invalid {

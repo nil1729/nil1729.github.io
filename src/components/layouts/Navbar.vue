@@ -1,5 +1,5 @@
 <template>
-  <header ref="header_navbar" class="header_area" :class="{navbar_fixed}">
+  <header ref="header_navbar" class="header_area" :class="{ navbar_fixed }">
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
@@ -22,13 +22,22 @@
             <span class="icon-bar"></span>
           </button>
           <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+          <div
+            class="collapse navbar-collapse offset"
+            id="navbarSupportedContent"
+          >
             <ul class="nav navbar-nav menu_nav justify-content-end">
-              <router-link exact tag="li" to="/" active-class="active" class="nav-item">
+              <router-link
+                exact
+                tag="li"
+                to="/"
+                active-class="active"
+                class="nav-item"
+              >
                 <a class="nav-link">Home</a>
               </router-link>
               <router-link
-                :to="{name: 'Home', hash:'#about'}"
+                :to="{ name: 'Home', hash: '#about' }"
                 exact
                 tag="li"
                 active-class="active"
@@ -65,7 +74,8 @@
                   role="button"
                   aria-haspopup="true"
                   aria-expanded="false"
-                >Blogs</a>
+                  >Blogs</a
+                >
                 <!-- <ul class="dropdown-menu">
                   <li class="nav-item">
                     <a class="nav-link" href="blog.html">Blog</a>
@@ -75,7 +85,12 @@
                   </li>
                 </ul>-->
               </li>
-              <router-link tag="li" to="/contact" active-class="active" class="nav-item">
+              <router-link
+                tag="li"
+                to="/contact"
+                active-class="active"
+                class="nav-item"
+              >
                 <a class="nav-link">Contact me</a>
               </router-link>
             </ul>
