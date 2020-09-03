@@ -1,13 +1,18 @@
 <template>
-  <header ref="header_navbar" class="header_area" :class="{ navbar_fixed }">
+  <header
+    id="header-top"
+    ref="header_navbar"
+    class="header_area"
+    :class="{ navbar_fixed }"
+  >
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
-          <router-link to="/" class="navbar-brand logo_h">
+          <span @click="navigate" class="navbar-brand logo_h">
             Nilanjan Deb
             <!-- <img src="img/logo.png" alt /> -->
-          </router-link>
+          </span>
           <button
             class="navbar-toggler"
             type="button"
@@ -102,6 +107,7 @@
 </template>
 
 <script>
+import { scroller } from "vue-scrollto/src/scrollTo";
 export default {
   name: "Navbar",
   data() {
@@ -121,6 +127,19 @@ export default {
         this.navbar_fixed = true;
       } else {
         this.navbar_fixed = false;
+      }
+    },
+    navigate() {
+      const ScrollToTop = scroller();
+      if (this.$route.name === "Home") {
+        ScrollToTop({
+          el: "#header-top",
+          duration: 600,
+          easing: "ease-in",
+          offset: -60,
+        });
+      } else {
+        this.$router.push({ name: "Home" });
       }
     },
   },
@@ -151,6 +170,7 @@ export default {
       font-family: $title-font;
       font-weight: 400;
       font-size: 20px;
+      cursor: pointer;
     }
     .nav {
       .nav-item {
@@ -164,6 +184,9 @@ export default {
           &:after {
             display: none;
           }
+        }
+        &.active {
+          pointer-events: none;
         }
         &:hover,
         &.active {

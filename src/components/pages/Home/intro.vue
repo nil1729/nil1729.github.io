@@ -22,7 +22,6 @@
                     duration: 600,
                     easing: 'ease-in',
                     offset: -60,
-                    easing: 'linear',
                   }"
                 >
                   <span>Get in Touch</span>
