@@ -1,66 +1,79 @@
 <template>
-  <form class="row contact_form" @submit.prevent="handleSubmit">
-    <div class="col-md-6">
-      <div class="form-group">
-        <input
-          required
-          v-model="name"
-          type="text"
-          class="form-control"
-          placeholder="Enter your Name"
-          :class="{'is-invalid': nameValid===false}"
-        />
-        <div class="invalid-feedback">Please enter a Alphabetical Name</div>
+  <fragment>
+    <form v-if="!submitted" class="row contact_form" @submit.prevent="handleSubmit">
+      <div class="col-md-6">
+        <div class="form-group">
+          <input
+            required
+            v-model="name"
+            type="text"
+            class="form-control"
+            placeholder="Enter your Name"
+            :class="{'is-invalid': nameValid===false}"
+          />
+          <div class="invalid-feedback">Please enter a Alphabetical Name</div>
+        </div>
+        <div class="form-group">
+          <input
+            required
+            v-model="email"
+            type="email"
+            class="form-control"
+            placeholder="Enter Email Address"
+            :class="{'is-invalid': emailValid===false}"
+          />
+          <div class="invalid-feedback">Please enter a valid Email Address</div>
+        </div>
+        <div class="form-group">
+          <input
+            required
+            v-model="subject"
+            type="text"
+            class="form-control"
+            placeholder="Enter Subject"
+          />
+        </div>
       </div>
-      <div class="form-group">
-        <input
-          required
-          v-model="email"
-          type="email"
-          class="form-control"
-          placeholder="Enter Email Address"
-          :class="{'is-invalid': emailValid===false}"
-        />
-        <div class="invalid-feedback">Please enter a valid Email Address</div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <textarea
+            required
+            v-model="message"
+            class="form-control"
+            rows="1"
+            placeholder="Enter Message"
+          ></textarea>
+        </div>
       </div>
-      <div class="form-group">
-        <input
-          required
-          v-model="subject"
-          type="text"
-          class="form-control"
-          placeholder="Enter Subject"
-        />
+      <div class="col-md-12 text-right">
+        <button
+          type="submit"
+          value="submit"
+          class="primary_btn"
+          :class="{'loading-disabled': loading}"
+        >
+          <span>{{!loading ? 'Send Message' : 'loading ...'}}</span>
+        </button>
       </div>
+    </form>
+    <div v-else class="mt-3 banner_content text-center success-msg">
+      <h5 class="text-uppercase">Message sent</h5>
+      <h1 class="text-uppercase">Thank You</h1>
+      <a @click.prevent="submitted = false" class="primary_btn tr-bg mt-2" href="#">
+        <span>Send another Message</span>
+      </a>
     </div>
-    <div class="col-md-6">
-      <div class="form-group">
-        <textarea
-          required
-          v-model="message"
-          class="form-control"
-          rows="1"
-          placeholder="Enter Message"
-        ></textarea>
-      </div>
-    </div>
-    <div class="col-md-12 text-right">
-      <button
-        type="submit"
-        value="submit"
-        class="primary_btn"
-        :class="{'loading-disabled': loading}"
-      >
-        <span>{{!loading ? 'Send Message' : 'loading ...'}}</span>
-      </button>
-    </div>
-  </form>
+  </fragment>
 </template>
 
 <script>
 import validator from "validator";
+import { Fragment } from "vue-fragment";
 export default {
   name: "contact-form",
+  components: {
+    Fragment,
+  },
   data() {
     return {
       email: "",
@@ -70,6 +83,7 @@ export default {
       emailValid: null,
       nameValid: null,
       loading: false,
+      submitted: false,
     };
   },
   watch: {
@@ -90,6 +104,7 @@ export default {
       this.loading = true;
       await this.sendFormData();
       this.loading = false;
+      this.submitted = true;
     },
     doubleCheck() {
       return (
@@ -135,6 +150,24 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../utils/scss/_variable.scss";
+.success-msg {
+  h1 {
+    color: $primary-color2;
+  }
+  h5 {
+    color: $primary-color;
+  }
+  .primary_btn {
+    line-height: 35px !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    span {
+      padding: 0 10px !important;
+      letter-spacing: 0.4px;
+    }
+  }
+}
 .loading-disabled {
   pointer-events: none !important;
 }

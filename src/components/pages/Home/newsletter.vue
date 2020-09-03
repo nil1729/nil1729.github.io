@@ -5,11 +5,10 @@
         <div class="col-lg-12">
           <div class="subscription_box text-center">
             <h2 class="text-uppercase text-white">get update of my blogs</h2>
-            <div class="subcribe-form" id="mc_embed_signup">
+            <div v-if="!submitted" class="subcribe-form" id="mc_embed_signup">
               <form
                 @submit.prevent="handleSubscription"
-                target="_blank"
-                class="subscription relative"
+                class="position-relative subscription relative"
               >
                 <input
                   name="EMAIL"
@@ -20,14 +19,24 @@
                   type="email"
                   v-model="email"
                 />
+
                 <div style="position: absolute; left: -5000px">
                   <input tabindex="-1" value type="email" />
                 </div>
-                <button type="submit" class="ml-2 primary-btn hover d-inline">
-                  <span>Get Started</span>
+                <button
+                  :class="{'loading-disabled': loading}"
+                  type="submit"
+                  class="ml-2 primary-btn hover d-inline"
+                >
+                  <span>{{loading ? 'Loading ...' : 'Get Started'}}</span>
                 </button>
-                <div class="info"></div>
+                <div v-if="error" class="info mx-auto mt-1">
+                  <span>{{error}}</span>
+                </div>
               </form>
+            </div>
+            <div v-else class="mt-3 banner_content text-center success-msg">
+              <h4 class="text-uppercase text-white">Thank You</h4>
             </div>
           </div>
         </div>
@@ -37,17 +46,51 @@
 </template>
 
 <script>
+import validator from "validator";
 export default {
   name: "my-subscription",
   data() {
     return {
       email: "",
+      submitted: false,
+      error: "",
+      loading: false,
     };
   },
+  watch: {
+    email() {
+      this.error = "";
+    },
+  },
   methods: {
-    handleSubscription() {
-      console.log(this.email);
+    async handleSubscription() {
+      if (!validator.isEmail(this.email)) {
+        return (this.error = "Please enter a valid Email Adresss");
+      }
+      this.loading = true;
+      await this.sendFormData();
+      this.loading = false;
+      this.submitted = true;
+    },
+    async sendFormData() {
+      const myHeaders = new Headers();
+      const formdata = new FormData();
+      formdata.append("Subscription", this.email);
       this.email = "";
+      const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: formdata,
+        redirect: "follow",
+      };
+      try {
+        await fetch(
+          "https://cors-anywhere.herokuapp.com/https://formspree.io/xrgyajyn",
+          requestOptions
+        );
+      } catch (e) {
+        console.log(e);
+      }
     },
   },
 };
@@ -58,6 +101,9 @@ export default {
 @import "../../utils/scss/_mixins.scss";
 // @import "../../utils/scss/_predefine.scss";
 // @import "../../utils/scss/_reset.scss";
+.loading-disabled {
+  pointer-events: none !important;
+}
 .newsletter_area {
   color: #ffffff;
   padding-top: 80px;
@@ -131,9 +177,12 @@ export default {
 
 .subscription .info {
   color: #fff;
-  width: 100%;
-  font-size: 12px;
+  width: 50%;
+  text-align: left;
   background: transparent;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .subscription .info.valid {
