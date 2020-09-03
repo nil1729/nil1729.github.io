@@ -24,14 +24,14 @@
                   <input tabindex="-1" value type="email" />
                 </div>
                 <button
-                  :class="{'loading-disabled': loading}"
+                  :class="{ 'loading-disabled': loading }"
                   type="submit"
                   class="ml-2 primary-btn hover d-inline"
                 >
-                  <span>{{loading ? 'Loading ...' : 'Get Started'}}</span>
+                  <span>{{ loading ? "Loading ..." : "Get Started" }}</span>
                 </button>
                 <div v-if="error" class="info mx-auto mt-1">
-                  <span>{{error}}</span>
+                  <span>{{ error }}</span>
                 </div>
               </form>
             </div>
@@ -65,7 +65,7 @@ export default {
   methods: {
     async handleSubscription() {
       if (!validator.isEmail(this.email)) {
-        return (this.error = "Please enter a valid Email Adresss");
+        return (this.error = "Please enter a valid Email Address");
       }
       this.loading = true;
       await this.sendFormData();
