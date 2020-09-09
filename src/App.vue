@@ -19,6 +19,7 @@ export default {
 </script>
 
 <style lang='scss'>
+@import "./components/utils/scss/_responsive.scss";
 /* Customize website's scrollbar like Mac OS
 Not supports in Firefox and IE */
 

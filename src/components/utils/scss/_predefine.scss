@@ -123,6 +123,10 @@
 
     span {
         padding: 0 42px;
+
+        @media (max-width: 600px) {
+            padding: 0 10px;
+        }
     }
 
     &.tr-bg {
@@ -148,6 +152,10 @@
         color: #222222;
         box-shadow: none;
         background-clip: border-box;
+    }
+
+    @media (max-width: 600px) {
+        line-height: 35px;
     }
 }
 

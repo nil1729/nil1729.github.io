@@ -7,9 +7,7 @@
             <div class="banner_content">
               <h3 class="text-uppercase">Hell0</h3>
               <h1 class="text-uppercase">I am Nilanjan</h1>
-              <h5 class="text-uppercase">
-                Web Developer • Undergradute Student
-              </h5>
+              <h5 class="text-uppercase">Web Developer • Undergradute Student</h5>
               <div class="d-flex align-items-center">
                 <a class="primary_btn tr-bg" href="#">
                   <span>My Portfolio</span>
@@ -65,7 +63,8 @@ export default {};
         }
       }
       @media (max-width: 991px) {
-        display: none;
+        // display: none;
+        padding-top: 0;
       }
     }
     .col-lg-7 {
@@ -75,7 +74,7 @@ export default {};
     .banner_content {
       text-align: left;
       @media (max-width: 991px) {
-        margin-top: 150px;
+        // margin-top: 150px;
       }
       h3 {
         font-size: 40px;
@@ -109,6 +108,9 @@ export default {};
       h5 {
         font-size: 24px;
         margin-bottom: 35px;
+        @media (max-width: 600px) {
+          font-size: 23px;
+        }
       }
       .primary_btn {
         margin-right: 20px;
