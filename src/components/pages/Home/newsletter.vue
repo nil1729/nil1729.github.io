@@ -125,6 +125,9 @@ export default {
     @media (max-width: 767px) {
       font-size: 30px;
     }
+    @media (max-width: 600px) {
+      font-size: 22px;
+    }
   }
   p {
     margin-bottom: 0;
@@ -172,6 +175,9 @@ export default {
   }
   .subcribe-form {
     margin-top: 45px;
+    @media (max-width: 600px) {
+      margin-top: 25px;
+    }
   }
 }
 

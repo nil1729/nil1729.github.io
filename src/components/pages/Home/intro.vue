@@ -104,6 +104,10 @@ export default {};
         @media (max-width: 767px) {
           font-size: 50px;
         }
+        @media (max-width: 767px) {
+          font-size: 40px;
+          margin: 0 0 10px;
+        }
       }
       h5 {
         font-size: 24px;

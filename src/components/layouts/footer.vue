@@ -16,10 +16,7 @@
               <a href="https://github.com/nil1729" target="_blank">
                 <i class="fab fa-github"></i>
               </a>
-              <a
-                href="https://www.linkedin.com/in/nilanjan-deb/"
-                target="_blank"
-              >
+              <a href="https://www.linkedin.com/in/nilanjan-deb/" target="_blank">
                 <i class="fab fa-linkedin-in"></i>
               </a>
               <a href="https://twitter.com/NilanjanDeb9" target="_blank">
@@ -89,6 +86,10 @@ export default {};
   @media (max-width: 1024px) {
     padding: 60px 0;
   }
+  @media (max-width: 600px) {
+    padding-top: 80px !important;
+    padding-bottom: 30px !important;
+  }
   .footer_logo {
     text-align: center;
     h5 {
@@ -142,6 +143,9 @@ export default {};
       a {
         color: #854fee;
       }
+    }
+    @media (max-width: 600px) {
+      display: none;
     }
     // background: url(../../assets/backgrounds/credit.svg) no-repeat center;
   }

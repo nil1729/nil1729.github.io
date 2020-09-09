@@ -37,7 +37,9 @@
               </div>
               <div class="ml-15">
                 <p>Wanna know More ?</p>
-                <h3><router-link to="/contact">Let's Connect!</router-link></h3>
+                <h3>
+                  <router-link to="/contact">Let's Connect!</router-link>
+                </h3>
               </div>
             </div>
           </div>
@@ -72,6 +74,9 @@ export default {
   padding-bottom: 100px;
   @media (max-width: 1199px) {
     padding-bottom: 50px;
+  }
+  @media (max-width: 600px) {
+    padding-bottom: 0px;
   }
 }
 .single-brand-item {
@@ -114,6 +119,9 @@ export default {
   margin-top: 25px;
   @media only screen and (max-width: 991px) {
     margin-top: 50px;
+  }
+  @media only screen and (max-width: 600px) {
+    margin-top: 0px;
   }
   @media (max-width: 575px) {
     padding-top: 50px;

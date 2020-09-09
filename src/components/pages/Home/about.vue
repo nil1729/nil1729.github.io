@@ -43,7 +43,8 @@ export default {};
   position: relative;
   padding-top: 150px !important;
   @media (max-width: 1199px) {
-    padding-top: 80px;
+    // padding-top: 80px;
+    padding-top: 0px !important;
   }
   .main_title {
     margin-bottom: 0px;
@@ -53,6 +54,11 @@ export default {};
   }
   .primary_btn {
     margin-top: 20px;
+    @media (max-width: 600px) {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
   .about_img {
     position: relative;

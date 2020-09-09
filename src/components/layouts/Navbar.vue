@@ -1,10 +1,5 @@
 <template>
-  <header
-    id="header-top"
-    ref="header_navbar"
-    class="header_area"
-    :class="{ navbar_fixed }"
-  >
+  <header id="header-top" ref="header_navbar" class="header_area" :class="{ navbar_fixed }">
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
@@ -16,90 +11,61 @@
           <button
             class="navbar-toggler"
             type="button"
+            :class="{'collapsed': !navbar_open}"
             data-toggle="collapse"
             data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
+            @click="navbarExapnd"
+            id="navbar-toggler"
+            ref="navbar-toggler"
           >
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
           <!-- Collect the nav links, forms, and other content for toggling -->
-          <div
-            class="collapse navbar-collapse offset"
-            id="navbarSupportedContent"
-          >
-            <ul class="nav navbar-nav menu_nav justify-content-end">
-              <router-link
-                exact
-                tag="li"
-                to="/"
-                active-class="active"
-                class="nav-item"
-              >
-                <a class="nav-link">Home</a>
-              </router-link>
-              <router-link
-                :to="{ name: 'Home', hash: '#about' }"
-                exact
-                tag="li"
-                active-class="active"
-                class="nav-item"
-              >
-                <a class="nav-link">About</a>
-              </router-link>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Portfolio</a>
-              </li>
-              <!-- <li class="nav-item submenu dropdown">
-                <a
-                  href="#"
-                  class="nav-link dropdown-toggle"
-                  data-toggle="dropdown"
-                  role="button"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >Pages</a>
-                <ul class="dropdown-menu">
-                  <li class="nav-item">
-                    <a class="nav-link" href="elements.html">Elements</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="portfolio-details.html">Portfolio Details</a>
-                  </li>
-                </ul>
-              </li>-->
-              <li class="nav-item submenu dropdown">
-                <a
-                  href="#"
-                  class="nav-link dropdown-toggle"
-                  data-toggle="dropdown"
-                  role="button"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  >Blogs</a
+          <transition name="slide-fade">
+            <div
+              v-if="navbar_open"
+              class="navbar-collapse offset collapse"
+              :class="{show: navbar_open}"
+              id="navbarSupportedContent"
+            >
+              <ul class="nav navbar-nav menu_nav justify-content-end">
+                <router-link exact tag="li" to="/" active-class="active" class="nav-item">
+                  <a class="nav-link">Home</a>
+                </router-link>
+                <router-link
+                  :to="{ name: 'Home', hash: '#about' }"
+                  exact
+                  tag="li"
+                  active-class="active"
+                  class="nav-item"
+                  id="about-link"
                 >
-                <!-- <ul class="dropdown-menu">
-                  <li class="nav-item">
-                    <a class="nav-link" href="blog.html">Blog</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="single-blog.html">Blog Details</a>
-                  </li>
-                </ul>-->
-              </li>
-              <router-link
-                tag="li"
-                to="/contact"
-                active-class="active"
-                class="nav-item"
-              >
-                <a class="nav-link">Contact me</a>
-              </router-link>
-            </ul>
-          </div>
+                  <a class="nav-link">About</a>
+                </router-link>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Portfolio</a>
+                </li>
+                <li class="nav-item submenu dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >Blogs</a>
+                </li>
+                <router-link tag="li" to="/contact" active-class="active" class="nav-item">
+                  <a class="nav-link">Contact me</a>
+                </router-link>
+              </ul>
+            </div>
+          </transition>
         </div>
       </nav>
     </div>
@@ -113,15 +79,38 @@ export default {
   data() {
     return {
       navbar_fixed: false,
+      navbar_open: window.innerWidth < 600 ? false : true,
     };
   },
+  watch: {
+    $route() {
+      if (window.innerWidth < 600) {
+        this.navbarExapnd();
+      }
+    },
+  },
   created() {
+    const vm = this;
     window.addEventListener("scroll", this.handleScroll);
+    window.addEventListener("resize", function () {
+      if (window.innerWidth < 600) {
+        vm.navbar_open = false;
+      } else {
+        vm.navbar_open = true;
+      }
+    });
   },
   destroyed() {
     window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
+    navbarExapnd() {
+      this.navbar_open = !this.navbar_open;
+      this.$refs["navbar-toggler"].setAttribute(
+        "aria-expanded",
+        this.navbar_open
+      );
+    },
     handleScroll() {
       if (this.$refs.header_navbar.getBoundingClientRect().top < -100) {
         this.navbar_fixed = true;
@@ -151,6 +140,30 @@ export default {
 @import "../utils/scss/_mixins.scss";
 @import "../utils/scss/_predefine.scss";
 @import "../utils/scss/_reset.scss";
+// Transitions
+.slide-fade-enter-active {
+  transition: all 0.3s ease;
+}
+.slide-fade-leave-active {
+  transition: all 0.3s ease-in;
+}
+.slide-fade-enter {
+  height: 0px;
+  opacity: 0.3;
+}
+.slide-fade-enter-to {
+  height: 165px;
+  opacity: 1;
+}
+.slide-fade-leave {
+  height: 165px;
+  opacity: 1;
+}
+.slide-fade-leave-to {
+  height: 0px;
+  opacity: 0;
+}
+
 //header_area css
 .header_area {
   position: absolute;
@@ -351,6 +364,11 @@ export default {
         }
       }
     }
+  }
+}
+@media screen and (max-width: 600px) {
+  #about-link {
+    display: none;
   }
 }
 

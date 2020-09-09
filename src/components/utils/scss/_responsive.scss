@@ -127,7 +127,7 @@
 
     .header_area .navbar-collapse {
         max-height: 340px;
-        overflow-y: scroll;
+        // overflow-y: scroll;
     }
 
     .header_area .navbar .nav .nav-item.submenu ul .nav-item .nav-link {
@@ -174,9 +174,9 @@
     /* Footer Area css
 	============================================================================================ */
     .footer_area {
-        padding-top: 80px !important;
-        padding-bottom: 80px !important;
-        background-image: none !important;
+        padding-top: 80px;
+        padding-bottom: 80px;
+        // background-image: none !important;
         background-color: #fcf8ff;
     }
 
