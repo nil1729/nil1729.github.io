@@ -24,7 +24,7 @@
             <contact-profiles />
           </div>
         </div>
-        <div class="row mt-5">
+        <div class="row form-container">
           <div class="col-lg-12">
             <contact-form />
           </div>
@@ -56,6 +56,12 @@ export default {
 @import "../../utils/scss/_predefine.scss";
 @import "../../utils/scss/_banner.scss";
 // @import "../../utils/scss/_reset.scss";
+.form-container {
+  margin-top: 3rem;
+  @media screen and (max-width: 600px) {
+    margin-top: 0;
+  }
+}
 .contact_info {
   .info_item {
     position: relative;

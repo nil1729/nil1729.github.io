@@ -1,10 +1,6 @@
 <template>
   <fragment>
-    <form
-      v-if="!submitted"
-      class="row contact_form"
-      @submit.prevent="handleSubmit"
-    >
+    <form v-if="!submitted" class="row contact_form" @submit.prevent="handleSubmit">
       <div class="col-md-6">
         <div class="form-group">
           <input
@@ -15,9 +11,7 @@
             placeholder="Enter your Name"
             :class="{ 'is-invalid': nameValid === false }"
           />
-          <div class="feedback" :class="{ show: nameValid === false }">
-            Please enter a valid Name
-          </div>
+          <div class="invalid-feedback">Please enter a Valid Name</div>
         </div>
         <div class="form-group">
           <input
@@ -28,18 +22,10 @@
             placeholder="Email Address"
             :class="{ 'is-invalid': emailValid === false }"
           />
-          <div class="feedback" :class="{ show: emailValid === false }">
-            Please enter a valid Email Address
-          </div>
+          <div class="invalid-feedback">Please enter a Valid Email Address</div>
         </div>
         <div class="form-group">
-          <input
-            required
-            v-model="subject"
-            type="text"
-            class="form-control"
-            placeholder="Subject"
-          />
+          <input required v-model="subject" type="text" class="form-control" placeholder="Subject" />
         </div>
       </div>
       <div class="col-md-6">
@@ -48,12 +34,12 @@
             required
             v-model="message"
             class="form-control"
-            rows="7"
+            rows="1"
             placeholder="Your Message"
           ></textarea>
         </div>
       </div>
-      <div class="col-md-12 text-right">
+      <div class="col-md-12 submit_btn">
         <button
           type="submit"
           value="submit"
@@ -67,11 +53,7 @@
     <div v-else class="mt-3 banner_content text-center success-msg">
       <h5 class="text-uppercase">Message sent</h5>
       <h1 class="text-uppercase">Thank You</h1>
-      <a
-        @click.prevent="submitted = false"
-        class="primary_btn tr-bg mt-2"
-        href="#"
-      >
+      <a @click.prevent="submitted = false" class="primary_btn tr-bg mt-2" href="#">
         <span>Send another Message</span>
       </a>
     </div>
@@ -163,16 +145,7 @@ export default {
 
 <style lang="scss">
 @import "../../utils/scss/_variable.scss";
-.feedback {
-  opacity: 0;
-  width: 100%;
-  margin-top: 0.25rem;
-  font-size: 80%;
-  color: #dc3545;
-  &.show {
-    opacity: 1 !important;
-  }
-}
+
 .success-msg {
   h1 {
     color: $primary-color2;
@@ -188,6 +161,12 @@ export default {
       padding: 0 10px !important;
       letter-spacing: 0.4px;
     }
+  }
+}
+.submit_btn {
+  text-align: right;
+  @media screen and (max-width: 600px) {
+    text-align: center;
   }
 }
 .loading-disabled {

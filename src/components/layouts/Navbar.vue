@@ -85,7 +85,9 @@ export default {
   watch: {
     $route() {
       if (window.innerWidth < 600) {
-        this.navbarExapnd();
+        if (this.navbar_open) {
+          this.navbarExapnd();
+        }
       }
     },
   },
