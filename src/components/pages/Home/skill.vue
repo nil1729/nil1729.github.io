@@ -15,7 +15,7 @@
       </div>
       <div class="row justify-content-center">
         <div class="col-lg-6">
-          <div class="row">
+          <div class="row skill_container">
             <div v-for="i in 9" :key="i" class="col-lg-4 col-md-4 col-sm-6">
               <div class="single-brand-item d-table">
                 <div class="d-table-cell text-center">
@@ -79,6 +79,15 @@ export default {
     padding-bottom: 0px;
   }
 }
+.skill_container {
+  @media screen and (max-width: 600px) {
+    justify-content: center;
+    .col-lg-4.col-md-4.col-sm-6 {
+      width: auto;
+    }
+  }
+}
+
 .single-brand-item {
   width: 170px;
   height: 100px;

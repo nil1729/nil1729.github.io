@@ -7,6 +7,10 @@
         min-height: 350px;
     }
 
+    @media (max-width: 600px) {
+        min-height: 240px;
+    }
+
     .banner_inner {
         position: relative;
         overflow: hidden;
@@ -21,6 +25,10 @@
             min-height: 350px;
         }
 
+        @media (max-width: 600px) {
+            min-height: 240px;
+        }
+
         @media (max-width: 991px) {
             background: $primary-color2;
             width: 100%;
@@ -33,6 +41,11 @@
             @media (max-width: 991px) {
                 margin-left: 0px;
                 margin-top: 50px;
+            }
+
+            @media (max-width: 600px) {
+                margin-left: 0px;
+                margin-top: 65px;
             }
 
             h2 {

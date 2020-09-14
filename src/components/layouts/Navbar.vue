@@ -53,7 +53,7 @@
                 <li class="nav-item submenu dropdown">
                   <a
                     href="#"
-                    class="nav-link dropdown-toggle"
+                    class="nav-link"
                     data-toggle="dropdown"
                     role="button"
                     aria-haspopup="true"
@@ -206,7 +206,7 @@ export default {
         &:hover,
         &.active {
           .nav-link {
-            color: $primary-color;
+            color: $primary-color !important;
           }
         }
         &.submenu {

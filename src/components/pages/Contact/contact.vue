@@ -62,6 +62,11 @@ export default {
     margin-top: 0;
   }
 }
+.contact_area {
+  @media screen and (max-width: 600px) {
+    margin-top: 2rem;
+  }
+}
 .contact_info {
   .info_item {
     position: relative;
