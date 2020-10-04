@@ -1,5 +1,10 @@
 <template>
-  <header id="header-top" ref="header_navbar" class="header_area" :class="{ navbar_fixed }">
+  <header
+    id="header-top"
+    ref="header_navbar"
+    class="header_area"
+    :class="{ navbar_fixed }"
+  >
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
@@ -11,7 +16,7 @@
           <button
             class="navbar-toggler"
             type="button"
-            :class="{'collapsed': !navbar_open}"
+            :class="{ collapsed: !navbar_open }"
             data-toggle="collapse"
             data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent"
@@ -30,11 +35,17 @@
             <div
               v-if="navbar_open"
               class="navbar-collapse offset collapse"
-              :class="{show: navbar_open}"
+              :class="{ show: navbar_open }"
               id="navbarSupportedContent"
             >
               <ul class="nav navbar-nav menu_nav justify-content-end">
-                <router-link exact tag="li" to="/" active-class="active" class="nav-item">
+                <router-link
+                  exact
+                  tag="li"
+                  to="/"
+                  active-class="active"
+                  class="nav-item"
+                >
                   <a class="nav-link">Home</a>
                 </router-link>
                 <router-link
@@ -58,9 +69,15 @@
                     role="button"
                     aria-haspopup="true"
                     aria-expanded="false"
-                  >Blogs</a>
+                    >Blogs</a
+                  >
                 </li>
-                <router-link tag="li" to="/contact" active-class="active" class="nav-item">
+                <router-link
+                  tag="li"
+                  to="/contact"
+                  active-class="active"
+                  class="nav-item"
+                >
                   <a class="nav-link">Contact me</a>
                 </router-link>
               </ul>
@@ -79,12 +96,12 @@ export default {
   data() {
     return {
       navbar_fixed: false,
-      navbar_open: window.innerWidth < 600 ? false : true,
+      navbar_open: window.innerWidth < 800 ? false : true,
     };
   },
   watch: {
     $route() {
-      if (window.innerWidth < 600) {
+      if (window.innerWidth < 800) {
         if (this.navbar_open) {
           this.navbarExapnd();
         }
@@ -95,7 +112,7 @@ export default {
     const vm = this;
     window.addEventListener("scroll", this.handleScroll);
     window.addEventListener("resize", function () {
-      if (window.innerWidth < 600) {
+      if (window.innerWidth < 800) {
         vm.navbar_open = false;
       } else {
         vm.navbar_open = true;
