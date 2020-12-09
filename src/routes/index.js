@@ -15,7 +15,7 @@ const router = new VueRouter({
 			if (window.innerWidth < 800) {
 				return {
 					selector: to.hash,
-					offset: { x: 0, y: 100 },
+					offset: { x: 0, y: 85 },
 					behavior: 'smooth',
 				};
 			}

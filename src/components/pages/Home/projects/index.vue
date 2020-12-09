@@ -6,9 +6,10 @@
 					<div class="main_title">
 						<h2>projects</h2>
 						<p>
-							Is give may shall likeness made yielding spirit a itself togeth
-							created after sea
-							<br />is in beast beginning signs open god you're gathering ithe
+							As part of my Dev Journey, I built some personal projects along
+							with learnings. I am also worked as a frontend developer with one
+							of the major student body on campus. I started a blog site where I
+							discuss about some algorithmic problems.
 						</p>
 					</div>
 				</div>
@@ -16,7 +17,11 @@
 			<div class="row justify-content-center">
 				<div class="col-lg-12">
 					<div class="skill_container">
-						<my-project-card v-for="i in 10" :key="i" />
+						<my-project-card
+							v-for="project in $store.state.projects"
+							:project="project"
+							:key="project.id"
+						/>
 					</div>
 				</div>
 			</div>
@@ -49,7 +54,13 @@ export default {
 		margin-top: 3rem;
 	}
 	.main_title {
-		margin-bottom: 50px;
+		margin-bottom: 55px;
+		h2 {
+			margin-bottom: 5px;
+		}
+		p {
+			font-size: 13pt;
+		}
 	}
 }
 .skill_container {

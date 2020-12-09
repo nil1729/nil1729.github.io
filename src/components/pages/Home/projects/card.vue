@@ -2,32 +2,33 @@
 	<div class="card__container">
 		<div class="main__content">
 			<h5 class="title__card">
-				APOGEE 2019
+				{{ project.name }}
 			</h5>
 			<h6 class="short__desc">
-				iOS app and website
+				{{ project.shortDescription }}
 			</h6>
 			<div class="short__info">
 				<p class="date__duration">
-					<i class="mr-2 fal fa-calendar-day"></i> March 2019
+					<i class="mr-2 fal fa-calendar-day"></i> {{ project.date }}
 				</p>
 				<p class="useful__links">
-					<i class="mr-2 fal fa-link"></i><a href="">Github Repository</a>
+					<i class="mr-2 fal fa-link"></i
+					><a :href="project.link" target="__blank">{{ project.linkType }}</a>
 				</p>
 			</div>
 
 			<p class="desc">
-				Learned webpack and developed a CLI tool using NodeJS to generate
-				boilerplate for projects using React and VueJS - also supporting custom
-				configuration. Having over 50 weekly downloads, the CLI helps enhance
-				the developer experience.
+				{{ project.description }}
 			</p>
 		</div>
 	</div>
 </template>
 
 <script>
-export default {};
+export default {
+	name: 'Project-Card',
+	props: ['project'],
+};
 </script>
 
 <style lang="scss">

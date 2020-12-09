@@ -18,6 +18,7 @@
 									required
 									type="email"
 									v-model="email"
+									:class="{ 'invalid-input': error }"
 								/>
 
 								<div style="position: absolute; left: -5000px">
@@ -101,9 +102,6 @@ export default {
 @import '../../utils/scss/_mixins.scss';
 // @import "../../utils/scss/_predefine.scss";
 // @import "../../utils/scss/_reset.scss";
-.loading-disabled {
-	pointer-events: none !important;
-}
 .newsletter_area {
 	color: #ffffff;
 	padding-top: 80px;
@@ -156,6 +154,23 @@ export default {
 				font-size: 16px;
 			}
 		}
+		input.invalid-input {
+			border-color: #eb0e0e;
+			color: #cf0d0d;
+			background-color: rgba(247, 242, 242, 0.904);
+		}
+		.info {
+			color: #fff;
+			width: 50%;
+			text-align: left;
+			background: transparent;
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			@media screen and (max-width: 600px) {
+				width: 80%;
+			}
+		}
 	}
 	.primary-btn {
 		margin-left: 10px;
@@ -182,21 +197,8 @@ export default {
 	}
 }
 
-.subscription .info {
-	color: #fff;
-	width: 50%;
-	text-align: left;
-	background: transparent;
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-}
-
-.subscription .info.valid {
-	color: green;
-}
-
-.subscription .info.error {
-	color: red;
+// Loading Styles
+.loading-disabled {
+	pointer-events: none !important;
 }
 </style>

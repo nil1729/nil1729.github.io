@@ -14,14 +14,18 @@
 							<br />Introduce about <br />myself
 						</h2>
 						<p>
-							Whose given. Were gathered. There first subdue greater. Bearing
-							you Whales heaven midst their. Beast creepeth. Fish days.
+							I'm a Web developer experienced in Vue.js and Node.js. I love
+							creating websites with new tech skills. I am a junior year student
+							pursuing B.E. Computer Science from BITS Pilani, Rajasthan, India.
 						</p>
 						<p>
-							Is give may shall likeness made yielding spirit a itself together
-							created after sea is in beast beginning signs open god you're
-							gathering whose gathered cattle let. Creature whales fruit unto
-							meat the life beginning all in under give two.
+							I am a beginner on this Dev journey. But I am a fast learner; I
+							started learning to code in August 2019. This year I joined the
+							Student Union Technical Team of BITS Pilani as a Frontend
+							Developer and learned about web development frameworks like
+							ReactJS, VueJS, and NodeJS for backend development. Apart from Web
+							Development, I love solving algorithmic problems on Leetcode,
+							Codeforces and Hackerrank.
 						</p>
 						<a
 							class="primary_btn"
@@ -56,12 +60,17 @@ export default {};
 	}
 	.main_title {
 		margin-bottom: 0px;
+		h2 {
+			font-size: 28px;
+			line-height: 36px;
+		}
 		p {
 			margin-bottom: 20px;
+			font-size: 13pt;
 		}
 	}
 	.primary_btn {
-		margin-top: 20px;
+		margin-top: 0px;
 		@media (max-width: 600px) {
 			position: relative;
 			left: 50%;

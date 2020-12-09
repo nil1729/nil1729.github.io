@@ -53,7 +53,7 @@
 											el: '#about',
 											duration: 600,
 											easing: 'ease-in',
-											offset: 50,
+											offset: 65,
 										}"
 										>About</a
 									>
