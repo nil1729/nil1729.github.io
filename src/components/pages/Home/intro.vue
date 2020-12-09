@@ -11,6 +11,9 @@
 								Web Developer • Undergradute Student
 							</h5>
 							<div class="d-flex align-items-center">
+								<a class="primary_btn tr-bg" href="#">
+									<span>My resume</span>
+								</a>
 								<a
 									class="primary_btn tr-bg"
 									href="#"
@@ -21,19 +24,7 @@
 										offset: -100,
 									}"
 								>
-									<span>My Portfolio</span>
-								</a>
-								<a
-									class="primary_btn tr-bg"
-									href="#"
-									v-scroll-to="{
-										el: '#get-started',
-										duration: 600,
-										easing: 'ease-in',
-										offset: -60,
-									}"
-								>
-									<span>Get in Touch</span>
+									<span>My portfolio</span>
 								</a>
 							</div>
 						</div>
@@ -91,6 +82,9 @@ export default {};
 				font-size: 40px;
 				margin-bottom: 20px;
 				position: relative;
+				@media screen and (max-width: 600px) {
+					margin-bottom: 0;
+				}
 				&:after {
 					content: '';
 					width: 410px;

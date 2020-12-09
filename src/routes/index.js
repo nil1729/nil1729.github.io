@@ -11,6 +11,15 @@ const router = new VueRouter({
 		if (to.hash && savedPosition) {
 			return savedPosition;
 		}
+		if (to.hash) {
+			if (window.innerWidth < 800) {
+				return {
+					selector: to.hash,
+					offset: { x: 0, y: 100 },
+					behavior: 'smooth',
+				};
+			}
+		}
 		return { x: 0, y: 0 };
 	},
 });

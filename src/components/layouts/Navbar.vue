@@ -45,7 +45,6 @@
 									tag="li"
 									active-class="active"
 									class="nav-item"
-									id="about-link"
 								>
 									<a
 										class="nav-link"
@@ -54,7 +53,7 @@
 											el: '#about',
 											duration: 600,
 											easing: 'ease-in',
-											offset: 10,
+											offset: 50,
 										}"
 										>About</a
 									>
@@ -65,7 +64,6 @@
 									tag="li"
 									active-class="active"
 									class="nav-item"
-									id="about-link"
 								>
 									<a
 										class="nav-link"
@@ -224,6 +222,11 @@ export default {
 			font-weight: 400;
 			font-size: 20px;
 			cursor: pointer;
+
+			@media screen and (max-width: 600px) {
+				font-weight: 300;
+				color: #fff;
+			}
 		}
 		.nav {
 			.nav-item {
@@ -404,11 +407,6 @@ export default {
 				}
 			}
 		}
-	}
-}
-@media screen and (max-width: 600px) {
-	#about-link {
-		display: none;
 	}
 }
 

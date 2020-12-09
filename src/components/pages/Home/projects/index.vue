@@ -35,7 +35,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../../../utils/scss/_mixins.scss';
 @import '../../../utils/scss/_variable.scss';
 @import '../../../utils/scss/_predefine.scss';
@@ -46,6 +46,7 @@ export default {
 	}
 	@media (max-width: 600px) {
 		padding-bottom: 0px;
+		margin-top: 3rem;
 	}
 	.main_title {
 		margin-bottom: 50px;
@@ -60,6 +61,7 @@ export default {
 	gap: 1.2rem;
 	margin-bottom: 2rem;
 	@media screen and (max-width: 600px) {
+		display: block;
 		justify-content: center;
 		.col-lg-4.col-md-4.col-sm-6 {
 			width: auto;

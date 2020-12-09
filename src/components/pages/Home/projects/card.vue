@@ -70,5 +70,8 @@ export default {};
 			font-size: 16px;
 		}
 	}
+	@media screen and (max-width: 600px) {
+		margin-bottom: 1.2rem;
+	}
 }
 </style>
