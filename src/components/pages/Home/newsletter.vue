@@ -1,201 +1,202 @@
 <template>
-  <section class="newsletter_area" id="get-started">
-    <div class="container">
-      <div class="row justify-content-center align-items-center">
-        <div class="col-lg-12">
-          <div class="subscription_box text-center">
-            <h2 class="text-uppercase text-white">get update of my blogs</h2>
-            <div v-if="!submitted" class="subcribe-form" id="mc_embed_signup">
-              <form
-                @submit.prevent="handleSubscription"
-                class="position-relative subscription relative"
-              >
-                <input
-                  name="EMAIL"
-                  placeholder="Email address"
-                  onfocus="this.placeholder = ''"
-                  onblur="this.placeholder = 'Email address'"
-                  required
-                  type="email"
-                  v-model="email"
-                />
+	<section class="newsletter_area" id="get-started">
+		<div class="container">
+			<div class="row justify-content-center align-items-center">
+				<div class="col-lg-12">
+					<div class="subscription_box text-center">
+						<h2 class="text-uppercase text-white">get update of my blogs</h2>
+						<div v-if="!submitted" class="subcribe-form" id="mc_embed_signup">
+							<form
+								@submit.prevent="handleSubscription"
+								class="position-relative subscription relative"
+							>
+								<input
+									name="EMAIL"
+									placeholder="Email address"
+									onfocus="this.placeholder = ''"
+									onblur="this.placeholder = 'Email address'"
+									required
+									type="email"
+									v-model="email"
+								/>
 
-                <div style="position: absolute; left: -5000px">
-                  <input tabindex="-1" value type="email" />
-                </div>
-                <button
-                  :class="{ 'loading-disabled': loading }"
-                  type="submit"
-                  class="ml-2 primary-btn hover d-inline"
-                >
-                  <span>{{ loading ? "Loading ..." : "Get Started" }}</span>
-                </button>
-                <div v-if="error" class="info mx-auto mt-1">
-                  <span>{{ error }}</span>
-                </div>
-              </form>
-            </div>
-            <div v-else class="mt-3 banner_content text-center success-msg">
-              <h4 class="text-uppercase text-white">Thank You</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+								<div style="position: absolute; left: -5000px">
+									<input tabindex="-1" value type="email" />
+								</div>
+								<button
+									:class="{ 'loading-disabled': loading }"
+									type="submit"
+									class="ml-2 primary-btn hover d-inline"
+								>
+									<span>{{ loading ? 'Loading ...' : 'Get Started' }}</span>
+								</button>
+								<div v-if="error" class="info mx-auto mt-1">
+									<span>{{ error }}</span>
+								</div>
+							</form>
+						</div>
+						<div v-else class="mt-3 banner_content text-center success-msg">
+							<h4 class="text-uppercase text-white">Thank You</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 </template>
 
 <script>
-import validator from "validator";
+import validator from 'validator';
 export default {
-  name: "my-subscription",
-  data() {
-    return {
-      email: "",
-      submitted: false,
-      error: "",
-      loading: false,
-    };
-  },
-  watch: {
-    email() {
-      this.error = "";
-    },
-  },
-  methods: {
-    async handleSubscription() {
-      if (!validator.isEmail(this.email)) {
-        return (this.error = "Please enter a valid Email Address");
-      }
-      this.loading = true;
-      await this.sendFormData();
-      this.loading = false;
-      this.submitted = true;
-    },
-    async sendFormData() {
-      const myHeaders = new Headers();
-      const formdata = new FormData();
-      formdata.append("Subscription", this.email);
-      this.email = "";
-      const requestOptions = {
-        method: "POST",
-        headers: myHeaders,
-        body: formdata,
-        redirect: "follow",
-      };
-      try {
-        await fetch(
-          "https://cors-anywhere.herokuapp.com/https://formspree.io/xrgyajyn",
-          requestOptions
-        );
-      } catch (e) {
-        console.log(e);
-      }
-    },
-  },
+	name: 'my-subscription',
+	data() {
+		return {
+			email: '',
+			submitted: false,
+			error: '',
+			loading: false,
+		};
+	},
+	watch: {
+		email() {
+			this.error = '';
+		},
+	},
+	methods: {
+		async handleSubscription() {
+			if (!validator.isEmail(this.email)) {
+				return (this.error = 'Please enter a valid Email Address');
+			}
+			this.loading = true;
+			await this.sendFormData();
+			this.loading = false;
+			this.submitted = true;
+		},
+		async sendFormData() {
+			const myHeaders = new Headers();
+			const formdata = new FormData();
+			formdata.append('Subscription', this.email);
+			this.email = '';
+			const requestOptions = {
+				method: 'POST',
+				headers: myHeaders,
+				body: formdata,
+				redirect: 'follow',
+			};
+			try {
+				await fetch(
+					'https://cors-anywhere.herokuapp.com/https://formspree.io/xrgyajyn',
+					requestOptions
+				);
+			} catch (e) {
+				console.log(e);
+			}
+		},
+	},
 };
 </script>
 
 <style lang="scss">
-@import "../../utils/scss/_variable.scss";
-@import "../../utils/scss/_mixins.scss";
+@import '../../utils/scss/_variable.scss';
+@import '../../utils/scss/_mixins.scss';
 // @import "../../utils/scss/_predefine.scss";
 // @import "../../utils/scss/_reset.scss";
 .loading-disabled {
-  pointer-events: none !important;
+	pointer-events: none !important;
 }
 .newsletter_area {
-  color: #ffffff;
-  padding-top: 80px;
+	color: #ffffff;
+	padding-top: 80px;
 
-  @media (max-width: 1199px) {
-    padding-top: 30px;
-  }
+	@media (max-width: 1199px) {
+		padding-top: 30px;
+	}
 }
 
 .subscription_box {
-  background: url(../../../assets/backgrounds/subscribe-bg.png) no-repeat center;
-  padding: 150px 0px;
-  @media (max-width: 767px) {
-    padding: 50px 20px;
-  }
-  h2 {
-    font-weight: 700;
-    margin-bottom: 20px;
-    @media (max-width: 767px) {
-      font-size: 30px;
-    }
-    @media (max-width: 600px) {
-      font-size: 22px;
-    }
-  }
-  p {
-    margin-bottom: 0;
-  }
-  .subscription {
-    input {
-      min-width: 380px;
-      max-width: 380px;
-      line-height: 41px;
-      letter-spacing: 1px;
-      font-family: $title-font;
-      padding: 0 15px;
-      border: 1px solid #ffffff;
-      background: transparent;
-      font-weight: 400;
-      color: #ffffff;
-      &:focus {
-        outline: none;
-      }
-      @media (max-width: 420px) {
-        min-width: 250px;
-      }
-      @include placeholder {
-        color: #ffffff;
-        font-weight: 300;
-      }
-    }
-  }
-  .primary-btn {
-    margin-left: 10px;
-    background: #ffffff;
-    text-transform: uppercase;
-    color: #222222;
-    border-width: 0;
-    line-height: 43px;
-    font-size: 14px;
-    font-family: $title-font;
-    padding: 0px 38px;
-    cursor: pointer;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    @media (max-width: 767px) {
-      margin-top: 20px;
-    }
-  }
-  .subcribe-form {
-    margin-top: 45px;
-    @media (max-width: 600px) {
-      margin-top: 25px;
-    }
-  }
+	background: url(../../../assets/backgrounds/subscribe-bg.png) no-repeat center;
+	padding: 150px 0px;
+	@media (max-width: 767px) {
+		padding: 50px 20px;
+	}
+	h2 {
+		font-weight: 700;
+		margin-bottom: 20px;
+		@media (max-width: 767px) {
+			font-size: 30px;
+		}
+		@media (max-width: 600px) {
+			font-size: 22px;
+		}
+	}
+	p {
+		margin-bottom: 0;
+	}
+	.subscription {
+		input {
+			min-width: 380px;
+			max-width: 380px;
+			line-height: 41px;
+			letter-spacing: 1px;
+			font-family: $title-font;
+			padding: 0 15px;
+			border: 1px solid #ffffff;
+			background: transparent;
+			font-weight: 400;
+			color: #ffffff;
+			&:focus {
+				outline: none;
+			}
+			@media (max-width: 420px) {
+				min-width: 250px;
+			}
+			@include placeholder {
+				color: #dbd7d7d5;
+				font-weight: 400;
+				font-size: 16px;
+			}
+		}
+	}
+	.primary-btn {
+		margin-left: 10px;
+		background: #ffffff;
+		text-transform: uppercase;
+		color: #222222;
+		border-width: 0;
+		line-height: 43px;
+		font-size: 14px;
+		font-family: $title-font;
+		padding: 0px 38px;
+		cursor: pointer;
+		font-weight: 500;
+		letter-spacing: 0.5px;
+		@media (max-width: 767px) {
+			margin-top: 20px;
+		}
+	}
+	.subcribe-form {
+		margin-top: 45px;
+		@media (max-width: 600px) {
+			margin-top: 25px;
+		}
+	}
 }
 
 .subscription .info {
-  color: #fff;
-  width: 50%;
-  text-align: left;
-  background: transparent;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+	color: #fff;
+	width: 50%;
+	text-align: left;
+	background: transparent;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
 .subscription .info.valid {
-  color: green;
+	color: green;
 }
 
 .subscription .info.error {
-  color: red;
+	color: red;
 }
 </style>
