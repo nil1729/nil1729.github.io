@@ -58,11 +58,9 @@ export default {};
 		width: 100%;
 		.home_right_img {
 			padding-top: 150px;
-			@media (max-width: 1480px) {
-				img {
-					max-width: 100%;
-					height: auto;
-				}
+			img {
+				width: 100%;
+				height: auto;
 			}
 			@media (max-width: 991px) {
 				// display: none;

@@ -87,7 +87,7 @@ export default {
 			font-size: 13pt;
 		}
 		h2 {
-			margin-bottom: 5px;
+			margin-bottom: 15px;
 		}
 		margin-bottom: 65px;
 	}

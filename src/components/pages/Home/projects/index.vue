@@ -56,7 +56,7 @@ export default {
 	.main_title {
 		margin-bottom: 55px;
 		h2 {
-			margin-bottom: 5px;
+			margin-bottom: 20px;
 		}
 		p {
 			font-size: 13pt;
