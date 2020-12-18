@@ -9,7 +9,7 @@
 			<nav class="navbar navbar-expand-lg navbar-light">
 				<div class="container">
 					<!-- Brand and toggle get grouped for better mobile display -->
-					<span @click="navigate('top')" class="navbar-brand logo_h">
+					<span @click="navigateToTop" class="navbar-brand logo_h">
 						Nilanjan Deb
 						<!-- <img src="img/logo.png" alt /> -->
 					</span>
@@ -39,44 +39,42 @@
 							id="navbarSupportedContent"
 						>
 							<ul class="nav navbar-nav menu_nav justify-content-end">
-								<router-link
-									:to="{ name: 'Home', hash: '#about' }"
-									exact
-									tag="li"
-									active-class="active"
-									class="nav-item"
-								>
+								<li class="nav-item submenu dropdown">
 									<a
-										class="nav-link"
-										href="#"
+										href="#portfolio"
 										v-scroll-to="{
 											el: '#about',
 											duration: 600,
 											easing: 'ease-in',
-											offset: 65,
+											offset: aboutOffset,
+											onStart: navbarExapnd,
 										}"
+										class="nav-link"
+										data-toggle="dropdown"
+										role="button"
+										aria-haspopup="true"
+										aria-expanded="false"
 										>About</a
 									>
-								</router-link>
-								<router-link
-									:to="{ name: 'Home', hash: '#portfolio' }"
-									exact
-									tag="li"
-									active-class="active"
-									class="nav-item"
-								>
+								</li>
+								<li class="nav-item submenu dropdown">
 									<a
-										class="nav-link"
 										href="#"
 										v-scroll-to="{
 											el: '#portfolio',
 											duration: 600,
 											easing: 'ease-in',
 											offset: -100,
+											onStart: navbarExapnd,
 										}"
+										class="nav-link"
+										data-toggle="dropdown"
+										role="button"
+										aria-haspopup="true"
+										aria-expanded="false"
 										>Portfolio</a
 									>
-								</router-link>
+								</li>
 								<li class="nav-item submenu dropdown">
 									<a
 										href="#"
@@ -85,17 +83,34 @@
 										role="button"
 										aria-haspopup="true"
 										aria-expanded="false"
-										>Blogs</a
+										v-scroll-to="{
+											el: '#skills',
+											duration: 600,
+											easing: 'ease-in',
+											offset: -80,
+											onStart: navbarExapnd,
+										}"
+										>Skills</a
 									>
 								</li>
-								<router-link
-									tag="li"
-									to="/contact"
-									active-class="active"
-									class="nav-item"
-								>
-									<a class="nav-link">Contact me</a>
-								</router-link>
+								<li class="nav-item submenu dropdown">
+									<a
+										href="#"
+										v-scroll-to="{
+											el: '#contact',
+											duration: 600,
+											easing: 'ease-in',
+											offset: -80,
+											onStart: navbarExapnd,
+										}"
+										class="nav-link"
+										data-toggle="dropdown"
+										role="button"
+										aria-haspopup="true"
+										aria-expanded="false"
+										>Contact Me</a
+									>
+								</li>
 							</ul>
 						</div>
 					</transition>
@@ -108,10 +123,11 @@
 <script>
 import { scroller } from 'vue-scrollto/src/scrollTo';
 export default {
-	name: 'Navbar',
+	name: 'my-navbar',
 	data() {
 		return {
 			navbar_fixed: false,
+			aboutOffset: window.innerWidth < 600 ? -90 : 45,
 			navbar_open: window.innerWidth < 800 ? false : true,
 		};
 	},
@@ -130,8 +146,10 @@ export default {
 		window.addEventListener('resize', function() {
 			if (window.innerWidth < 800) {
 				vm.navbar_open = false;
+				vm.aboutOffset = -90;
 			} else {
 				vm.navbar_open = true;
+				vm.aboutOffset = 45;
 			}
 		});
 	},
@@ -140,11 +158,13 @@ export default {
 	},
 	methods: {
 		navbarExapnd() {
-			this.navbar_open = !this.navbar_open;
-			this.$refs['navbar-toggler'].setAttribute(
-				'aria-expanded',
-				this.navbar_open
-			);
+			if (window.innerWidth < 800) {
+				this.navbar_open = !this.navbar_open;
+				this.$refs['navbar-toggler'].setAttribute(
+					'aria-expanded',
+					this.navbar_open
+				);
+			}
 		},
 		handleScroll() {
 			if (this.$refs.header_navbar.getBoundingClientRect().top < -100) {
@@ -153,20 +173,17 @@ export default {
 				this.navbar_fixed = false;
 			}
 		},
-		navigate(pointer) {
+		navigateToTop() {
+			// const vm = this;
 			const ScrollToTop = scroller();
-			if (pointer === 'top' && this.$route.name === 'Home') {
-				ScrollToTop({
-					el: '#header-top',
-					duration: 600,
-					easing: 'ease-in',
-					offset: -60,
-				});
-				if (this.$route.hash) {
-					this.$router.push({ name: 'Home', hash: '' });
-				}
-			} else if (pointer === 'top') {
-				this.$router.push({ name: 'Home' });
+			ScrollToTop({
+				el: '#header-top',
+				duration: 600,
+				easing: 'ease-in',
+				offset: 0,
+			});
+			if (this.navbar_open) {
+				this.navbarExapnd();
 			}
 		},
 	},

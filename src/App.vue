@@ -18,6 +18,11 @@ export default {
 		'app-navbar': Navbar,
 		'app-footer': Footer,
 	},
+	data() {
+		return {
+			title: this.$store.state.seo.title,
+		};
+	},
 	methods: {
 		scrollFunction() {
 			const gotoTopBtn = this.$refs['goto-top-btn'];

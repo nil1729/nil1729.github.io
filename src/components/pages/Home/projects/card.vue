@@ -13,7 +13,9 @@
 				</p>
 				<p class="useful__links">
 					<i class="mr-2 fal fa-link"></i
-					><a :href="project.link" target="__blank">{{ project.linkType }}</a>
+					><a :href="project.link" target="__blank" rel="noopener">{{
+						project.linkType
+					}}</a>
 				</p>
 			</div>
 
@@ -26,7 +28,7 @@
 
 <script>
 export default {
-	name: 'Project-Card',
+	name: 'my-project-Card',
 	props: ['project'],
 };
 </script>
@@ -73,6 +75,11 @@ export default {
 	}
 	@media screen and (max-width: 600px) {
 		margin-bottom: 1.2rem;
+		.main__content {
+			.desc {
+				font-size: 14px;
+			}
+		}
 	}
 }
 </style>

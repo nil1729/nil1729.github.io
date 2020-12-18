@@ -1,34 +1,34 @@
 <template>
 	<fragment>
-		<section class="banner_area">
-			<div class="banner_inner d-flex align-items-center">
-				<div class="container">
-					<div class="banner_content text-center">
-						<h2>Let's Connect</h2>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section class="contact_area">
+		<section class="contact_brand_area" id="contact">
 			<div class="container">
-				<div class="row">
-					<div class="col-lg-5">
-						<h3>Contact Me</h3>
-						<hr class="mb-4" />
-						<contact-info />
-					</div>
-					<div class="col-lg-2"></div>
-					<div class="col-lg-5">
-						<h3>Profiles</h3>
-						<hr class="mb-4" />
-						<contact-profiles />
-					</div>
-				</div>
-				<div class="row form-container">
-					<div class="col-lg-12">
-						<contact-form />
+				<div class="row justify-content-center">
+					<div class="col-lg-8 text-center">
+						<div class="main_title">
+							<h2>Contact Me</h2>
+							<p>
+								If you have any questions, please feel free to drop me a line.
+								If you don't get an answer immediately, I might just be
+								travelling through the middle of nowhere. I'll get back to you
+								as soon as I can. That's a promise!
+							</p>
+						</div>
 					</div>
 				</div>
+				<section class="contact_area">
+					<div class="container">
+						<div class="row form-container">
+							<div class="col-lg-7 col-sm-12">
+								<contact-form />
+							</div>
+							<div class="col-lg-5 col-sm-12">
+								<hr class="mb-4" />
+								<contact-info />
+								<hr class="mb-4" />
+							</div>
+						</div>
+					</div>
+				</section>
 			</div>
 		</section>
 	</fragment>
@@ -37,14 +37,12 @@
 <script>
 import Form from './form';
 import ContactInfo from './info';
-import ContactProfile from './profiles';
 import { Fragment } from 'vue-fragment';
 export default {
 	name: 'my-contact',
 	components: {
 		'contact-form': Form,
 		'contact-info': ContactInfo,
-		'contact-profiles': ContactProfile,
 		Fragment,
 	},
 };
@@ -55,16 +53,31 @@ export default {
 @import '../../utils/scss/_mixins.scss';
 @import '../../utils/scss/_predefine.scss';
 @import '../../utils/scss/_banner.scss';
-// @import "../../utils/scss/_reset.scss";
-.form-container {
-	margin-top: 3rem;
-	@media screen and (max-width: 600px) {
-		margin-top: 0;
+.contact_brand_area {
+	.main_title {
+		p {
+			font-size: 13pt;
+		}
+		h2 {
+			margin-bottom: 15px;
+		}
+		margin-bottom: 50px;
+	}
+	@media (max-width: 1199px) {
+		padding-bottom: 50px;
+	}
+	@media (max-width: 600px) {
+		.main_title {
+			p {
+				font-size: 11.5pt;
+			}
+			margin: 20px 0;
+		}
 	}
 }
-.contact_area {
+.form-container {
 	@media screen and (max-width: 600px) {
-		margin-top: 2rem;
+		flex-direction: column-reverse;
 	}
 }
 .contact_info {
@@ -95,6 +108,15 @@ export default {
 			font-size: 15px;
 			line-height: 24px;
 			padding: 2px 0px;
+		}
+	}
+	@media screen and (max-width: 600px) {
+		margin-bottom: 0;
+		.info_item {
+			p {
+				font-size: 12.5px;
+				line-height: 20px;
+			}
 		}
 	}
 }
@@ -134,7 +156,7 @@ export default {
 		}
 	}
 	.primary_btn {
-		margin-top: 20px;
+		margin-top: 5px;
 	}
 }
 .modal-message {

@@ -1,5 +1,5 @@
 <template>
-	<section class="brand_area">
+	<section class="brand_area" id="skills">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-lg-9 text-center">
@@ -20,7 +20,7 @@
 			<div class="row justify-content-center">
 				<div class="col-lg-6">
 					<div class="row skill_container">
-						<div v-for="i in 9" :key="i" class="col-lg-4 col-md-4 col-sm-6">
+						<div v-for="i in 6" :key="i" class="col-lg-4 col-md-4 col-sm-6">
 							<div class="single-brand-item d-table">
 								<div class="d-table-cell text-center">
 									<img :src="getImgUrl(i)" alt />
@@ -42,7 +42,16 @@
 							<div class="ml-15">
 								<p>Wanna know More ?</p>
 								<h3>
-									<router-link to="/contact">Let's Connect!</router-link>
+									<a
+										href="#"
+										v-scroll-to="{
+											el: '#contact',
+											duration: 600,
+											easing: 'ease-in',
+											offset: -80,
+										}"
+										>Let's Connect!</a
+									>
 								</h3>
 							</div>
 						</div>
@@ -55,7 +64,7 @@
 
 <script>
 export default {
-	name: 'skill-set',
+	name: 'my-skill-set',
 	data() {
 		return {
 			experience: new Date().getFullYear() - 2019,
@@ -63,25 +72,20 @@ export default {
 	},
 	methods: {
 		getImgUrl(index) {
-			var images = require.context('@/assets/skills/', false, /\.png$/);
-			return images('./' + index + '.png');
+			var images = require.context('@/assets/skills/', false, /\.svg$/);
+			return images('./' + index + '.svg');
 		},
 	},
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../../utils/scss/_mixins.scss';
 @import '../../utils/scss/_variable.scss';
 @import '../../utils/scss/_predefine.scss';
 .brand_area {
 	padding-bottom: 100px;
-	@media (max-width: 1199px) {
-		padding-bottom: 50px;
-	}
-	@media (max-width: 600px) {
-		padding-bottom: 0px;
-	}
+
 	.main_title {
 		p {
 			font-size: 13pt;
@@ -90,6 +94,21 @@ export default {
 			margin-bottom: 15px;
 		}
 		margin-bottom: 65px;
+	}
+	@media (max-width: 1199px) {
+		padding-bottom: 50px;
+	}
+	@media (max-width: 600px) {
+		padding-bottom: 0px;
+	}
+	@media (max-width: 600px) {
+		.main_title {
+			p {
+				font-size: 11.5pt;
+				line-height: 24px;
+			}
+			margin: 20px 0 35px;
+		}
 	}
 }
 .skill_container {
@@ -124,9 +143,6 @@ export default {
 		max-width: 80px;
 		margin: 0 auto;
 		@include transition();
-		@media only screen and (max-width: 767px) {
-			max-width: 100px;
-		}
 	}
 	&:hover {
 		border: 1px solid transparent;

@@ -7,10 +7,8 @@ const routes = [
 		name: 'Home',
 	},
 	{
-		path: '/contact',
-		component: () =>
-			import ('@/components/pages/Contact/contact'),
-		name: 'Contact',
+		path: '*',
+		redirect: { name: 'Home' },
 	},
 ];
 export default routes;

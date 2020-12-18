@@ -31,10 +31,10 @@
 							class="primary_btn"
 							href="#"
 							v-scroll-to="{
-								el: '#get-started',
+								el: '#contact',
 								duration: 600,
 								easing: 'ease-in',
-								offset: -60,
+								offset: -80,
 							}"
 						>
 							<span>get in touch</span>
@@ -47,7 +47,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+	name: 'my-about',
+};
 </script>
 
 <style lang="scss">
@@ -67,6 +69,14 @@ export default {};
 		p {
 			margin-bottom: 20px;
 			font-size: 13pt;
+		}
+	}
+	@media screen and (max-width: 600px) {
+		.main_title {
+			p {
+				font-size: 11.5pt;
+				line-height: 23.5px;
+			}
 		}
 	}
 	.primary_btn {

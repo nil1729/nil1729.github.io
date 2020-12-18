@@ -32,7 +32,7 @@
 <script>
 import projectCard from './card';
 export default {
-	name: 'skill-set',
+	name: 'my-projects',
 	components: {
 		'my-project-card': projectCard,
 	},
@@ -45,14 +45,8 @@ export default {
 @import '../../../utils/scss/_variable.scss';
 @import '../../../utils/scss/_predefine.scss';
 .brand_area {
-	padding-bottom: 100px;
-	@media (max-width: 1199px) {
-		padding-bottom: 50px;
-	}
-	@media (max-width: 600px) {
-		padding-bottom: 0px;
-		margin-top: 3rem;
-	}
+	padding-bottom: 50px;
+
 	.main_title {
 		margin-bottom: 55px;
 		h2 {
@@ -60,6 +54,22 @@ export default {
 		}
 		p {
 			font-size: 13pt;
+		}
+	}
+	@media (max-width: 1199px) {
+		padding-bottom: 50px;
+	}
+	@media (max-width: 600px) {
+		padding-bottom: 40px;
+		margin-top: 3rem;
+	}
+	@media (max-width: 600px) {
+		.main_title {
+			p {
+				font-size: 11.5pt;
+				line-height: 23.5px;
+			}
+			margin: 20px 0 25px;
 		}
 	}
 }

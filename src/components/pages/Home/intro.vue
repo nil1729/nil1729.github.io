@@ -31,7 +31,7 @@
 					</div>
 					<div class="col-lg-5">
 						<div class="home_right_img">
-							<img class src="@/assets/banner/dev.png" alt />
+							<img class src="@/assets/banner/dev.svg" alt />
 						</div>
 					</div>
 				</div>
@@ -41,7 +41,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+	name: 'my-intro',
+};
 </script>
 
 <style lang="scss">

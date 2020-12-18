@@ -8,19 +8,10 @@ const router = new VueRouter({
 	mode: 'history',
 	routes,
 	scrollBehavior(to, from, savedPosition) {
-		if (to.hash && savedPosition) {
+		if (savedPosition) {
 			return savedPosition;
 		}
-		if (to.hash) {
-			if (window.innerWidth < 800) {
-				return {
-					selector: to.hash,
-					offset: { x: 0, y: 85 },
-					behavior: 'smooth',
-				};
-			}
-		}
-		return { x: 0, y: 0 };
+		return { offset: { x: 0, y: 50 }, behavior: 'smooth' };
 	},
 });
 

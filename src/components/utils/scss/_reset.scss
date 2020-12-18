@@ -1,11 +1,12 @@
+@import '../themes/bootstrap.scss';
 body {
-    line-height: 26px;
-    font-size: 15px;
-    font-family: $primary-font;
-    font-weight: 400;
-    color: $text-color;
-    user-select: none;
-    background: url(../../assets/backgrounds/body-bg.png) no-repeat center;
+	line-height: 26px;
+	font-size: 15px;
+	font-family: $primary-font;
+	font-weight: 400;
+	color: $text-color;
+	user-select: none;
+	background: url(../../assets/backgrounds/body-bg.png) no-repeat center;
 }
 
 h1,
@@ -14,61 +15,61 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: $title-font;
-    font-weight: 500;
-    color: $title-color;
+	font-family: $title-font;
+	font-weight: 500;
+	color: $title-color;
 }
 
 .list {
-    list-style: none;
-    margin: 0px;
-    padding: 0px;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
 }
 
 a {
-    text-decoration: none;
-    transition: all 0.3s ease-in-out;
+	text-decoration: none;
+	transition: all 0.3s ease-in-out;
 
-    &:hover,
-    &:focus {
-        text-decoration: none;
-        outline: none;
-    }
+	&:hover,
+	&:focus {
+		text-decoration: none;
+		outline: none;
+	}
 }
 
 button:focus {
-    outline: none;
-    box-shadow: none;
+	outline: none;
+	box-shadow: none;
 }
 
 .mt-25 {
-    margin-top: 25px;
+	margin-top: 25px;
 }
 
 .p0 {
-    padding-left: 0px;
-    padding-right: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
 }
 
 .white_bg {
-    background: #fff !important;
+	background: #fff !important;
 }
 
 // Margin Bottom
 .mb-50 {
-    margin-bottom: 50px;
+	margin-bottom: 50px;
 }
 
 // Margin Left
 .ml-15 {
-    margin-left: 15px;
+	margin-left: 15px;
 }
 
 .ml-20 {
-    margin-left: 20px;
+	margin-left: 20px;
 }
 
 // Margin Top
 .mt-50 {
-    margin-top: 50px;
+	margin-top: 50px;
 }
