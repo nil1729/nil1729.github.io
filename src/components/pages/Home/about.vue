@@ -56,9 +56,14 @@ export default {
 .about_area {
 	position: relative;
 	padding-top: 150px !important;
+	background: url('../../../assets/backgrounds/about-bg.svg') no-repeat left
+		center;
+	background-position: left;
+	background-size: contain;
 	@media (max-width: 1199px) {
 		// padding-top: 80px;
 		padding-top: 0px !important;
+		background: transparent;
 	}
 	.main_title {
 		margin-bottom: 0px;

@@ -13,7 +13,7 @@
 import Navbar from './components/layouts/Navbar';
 import Footer from './components/layouts/footer';
 export default {
-	name: 'App',
+	name: 'my-app',
 	components: {
 		'app-navbar': Navbar,
 		'app-footer': Footer,
@@ -61,13 +61,13 @@ Not supports in Firefox and IE */
 
 /* total width */
 ::-webkit-scrollbar {
-	background-color: #fff;
+	background-color: #efeefe;
 	width: 16px;
 }
 
 /* background of the scrollbar except button or resizer */
 ::-webkit-scrollbar-track {
-	background-color: #fff;
+	background-color: #efeefe;
 }
 ::-webkit-scrollbar-track:hover {
 	background-color: #f4f4f4;
@@ -77,7 +77,7 @@ Not supports in Firefox and IE */
 ::-webkit-scrollbar-thumb {
 	background-color: #babac0;
 	border-radius: 16px;
-	border: 5px solid #fff;
+	border: 5px solid #efeefe;
 }
 ::-webkit-scrollbar-thumb:hover {
 	background-color: #a0a0a5;

@@ -15,8 +15,12 @@
 						<div
 							class="footer_social d-flex justify-content-center align-items-center"
 						>
-							<a href="https://github.com/nil1729" rel="noopener">
-								<!-- <i class="fab fa-github"></i> -->
+							<a
+								href="https://github.com/nil1729"
+								target="_blank"
+								rel="noopener"
+							>
+								<span class="sr-only">Github</span>
 								<img src="@/assets/icons/github.svg" alt="" />
 							</a>
 							<a
@@ -24,6 +28,7 @@
 								target="_blank"
 								rel="noopener"
 							>
+								<span class="sr-only">Linkedin</span>
 								<img src="@/assets/icons/linkedin.svg" alt="" />
 							</a>
 							<a
@@ -31,6 +36,7 @@
 								target="_blank"
 								rel="noopener"
 							>
+								<span class="sr-only">Twitter</span>
 								<img src="@/assets/icons/twitter.svg" alt="" />
 							</a>
 						</div>
@@ -61,7 +67,7 @@ export default {
 @import '../utils/scss/_predefine.scss';
 .blog_version {
 	.footer_area {
-		background: #f9f9fd;
+		background: #ffffff;
 		&:before {
 			content: none;
 		}
@@ -79,7 +85,7 @@ export default {
 		left: 0px;
 		right: 0px;
 		bottom: 0px;
-		background: #f9f9fd;
+		background: #ffffff;
 		z-index: -1;
 	}
 	@media (max-width: 1024px) {

@@ -48,14 +48,15 @@ export default {
 
 <style lang="scss">
 @import '../../utils/scss/_variable.scss';
-// @import "../../utils/scss/_mixins.scss";
-// @import "../../utils/scss/_predefine.scss";
-// @import "../../utils/scss/_reset.scss";
 .home_banner_area {
 	z-index: 1;
-	background: url('../../../assets/backgrounds/home.png') no-repeat top center;
-	background-position: center;
-	background-size: cover;
+	background: url('../../../assets/backgrounds/overlay.svg') no-repeat right
+		center;
+	background-position: right;
+	background-size: contain;
+	@media screen and (max-width: 800px) {
+		background-size: cover;
+	}
 	.banner_inner {
 		width: 100%;
 		.home_right_img {

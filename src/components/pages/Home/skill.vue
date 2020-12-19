@@ -169,7 +169,7 @@ export default {
 		position: absolute;
 		top: -25px;
 		left: -50px;
-		background: url(../../../assets/backgrounds/client-info-bg.png) no-repeat;
+		// background: url(../../../assets/backgrounds/client-info-bg.png) no-repeat;
 		height: 175px;
 		width: 175px;
 		@media (max-width: 575px) {

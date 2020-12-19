@@ -7,6 +7,7 @@
 		>
 			<div class="col-md-12">
 				<div class="form-group">
+					<label for="name" class="sr-only">Name</label>
 					<input
 						required
 						v-model="name"
@@ -18,6 +19,7 @@
 					<div class="invalid-feedback">Please enter a Valid Name</div>
 				</div>
 				<div class="form-group">
+					<label for="email" class="sr-only">Email Address</label>
 					<input
 						required
 						v-model="email"
@@ -29,6 +31,7 @@
 					<div class="invalid-feedback">Please enter a Valid Email Address</div>
 				</div>
 				<div class="form-group">
+					<label for="subject" class="sr-only">Subject</label>
 					<input
 						required
 						v-model="subject"
@@ -38,6 +41,7 @@
 					/>
 				</div>
 				<div class="form-group">
+					<label for="message" class="sr-only">Message</label>
 					<textarea
 						required
 						v-model="message"
