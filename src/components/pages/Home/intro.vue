@@ -55,7 +55,7 @@ export default {
 	background-position: right;
 	background-size: contain;
 	@media screen and (max-width: 800px) {
-		background-size: cover;
+		background: transparent;
 	}
 	.banner_inner {
 		width: 100%;
