@@ -81,6 +81,9 @@ export default {
 	grid-template-rows: 8fr;
 	gap: 1.2rem;
 	margin-bottom: 2rem;
+	@media screen and (max-width: 768px) and (min-width: 601px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
 	@media screen and (max-width: 600px) {
 		display: block;
 		justify-content: center;

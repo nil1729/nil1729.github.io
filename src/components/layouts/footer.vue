@@ -32,7 +32,7 @@
 								<img src="@/assets/icons/linkedin.svg" alt="" />
 							</a>
 							<a
-								href="https://twitter.com/NilanjanDeb9"
+								href="https://twitter.com/_nilanjandeb"
 								target="_blank"
 								rel="noopener"
 							>

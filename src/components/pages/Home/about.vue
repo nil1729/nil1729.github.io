@@ -29,7 +29,7 @@
 						</p>
 						<a
 							class="primary_btn"
-							href="#"
+							href="#contact"
 							v-scroll-to="{
 								el: '#contact',
 								duration: 600,

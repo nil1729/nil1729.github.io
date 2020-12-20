@@ -43,7 +43,7 @@
 								<p>Wanna know More ?</p>
 								<h3>
 									<a
-										href="#"
+										href="#contact"
 										v-scroll-to="{
 											el: '#contact',
 											duration: 600,

@@ -16,7 +16,7 @@
 								</a>
 								<a
 									class="primary_btn tr-bg"
-									href="#"
+									href="#portfolio"
 									v-scroll-to="{
 										el: '#portfolio',
 										duration: 600,

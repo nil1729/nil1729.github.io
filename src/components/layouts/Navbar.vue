@@ -41,7 +41,7 @@
 							<ul class="nav navbar-nav menu_nav justify-content-end">
 								<li class="nav-item submenu dropdown">
 									<a
-										href="#portfolio"
+										href="#about"
 										v-scroll-to="{
 											el: '#about',
 											duration: 600,
@@ -59,7 +59,7 @@
 								</li>
 								<li class="nav-item submenu dropdown">
 									<a
-										href="#"
+										href="#portfolio"
 										v-scroll-to="{
 											el: '#portfolio',
 											duration: 600,
@@ -77,7 +77,7 @@
 								</li>
 								<li class="nav-item submenu dropdown">
 									<a
-										href="#"
+										href="#skills"
 										class="nav-link"
 										data-toggle="dropdown"
 										role="button"
@@ -95,7 +95,7 @@
 								</li>
 								<li class="nav-item submenu dropdown">
 									<a
-										href="#"
+										href="#contact"
 										v-scroll-to="{
 											el: '#contact',
 											duration: 600,
@@ -127,13 +127,13 @@ export default {
 	data() {
 		return {
 			navbar_fixed: false,
-			aboutOffset: window.innerWidth < 600 ? -90 : 45,
-			navbar_open: window.innerWidth < 800 ? false : true,
+			aboutOffset: window.innerWidth < 991 ? -90 : 45,
+			navbar_open: window.innerWidth < 991 ? false : true,
 		};
 	},
 	watch: {
 		$route() {
-			if (window.innerWidth < 800) {
+			if (window.innerWidth < 991) {
 				if (this.navbar_open) {
 					this.navbarExapnd();
 				}
@@ -144,7 +144,7 @@ export default {
 		const vm = this;
 		window.addEventListener('scroll', this.handleScroll);
 		window.addEventListener('resize', function() {
-			if (window.innerWidth < 800) {
+			if (window.innerWidth < 991) {
 				vm.navbar_open = false;
 				vm.aboutOffset = -90;
 			} else {
@@ -158,7 +158,7 @@ export default {
 	},
 	methods: {
 		navbarExapnd() {
-			if (window.innerWidth < 800) {
+			if (window.innerWidth < 991) {
 				this.navbar_open = !this.navbar_open;
 				this.$refs['navbar-toggler'].setAttribute(
 					'aria-expanded',
@@ -240,7 +240,7 @@ export default {
 			font-size: 20px;
 			cursor: pointer;
 
-			@media screen and (max-width: 600px) {
+			@media screen and (max-width: 768px) {
 				font-weight: 300;
 				color: #fff;
 			}
