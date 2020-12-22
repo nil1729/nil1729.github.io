@@ -82,6 +82,11 @@ export default {
 		{ rel: 'manifest', href: '/manifest.json' },
 		// link for favicons
 		{
+			rel: 'mask-icon',
+			sizes: '/favicons/safari-pinned-tab.svg',
+			color: '#5bbad5',
+		},
+		{
 			rel: 'apple-touch-icon',
 			sizes: '57x57',
 			href: '/favicons/apple-icon-57x57.png',
