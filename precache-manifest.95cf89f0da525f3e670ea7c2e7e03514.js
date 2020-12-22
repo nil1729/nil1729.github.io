@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
 	{
-		revision: 'd0228861c703152886f0',
+		revision: '22b01aad193ea0fbce97',
 		url: '/css/app.c9cdc328.css',
 	},
 	{
@@ -22,6 +22,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
 	{
 		revision: '0b9cccb3800d42dc91f299c64a8955db',
 		url: '/favicons/android-icon-48x48.png',
+	},
+	{
+		revision: 'e526a096b96af6815e98d7d8413eab82',
+		url: '/favicons/android-icon-512x512.png',
 	},
 	{
 		revision: '431ed80cb74834780176e29e010be537',
@@ -104,6 +108,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
 		url: '/favicons/ms-icon-70x70.png',
 	},
 	{
+		revision: 'd9e22d59336c77703a2817c16d918cb4',
+		url: '/favicons/safari-pinned-tab.svg',
+	},
+	{
 		revision: '9992625c5e1887545465cbf06975c89c',
 		url: '/font-awesome/all.min.css',
 	},
@@ -176,19 +184,19 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
 		url: '/img/twitter.7f729e2a.svg',
 	},
 	{
-		revision: '56b5ae6fc98b4dc919c495fbbf8c0397',
+		revision: '22218e8f1c15af2e08f77dc602dea1b0',
 		url: '/index.html',
 	},
 	{
-		revision: 'd0228861c703152886f0',
-		url: '/js/app.7b9d593b.js',
+		revision: '22b01aad193ea0fbce97',
+		url: '/js/app.39888137.js',
 	},
 	{
 		revision: '57e18359dcea07fac16a',
 		url: '/js/chunk-vendors.8ac59685.js',
 	},
 	{
-		revision: '931c77d50dff19b3a3392e0cb81bca90',
+		revision: '594c461078d9ebcc74f4e8e4fce2660b',
 		url: '/manifest.json',
 	},
 	{
