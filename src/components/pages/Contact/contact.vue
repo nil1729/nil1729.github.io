@@ -91,7 +91,7 @@ export default {
 			font-size: 20px;
 			line-height: 24px;
 			@extend .gradient-color;
-			font-weight: 600;
+			font-weight: 500;
 		}
 		h6 {
 			font-size: 16px;

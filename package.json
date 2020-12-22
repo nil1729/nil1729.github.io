@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "description": "My Personal Portfolio contains all of my Works, Projects etc.",
+  "author": "Nilanjan Deb",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -12,6 +13,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "register-service-worker": "^1.7.1",
     "validator": "^13.1.1",
     "vue": "^2.6.11",
     "vue-fragment": "^1.5.1",
@@ -20,19 +22,10 @@
     "vue-scrollto": "^2.18.2",
     "vuex": "^3.6.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nil1729/nil1729.github.io.git"
-  },
-  "author": "Nilanjan Deb",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/nil1729/portfolio/issues"
-  },
-  "homepage": "https://nil1729.github.io",
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-pwa": "^4.5.9",
     "@vue/cli-service": "~4.5.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
@@ -60,5 +53,14 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/nil1729/portfolio/issues"
+  },
+  "homepage": "https://nil1729.github.io",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nil1729/nil1729.github.io.git"
+  }
 }
