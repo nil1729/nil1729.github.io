@@ -6,8 +6,19 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "deploy": "npm run build && npm run generate && gh-pages -d dist"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nil1729/nil1729.github.io.git"
+  },
+  "author": "Nilanjan Deb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nil1729/nil1729.github.io/issues"
+  },
+  "homepage": "https://nil1729.github.io",
   "dependencies": {
     "@nuxt/content": "^1.9.0",
     "@nuxtjs/pwa": "^3.0.2",
@@ -20,6 +31,7 @@
   "devDependencies": {
     "@nuxtjs/style-resources": "^1.0.0",
     "fibers": "^5.0.0",
+    "gh-pages": "^3.1.0",
     "sass": "^1.30.0",
     "sass-loader": "^10.1.0"
   }

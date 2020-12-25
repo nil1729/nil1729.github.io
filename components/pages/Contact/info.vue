@@ -65,7 +65,7 @@ export default {
     }
   }
   @media screen and (max-width: 600px) {
-    margin-bottom: 0;
+    margin: 5px 0 20px;
     .info_item {
       p {
         font-size: 12.5px;

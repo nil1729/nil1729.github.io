@@ -421,4 +421,120 @@ export default {
     }
   }
 }
+
+@media screen and (max-width: 991px) {
+  .navbar-toggler {
+    border: none;
+    border-radius: 0px;
+    padding: 0px;
+    cursor: pointer;
+    margin-top: 17px;
+    margin-bottom: 17px;
+  }
+
+  .header_area .navbar {
+    background: #000;
+  }
+
+  .navbar-toggler[aria-expanded="false"] span:nth-child(2) {
+    opacity: 1;
+  }
+
+  .navbar-toggler[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar-toggler[aria-expanded="true"] span:first-child {
+    transform: rotate(-45deg);
+    position: relative;
+    top: 7.5px;
+  }
+
+  .navbar-toggler[aria-expanded="true"] span:last-child {
+    transform: rotate(45deg);
+    bottom: 6px;
+    position: relative;
+  }
+
+  .navbar-toggler span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    margin: auto;
+    margin-bottom: 4px;
+    transition: all 400ms linear;
+    cursor: pointer;
+  }
+
+  .navbar .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .nav {
+    padding: 0px 0px;
+  }
+
+  .header_area + section,
+  .header_area + row,
+  .header_area + div {
+    margin-top: 117px;
+  }
+
+  .header_top .nav {
+    padding: 0px;
+  }
+
+  .header_area .navbar .nav .nav-item .nav-link {
+    line-height: 40px;
+    margin-right: 0px;
+    display: block;
+    border-bottom: 1px solid #ededed33;
+    border-radius: 0px;
+    color: #fff;
+  }
+
+  .header_area .navbar .search {
+    margin-left: 0px;
+  }
+
+  .header_area .navbar-collapse {
+    max-height: 340px;
+    // overflow-y: scroll;
+  }
+
+  .header_area .navbar .nav .nav-item.submenu ul .nav-item .nav-link {
+    padding: 0px 15px;
+  }
+
+  .header_area .navbar .nav .nav-item {
+    margin-right: 0px;
+  }
+
+  .header_area + section,
+  .header_area + row,
+  .header_area + div {
+    margin-top: 0px;
+  }
+
+  .header_area.navbar_fixed .main_menu .navbar .nav .nav-item .nav-link {
+    line-height: 40px;
+    color: #fff;
+  }
+
+  .header_area.white_menu.navbar_fixed
+    .main_menu
+    .navbar
+    .nav
+    .nav-item
+    .nav-link {
+    line-height: 40px;
+    color: #fff;
+  }
+
+  .header_area.white_menu .navbar .nav .nav-item .nav-link {
+    color: #222;
+  }
+}
 </style>
