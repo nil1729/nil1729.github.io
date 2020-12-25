@@ -109,8 +109,31 @@ export default {
             user.social.twitter.url
           ]
         }
+      },
+      {
+        hid: "google-analytics-cdn",
+        type: "text/javascript",
+        src: `https://www.googletagmanager.com/gtag/js?id=${user.googleAnalyticsTagID}`,
+        async: true,
+        defer: true
+      },
+      {
+        hid: "google-analytics",
+        defer: true,
+        type: "text/javascript",
+        innerHTML: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', "${user.googleAnalyticsTagID}");
+          `
       }
-    ]
+    ],
+    __dangerouslyDisableSanitizersByTagID: {
+      "google-analytics": ["innerHTML"]
+    }
   },
   css: [
     "@/assets/scss/_reset.scss",
