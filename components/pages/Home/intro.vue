@@ -11,7 +11,11 @@
                 Web Developer • Undergradute Student
               </h5>
               <div class="d-flex align-items-center">
-                <a class="primary_btn tr-bg" href="#">
+                <a
+                  class="primary_btn tr-bg"
+                  href="https://drive.google.com/file/d/15y93XgDpnmaTjtboCCmaguRemAr3tBHu/view"
+                  target="_blank"
+                >
                   <span>My resume</span>
                 </a>
                 <a
