@@ -130,15 +130,15 @@ export default {
         method: "POST",
         headers: myHeaders,
         body: formdata,
-        redirect: "follow"
+        redirect: "follow",
+        headers: {
+          Accept: "application/json"
+        }
       };
       try {
-        await fetch(
-          "https://cors-anywhere.herokuapp.com/https://formspree.io/xrgyajyn",
-          requestOptions
-        );
+        await fetch("https://formspree.io/f/xeqrbnoe", requestOptions);
       } catch (e) {
-        console.log(e);
+        // console.log(e);
       }
     }
   }
