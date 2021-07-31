@@ -13,7 +13,7 @@
               <div class="d-flex align-items-center">
                 <a
                   class="primary_btn tr-bg"
-                  href="https://drive.google.com/file/d/15y93XgDpnmaTjtboCCmaguRemAr3tBHu/view"
+                  href="https://docs.google.com/document/d/1HkZjH1UMgh69LchPTQDiMdcDcpPHMeYuual3iEJ_QxQ/edit?usp=sharing"
                   target="_blank"
                 >
                   <span>My resume</span>
@@ -25,7 +25,7 @@
                     el: '#portfolio',
                     duration: 600,
                     easing: 'ease-in',
-                    offset: -100
+                    offset: -100,
                   }"
                 >
                   <span>My portfolio</span>
@@ -46,7 +46,7 @@
 
 <script>
 export default {
-  name: "my-intro"
+  name: "my-intro",
 };
 </script>
 
