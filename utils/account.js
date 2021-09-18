@@ -16,9 +16,9 @@ export default {
     }
   },
   website: {
-    hostURL: "https://nilanjandeb.me",
+    hostURL: "https://nilanjan.xyz",
     themeColor: "#FBFBFF",
-    iconLocation: "https://nilanjandeb.me/app-icon.png",
+    iconLocation: "https://nilanjan.xyz/app-icon.png",
     foundingDate: "2020"
   },
   contact: {
