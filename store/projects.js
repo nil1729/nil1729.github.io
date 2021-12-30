@@ -1,6 +1,16 @@
 export const state = () => ({
   list: [
     {
+      id: 8,
+      name: "Timetable Visualizer",
+      shortDescription: "Web App",
+      date: "Aug 2021",
+      linkType: "Github Repository",
+      link: "https://github.com/nil1729/timetable-visualizer",
+      description:
+        "Developed a tool for BITS Pilani students to create and manage university time table online with some unique feature like visualizing the timetable and exporting the timetable in PNG format and also sharing the timetable with the peers."
+    },
+    {
       id: 1,
       name: "Shopping App",
       shortDescription: "Web App",

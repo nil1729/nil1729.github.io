@@ -11,8 +11,8 @@
               <br />After I began learning Frontend Development, I fell in love
               with Javascript. I have learned Frontend frameworks ReactJS and
               VueJS so far. Then I started learning about NodeJS and exploring
-              backend development. Now I am exploring some cloud services
-              platforms like Firebase (GCP).
+              backend development. Now I am exploring some DevOps related stuffs
+              and started learning Docker.
             </p>
           </div>
         </div>
@@ -20,7 +20,7 @@
       <div class="row justify-content-center">
         <div class="col-lg-6">
           <div class="row skill_container">
-            <div v-for="i in 6" :key="i" class="col-lg-4 col-md-4 col-sm-6">
+            <div v-for="i in 9" :key="i" class="col-lg-4 col-md-4 col-sm-6">
               <div class="single-brand-item d-table">
                 <div class="d-table-cell text-center">
                   <img :src="require(`~/assets/skills/${i}.svg`)" alt />
