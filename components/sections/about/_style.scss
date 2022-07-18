@@ -1,0 +1,53 @@
+.about_area {
+	position: relative;
+	padding-top: 150px !important;
+	background: url('/assets/backgrounds/about-bg.svg') no-repeat left center;
+	background-position: left;
+	background-size: contain;
+	@media (max-width: 1199px) {
+		// padding-top: 80px;
+		padding-top: 0px !important;
+		background: transparent;
+	}
+	.main_title {
+		margin-bottom: 0px;
+		h2 {
+			font-size: 28px;
+			line-height: 36px;
+		}
+		p {
+			margin-bottom: 20px;
+			font-size: 13pt;
+		}
+	}
+	@media screen and (max-width: 600px) {
+		.main_title {
+			p {
+				font-size: 11.5pt;
+				line-height: 23.5px;
+			}
+		}
+	}
+	.primary_btn {
+		margin-top: 0px;
+		@media (max-width: 600px) {
+			position: relative;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+	.about_img {
+		position: relative;
+		right: 250px;
+		@media (max-width: 1480px) {
+			right: 0;
+			img {
+				max-width: 100%;
+				height: auto;
+			}
+		}
+		@media (max-width: 991px) {
+			display: none;
+		}
+	}
+}

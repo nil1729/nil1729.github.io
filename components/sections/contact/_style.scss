@@ -1,0 +1,147 @@
+.contact_brand_area {
+	.main_title {
+		p {
+			font-size: 13pt;
+		}
+		h2 {
+			margin-bottom: 15px;
+		}
+		margin-bottom: 50px;
+	}
+	@media (max-width: 1199px) {
+		padding-bottom: 50px;
+	}
+	@media (max-width: 600px) {
+		.main_title {
+			p {
+				font-size: 11.5pt;
+			}
+			margin: 20px 0;
+		}
+	}
+}
+.form-container {
+	@media screen and (max-width: 600px) {
+		flex-direction: column-reverse;
+	}
+}
+
+.contact_form {
+	.form-group {
+		margin-bottom: 20px;
+		.is-invalid {
+			border-color: #dc3545 !important;
+		}
+		label {
+			color: $text-color;
+			margin-bottom: 2px;
+			padding-left: 5px;
+		}
+		.form-control {
+			font-size: 14px;
+			line-height: 26px;
+			color: rgb(46, 45, 45);
+			border: 1px solid #ebe7e7;
+			font-family: $title-font;
+			border-radius: 0px;
+			padding-left: 20px;
+			&:focus {
+				box-shadow: none;
+				outline: none;
+			}
+			@include placeholder {
+				color: rgb(143, 140, 140);
+				font-family: $title-font;
+			}
+		}
+		textarea {
+			resize: none;
+			&.form-control {
+				min-height: 145px;
+				height: auto;
+				font-family: $title-font;
+			}
+			&.is-invalid {
+				border-color: #dc3545 !important;
+			}
+		}
+		.invalid-feedback {
+			font-size: 95%;
+			padding-left: 2px;
+		}
+	}
+	.primary_btn {
+		margin-top: 5px;
+	}
+}
+
+.success-msg {
+	h1 {
+		color: $primary-color2;
+	}
+	h5 {
+		color: $primary-color;
+	}
+	.primary_btn {
+		line-height: 35px !important;
+		font-size: 14px !important;
+		font-weight: 400 !important;
+		span {
+			padding: 0 10px !important;
+			letter-spacing: 0.4px;
+		}
+	}
+}
+.submit_btn {
+	text-align: left;
+	@media screen and (max-width: 600px) {
+		text-align: center;
+	}
+}
+.loading-disabled {
+	pointer-events: none !important;
+}
+
+.contact_info {
+	margin-top: 13px;
+	.info_item {
+		position: relative;
+		padding-left: 45px;
+		i {
+			position: absolute;
+			left: 0;
+			top: 0;
+			font-size: 20px;
+			line-height: 24px;
+			@include gradient(90deg, $primary-color 0%, $primary-color2 100%);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-weight: 500;
+		}
+		h6 {
+			font-size: 16px;
+			line-height: 24px;
+			color: $primary-font;
+			font-weight: bold;
+			margin-bottom: 0px;
+			color: $title-color;
+			a {
+				color: $title-color;
+			}
+		}
+		p {
+			font-size: 15px;
+			line-height: 24px;
+			padding: 2px 0px;
+		}
+	}
+	@media screen and (max-width: 600px) {
+		margin: 5px 0 20px;
+		.info_item {
+			p {
+				font-size: 12.5px;
+				line-height: 20px;
+			}
+		}
+	}
+}
