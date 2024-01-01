@@ -1,4 +1,8 @@
 module.exports = {
+  first_name: 'Nilanjan',
+  last_name: 'Deb',
+  username: 'nil1729',
+  gender: 'male',
   default_title: 'Nilanjan Deb',
   description: 'Hello; I am Data Engineer @Glance',
   social: {
@@ -14,6 +18,14 @@ module.exports = {
       account: '@nil1729',
       url: 'https://twitter.com/nil1729',
     },
+    facebook: {
+      account: 'nil1729',
+      url: 'https://facebook.com/nil1729',
+    },
+    instagram: {
+      account: 'nil1729_',
+      url: 'https://instagram.com/nil1729_',
+    },
   },
   website: {
     host_url: 'https://nilanjandeb.com',
@@ -26,6 +38,7 @@ module.exports = {
     telephone: '+919366496119',
   },
   address: {
+    street_address: 'Hosa Road, Amrutha Nagar',
     address_locality: 'Bengaluru',
     address_region: 'Karnataka',
     address_country: 'India',
