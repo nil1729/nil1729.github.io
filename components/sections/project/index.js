@@ -12,9 +12,13 @@ function Projects({ project_items }) {
                 <h2>projects</h2>
                 <p>
                   As part of my dev journey, I built some hobby projects along with system
-                  architectures with docker containers. you can find all of my projects on my Github
-                  profile or serch for this keyword{' '}
-                  <a href='https://www.google.com/search?q=nil1729' target='_blank'>
+                  architectures using docker containers. you can find all of my projects on my
+                  Github profile or serch for this keyword{' '}
+                  <a
+                    href='https://www.google.com/search?q=nil1729'
+                    target='_blank'
+                    rel='noreferrer noopener'
+                  >
                     nil1729
                   </a>{' '}
                   on your browser.
