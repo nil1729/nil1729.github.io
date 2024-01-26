@@ -3,8 +3,8 @@ function ContactInfo() {
     <div className='contact_info border-bottom border-top pt-4'>
       <div className='info_item'>
         <i className='fal fa-home-lg-alt'></i>
-        <h6>@Glance</h6>
-        <p>Bengaluru, India</p>
+        <h6>@Bengaluru</h6>
+        <p>India</p>
       </div>
       <div className='info_item'>
         <i className='fal fa-phone-alt'></i>

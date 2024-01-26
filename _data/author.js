@@ -4,7 +4,7 @@ module.exports = {
   username: 'nil1729',
   gender: 'male',
   default_title: 'Nilanjan Deb',
-  description: 'Hello; I am Data Engineer @Glance',
+  description: 'Hello; I am a Data Engineer who love to build softwares and play with data.',
   social: {
     github: {
       account: 'nil1729',

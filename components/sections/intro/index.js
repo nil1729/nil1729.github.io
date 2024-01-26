@@ -13,7 +13,7 @@ function Intro() {
               <div className='banner_content'>
                 <h3 className='text-uppercase'>Hell0</h3>
                 <h1 className='text-uppercase'>I am Nilanjan</h1>
-                <h5 className='text-uppercase'>Data Engineer @Glance</h5>
+                <h5 className='text-uppercase'>Data Engineer / Backend Developer</h5>
                 <div className='d-flex align-items-center'>
                   <a
                     className='primary_btn tr-bg'

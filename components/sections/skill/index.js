@@ -11,12 +11,10 @@ function Skill({ technical_skill_icons }) {
               <div className='main_title'>
                 <h2>technical skills</h2>
                 <p>
-                  I started coding by learning about C programming and solving algorithmic problems.
-                  <br />
-                  After I began learning Frontend Development, I fell in love with Javascript. I
-                  have learned Frontend frameworks ReactJS and VueJS so far. Then I started learning
-                  about NodeJS and exploring backend development. Now I am exploring some DevOps
-                  related stuffs and started learning Docker.
+                  I started coding as part of my university curriculum with C. After started
+                  learning about web development, I fell in love with JavaScript; all of my projects
+                  has a JavaScript flavor in it. Recently, I have started exploring data engineering
+                  world and I am loving it.
                 </p>
               </div>
             </div>
