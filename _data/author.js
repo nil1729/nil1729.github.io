@@ -45,5 +45,5 @@ module.exports = {
     postal_code: '560103',
   },
   google_analytics_tag_id: 'G-2STV8DC877',
-  resume_link: 'https://bit.ly/nil1729',
+  resume_link: 'https://bit.ly/nilanjandeb',
 };
