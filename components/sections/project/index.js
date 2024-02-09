@@ -1,5 +1,5 @@
-import { Element } from 'react-scroll';
-import ProjectCard from './card';
+import { Element } from "react-scroll";
+import ProjectCard from "./card";
 
 function Projects({ project_items }) {
   return (
@@ -13,14 +13,14 @@ function Projects({ project_items }) {
                 <p>
                   As part of my dev journey, I built some hobby projects along with system
                   architectures using docker containers. you can find all of my projects on my
-                  Github profile or serch for this keyword{' '}
+                  Github profile or search for this keyword{" "}
                   <a
                     href='https://www.google.com/search?q=nil1729'
                     target='_blank'
                     rel='noreferrer noopener'
                   >
                     nil1729
-                  </a>{' '}
+                  </a>{" "}
                   on your browser.
                 </p>
               </div>

@@ -1,6 +1,6 @@
-import { Element, Link } from 'react-scroll';
-import banner_img from '../../../public/assets/banner/about.svg';
-import Image from 'next/image';
+import { Element, Link } from "react-scroll";
+import banner_img from "../../../public/assets/banner/about.svg";
+import Image from "next/image";
 
 function About() {
   return (
@@ -21,10 +21,10 @@ function About() {
                   Introduce myself
                 </h2>
                 <p>
-                  I am a backend developer experienced in NodeJS and ReactJS. I love to build system
+                  I am a backend developer experienced in NodeJS. I love to build system
                   architectures and play with databases & networks. Apart from backend development,
-                  I love to build frontend applications which can be integrated securely with
-                  backend systems.
+                  I love to build frontend applications with ReactJS which can be integrated
+                  seamlessly and securely with backend services.
                 </p>
                 <p>
                   I have recently started exploring the world of Data Engineering. The world of data
