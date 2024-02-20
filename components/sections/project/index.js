@@ -12,7 +12,8 @@ function Projects({ project_items }) {
                 <h2>projects</h2>
                 <p>
                   As part of my dev journey, I built some hobby projects along with system
-                  architectures using docker containers. you can find all of my projects on my{" "}
+                  architecture using docker container which can be replicated to a live production
+                  environment. you can find all of my projects on my{" "}
                   <a href='https://github.com/nil1729' target='_blank' rel='noreferrer noopener'>
                     Github
                   </a>{" "}
