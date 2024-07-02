@@ -8,7 +8,7 @@ const withPWA = require('next-pwa')({
 /** @type {import('next').NextConfig} */
 const nextConfig = withPWA({
   reactStrictMode: true,
-  swcMinify: true,
+  swcMinify: false,
   optimizeFonts: false,
 });
 
