@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next export",
-    "vercel-build": "npm install --global @swc/cli @swc/core"
+    "export": "next export"
   },
   "dependencies": {
     "@sendgrid/mail": "^7.7.0",
