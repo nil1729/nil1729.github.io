@@ -1,6 +1,6 @@
 {
-  "name": "personal-portfolio",
-  "version": "0.1.0",
+  "name": "nil1729.github.io",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",

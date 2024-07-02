@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link, animateScroll as scroll } from 'react-scroll';
+import DEVELOPER_INFO from '../../../_data/author';
 
 function Navbar() {
 	const header_navbar = useRef();
@@ -137,6 +138,18 @@ function Navbar() {
 									>
 										Contact Me
 									</Link>
+								</li>
+								<li className='nav-item submenu dropdown'>
+									<a
+										href={DEVELOPER_INFO.social.github.url}
+										className='nav-link'
+										role='button'
+										aria-expanded='false'
+										rel='noopener noreferrer'
+										target='_blank'
+									>
+										Github @{DEVELOPER_INFO.social.github.account}
+									</a>
 								</li>
 							</ul>
 						</div>

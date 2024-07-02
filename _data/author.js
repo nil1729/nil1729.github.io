@@ -15,7 +15,7 @@ module.exports = {
       url: 'https://www.linkedin.com/in/nil1729/',
     },
     twitter: {
-      account: '@nil1729',
+      account: 'nil1729',
       url: 'https://twitter.com/nil1729',
     },
     facebook: {
