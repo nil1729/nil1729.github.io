@@ -149,7 +149,7 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} storageKey="nilanjan-theme">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem={true} storageKey="nilanjan-theme">
           <Navigation />
           {children}
           <Footer />
