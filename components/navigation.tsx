@@ -4,6 +4,7 @@ import type React from "react"
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
@@ -28,6 +29,7 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     setMounted(true)
@@ -42,13 +44,16 @@ export default function Navigation() {
   }, [])
 
   const navItems = [
-    { href: "#about", label: "About" },
-    { href: "#experience", label: "Experience" },
-    { href: "#projects", label: "Projects" },
-    { href: "#skills", label: "Skills" },
+    { href: "#about", label: "About", homeOnly: true },
+    { href: "#experience", label: "Experience", homeOnly: true },
+    { href: "#projects", label: "Projects", homeOnly: true },
+    { href: "#skills", label: "Skills", homeOnly: true },
     { href: "/blog", label: "Blog", isExternal: true },
-    { href: "#contact", label: "Contact" },
+    { href: "#contact", label: "Contact", homeOnly: true },
   ]
+
+  // Check if we're on the home page
+  const isHomePage = pathname === "/"
 
   return (
     <nav
@@ -64,26 +69,58 @@ export default function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) =>
-              item.isExternal ? (
+            {navItems.map((item) => {
+              // If it's an external link (like blog), always show as Link
+              if (item.isExternal) {
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                )
+              }
+
+              // If it's a home-only section and we're not on home page, link to home with hash
+              if (item.homeOnly && !isHomePage) {
+                return (
+                  <Link
+                    key={item.href}
+                    href={`/${item.href}`}
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                )
+              }
+
+              // If we're on home page, use scroll behavior
+              if (isHomePage) {
+                return (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    onClick={(e) => scrollToSection(e, item.href)}
+                  >
+                    {item.label}
+                  </a>
+                )
+              }
+
+              // Default case - shouldn't reach here but fallback to Link
+              return (
                 <Link
                   key={item.href}
-                  href={item.href}
+                  href={`/${item.href}`}
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {item.label}
                 </Link>
-              ) : (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                  onClick={(e) => scrollToSection(e, item.href)}
-                >
-                  {item.label}
-                </a>
-              ),
-            )}
+              )
+            })}
             <ThemeToggle />
           </div>
 
@@ -111,30 +148,64 @@ export default function Navigation() {
         {isOpen && (
           <div className="md:hidden border-t bg-background/95 backdrop-blur-sm">
             <div className="py-4 space-y-2">
-              {navItems.map((item) =>
-                item.isExternal ? (
+              {navItems.map((item) => {
+                // If it's an external link (like blog), always show as Link
+                if (item.isExternal) {
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="block px-4 py-2 text-muted-foreground hover:text-foreground transition-colors"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  )
+                }
+
+                // If it's a home-only section and we're not on home page, link to home with hash
+                if (item.homeOnly && !isHomePage) {
+                  return (
+                    <Link
+                      key={item.href}
+                      href={`/${item.href}`}
+                      className="block px-4 py-2 text-muted-foreground hover:text-foreground transition-colors"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  )
+                }
+
+                // If we're on home page, use scroll behavior
+                if (isHomePage) {
+                  return (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      className="block px-4 py-2 text-muted-foreground hover:text-foreground transition-colors"
+                      onClick={(e) => {
+                        scrollToSection(e, item.href)
+                        setIsOpen(false)
+                      }}
+                    >
+                      {item.label}
+                    </a>
+                  )
+                }
+
+                // Default case - shouldn't reach here but fallback to Link
+                return (
                   <Link
                     key={item.href}
-                    href={item.href}
+                    href={`/${item.href}`}
                     className="block px-4 py-2 text-muted-foreground hover:text-foreground transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
                     {item.label}
                   </Link>
-                ) : (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    className="block px-4 py-2 text-muted-foreground hover:text-foreground transition-colors"
-                    onClick={(e) => {
-                      scrollToSection(e, item.href)
-                      setIsOpen(false)
-                    }}
-                  >
-                    {item.label}
-                  </a>
-                ),
-              )}
+                )
+              })}
 
               {/* Mobile Theme Options */}
               <div className="px-4 py-2 border-t">
