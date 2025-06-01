@@ -103,7 +103,7 @@ export default function Projects() {
                 Data Engineering & AI
               </h3>
             </AnimatedSection>
-            <div className="grid md:grid-cols-2 gap-6 justify-items-center max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center max-w-6xl mx-auto">
               {dataAIProjects.map((project, index) => (
                 <AnimatedSection key={index} direction="up" delay={300 + index * 100}>
                   <Card className="border-l-4 border-l-purple-600 hover:shadow-lg transition-shadow w-full max-w-lg h-auto md:h-80 flex flex-col">
@@ -152,7 +152,7 @@ export default function Projects() {
                 Software Engineering & Full-Stack
               </h3>
             </AnimatedSection>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center max-w-6xl mx-auto">
               {softwareProjects.map((project, index) => (
                 <AnimatedSection key={index} direction="up" delay={600 + index * 100}>
                   <Card className="border-l-4 border-l-blue-600 hover:shadow-lg transition-shadow w-full max-w-lg md:max-w-sm h-auto md:h-96 flex flex-col">
