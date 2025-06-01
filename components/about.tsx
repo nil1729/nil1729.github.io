@@ -12,14 +12,14 @@ export default function About() {
           </AnimatedSection>
 
           <AnimatedSection delay={200}>
-            <div className="prose prose-lg dark:prose-invert max-w-none mb-12">
-              <p className="text-lg leading-relaxed">
+            <div className="text-center max-w-4xl mx-auto mb-12">
+              <p className="text-lg leading-relaxed mb-6">
                 My journey into data engineering and software development began at BITS Pilani, where I built a strong
                 foundation in Computer Science fundamentals. The rigorous curriculum in Data Structures, Algorithms,
                 Operating Systems, Databases, and Networks has been instrumental in shaping my analytical approach to
                 problem-solving and system design.
               </p>
-              <p className="text-lg leading-relaxed">
+              <p className="text-lg leading-relaxed mb-6">
                 I believe that understanding core CS concepts is crucial for building robust, scalable systems. Whether
                 I'm optimizing a Spark Streaming pipeline or designing a full-stack application, I leverage these
                 fundamentals to create efficient algorithms, design scalable architectures, and ensure optimal

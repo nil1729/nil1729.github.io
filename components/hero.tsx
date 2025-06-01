@@ -8,8 +8,8 @@ import { AnimatedSection } from "./animated-section"
 export default function Hero() {
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800">
-      <div className="container px-4 md:px-6 text-center">
-        <div className="space-y-6 max-w-4xl mx-auto">
+      <div className="container px-4 md:px-6">
+        <div className="space-y-6 max-w-4xl mx-auto text-center">
           <AnimatedSection direction="down" delay={100}>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">

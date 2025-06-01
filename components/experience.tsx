@@ -9,7 +9,9 @@ export default function Experience() {
       <div className="container px-4 md:px-6">
         <div className="max-w-6xl mx-auto">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Professional Experience</h2>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold">Professional Experience</h2>
+            </div>
           </AnimatedSection>
 
           <div className="space-y-8">
@@ -60,9 +62,9 @@ export default function Experience() {
                   </div>
 
                   <AnimatedSection delay={600}>
-                    <div>
+                    <div className="text-center">
                       <h4 className="font-semibold mb-3">Key Achievements:</h4>
-                      <ul className="space-y-2 text-muted-foreground">
+                      <ul className="text-left max-w-3xl mx-auto space-y-2 text-muted-foreground">
                         <li>• Architected real-time data streaming pipelines using Spark Streaming and Kafka</li>
                         <li>• Implemented CDC pipeline with Apache Hudi for efficient data lake management</li>
                         <li>• Developed Trino gateway with Apache Iceberg for optimized query performance</li>
@@ -74,7 +76,7 @@ export default function Experience() {
                   </AnimatedSection>
 
                   <AnimatedSection delay={700}>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 justify-center">
                       {[
                         "Apache Spark",
                         "Kafka",
@@ -134,9 +136,9 @@ export default function Experience() {
                   </div>
 
                   <AnimatedSection delay={1100}>
-                    <div>
+                    <div className="text-center">
                       <h4 className="font-semibold mb-3">Key Projects:</h4>
-                      <ul className="space-y-2 text-muted-foreground">
+                      <ul className="text-left max-w-3xl mx-auto space-y-2 text-muted-foreground">
                         <li>• Developed P2P delivery platform with real-time order tracking</li>
                         <li>• Built comprehensive order management system for manufacturing</li>
                         <li>• Created student management portal with advanced analytics</li>
@@ -146,7 +148,7 @@ export default function Experience() {
                   </AnimatedSection>
 
                   <AnimatedSection delay={1200}>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 justify-center">
                       {["React", "Node.js", "MongoDB", "Express.js", "Vue.js", "PostgreSQL", "Docker"].map((tech) => (
                         <Badge key={tech} variant="secondary">
                           {tech}

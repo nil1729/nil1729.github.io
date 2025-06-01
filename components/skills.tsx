@@ -75,7 +75,9 @@ export default function Skills() {
       <div className="container px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Technical Skills</h2>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold">Technical Skills</h2>
+            </div>
           </AnimatedSection>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -88,8 +90,8 @@ export default function Skills() {
                       {category.title}
                     </CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <div className="flex flex-wrap gap-2">
+                  <CardContent className="text-center">
+                    <div className="flex flex-wrap gap-2 justify-center">
                       {category.skills.map((skill) => (
                         <Badge key={skill} variant="secondary" className="text-xs">
                           {skill}
@@ -105,7 +107,9 @@ export default function Skills() {
           {/* Highlighted Core Competencies */}
           <div className="mt-16">
             <AnimatedSection delay={1100}>
-              <h3 className="text-2xl font-bold text-center mb-8">Core Competencies</h3>
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold">Core Competencies</h3>
+              </div>
             </AnimatedSection>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <AnimatedSection direction="up" delay={1200}>

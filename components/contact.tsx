@@ -12,14 +12,16 @@ export default function Contact() {
       <div className="container px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Get In Touch</h2>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold">Get In Touch</h2>
+            </div>
           </AnimatedSection>
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* Contact Information */}
             <div className="space-y-6">
               <AnimatedSection delay={200}>
-                <div>
+                <div className="text-center">
                   <h3 className="text-xl font-semibold mb-4">Let's Connect</h3>
                   <p className="text-muted-foreground mb-6">
                     I'm always interested in discussing data engineering challenges, AI innovations, and opportunities

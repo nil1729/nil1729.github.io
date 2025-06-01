@@ -98,10 +98,12 @@ export default function Projects() {
           {/* Data & AI Projects */}
           <div className="mb-16">
             <AnimatedSection delay={200}>
-              <h3 className="text-2xl font-bold mb-8 flex items-center">
-                <Brain className="h-6 w-6 mr-3 text-purple-600" />
-                Data Engineering & AI
-              </h3>
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold flex items-center justify-center">
+                  <Brain className="h-6 w-6 mr-3 text-purple-600" />
+                  Data Engineering & AI
+                </h3>
+              </div>
             </AnimatedSection>
             <div className="grid md:grid-cols-2 gap-6">
               {dataAIProjects.map((project, index) => (
@@ -119,16 +121,16 @@ export default function Projects() {
                     <CardContent className="space-y-4">
                       <p className="text-muted-foreground">{project.description}</p>
 
-                      <div>
+                      <div className="text-center">
                         <h4 className="font-semibold mb-2">Key Highlights:</h4>
-                        <ul className="text-sm text-muted-foreground space-y-1">
+                        <ul className="text-left max-w-xs mx-auto text-sm text-muted-foreground space-y-1">
                           {project.highlights.map((highlight, i) => (
                             <li key={i}>• {highlight}</li>
                           ))}
                         </ul>
                       </div>
 
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-2 justify-center">
                         {project.technologies.map((tech) => (
                           <Badge key={tech} variant="secondary">
                             {tech}
@@ -145,10 +147,12 @@ export default function Projects() {
           {/* Software Engineering Projects */}
           <div>
             <AnimatedSection delay={500}>
-              <h3 className="text-2xl font-bold mb-8 flex items-center">
-                <Code className="h-6 w-6 mr-3 text-blue-600" />
-                Software Engineering & Full-Stack
-              </h3>
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold flex items-center justify-center">
+                  <Code className="h-6 w-6 mr-3 text-blue-600" />
+                  Software Engineering & Full-Stack
+                </h3>
+              </div>
             </AnimatedSection>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {softwareProjects.map((project, index) => (
@@ -163,16 +167,16 @@ export default function Projects() {
                     <CardContent className="space-y-4">
                       <p className="text-muted-foreground text-sm">{project.description}</p>
 
-                      <div>
+                      <div className="text-center">
                         <h4 className="font-semibold mb-2 text-sm">Key Features:</h4>
-                        <ul className="text-xs text-muted-foreground space-y-1">
+                        <ul className="text-left max-w-xs mx-auto text-xs text-muted-foreground space-y-1">
                           {project.highlights.map((highlight, i) => (
                             <li key={i}>• {highlight}</li>
                           ))}
                         </ul>
                       </div>
 
-                      <div className="flex flex-wrap gap-1">
+                      <div className="flex flex-wrap gap-1 justify-center">
                         {project.technologies.map((tech) => (
                           <Badge key={tech} variant="secondary" className="text-xs">
                             {tech}
