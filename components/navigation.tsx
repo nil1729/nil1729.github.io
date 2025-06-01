@@ -89,59 +89,62 @@ export default function Navigation() {
         isScrolled ? "bg-background/95 backdrop-blur-sm border-b" : "bg-transparent"
       }`}
     >
-      <div className="container px-4 md:px-6">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
+      <div className="container px-4 md:px-6 mx-auto">
+        <div className="relative flex items-center justify-between h-16">
+          {/* Logo - Left */}
+          <div className="flex items-center w-48">
             <Link href="/" className="font-bold text-xl">
               Nilanjan Deb
             </Link>
           </div>
 
-          {/* Desktop Navigation - Centered */}
-          <div className="hidden md:flex items-center justify-center space-x-8 flex-1">
-            {navItems.map((item) => {
-              // If it's an external link (like blog), always show as Link
-              if (item.isExternal) {
+          {/* Desktop Navigation - Absolutely Centered */}
+          <div className="hidden md:flex items-center justify-center absolute left-1/2 transform -translate-x-1/2">
+            <div className="flex items-center space-x-8">
+              {navItems.map((item) => {
+                // If it's an external link (like blog), always show as Link
+                if (item.isExternal) {
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
+                    >
+                      {item.label}
+                    </Link>
+                  )
+                }
+
+                // For home sections, use button with click handler
+                if (item.homeOnly) {
+                  const sectionId = item.href.replace("#", "")
+                  return (
+                    <button
+                      key={item.href}
+                      onClick={() => handleSectionNavigation(sectionId)}
+                      className="text-muted-foreground hover:text-foreground transition-colors bg-transparent border-none cursor-pointer whitespace-nowrap"
+                    >
+                      {item.label}
+                    </button>
+                  )
+                }
+
+                // Fallback
                 return (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
                   >
                     {item.label}
                   </Link>
                 )
-              }
-
-              // For home sections, use button with click handler
-              if (item.homeOnly) {
-                const sectionId = item.href.replace("#", "")
-                return (
-                  <button
-                    key={item.href}
-                    onClick={() => handleSectionNavigation(sectionId)}
-                    className="text-muted-foreground hover:text-foreground transition-colors bg-transparent border-none cursor-pointer"
-                  >
-                    {item.label}
-                  </button>
-                )
-              }
-
-              // Fallback
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  {item.label}
-                </Link>
-              )
-            })}
+              })}
+            </div>
           </div>
 
-          {/* Theme Toggle - Right aligned */}
-          <div className="hidden md:flex items-center">
+          {/* Theme Toggle - Right */}
+          <div className="hidden md:flex items-center justify-end w-48">
             <ThemeToggle />
           </div>
 
