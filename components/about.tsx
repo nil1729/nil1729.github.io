@@ -41,7 +41,7 @@ export default function About() {
                   <Database className='h-12 w-12 mx-auto mb-4 text-blue-600' />
                   <h3 className='font-semibold mb-3'>Data Engineering</h3>
                   <p className='text-sm text-muted-foreground leading-relaxed'>
-                    Big Data, ETL, Real-time Streaming
+                    Big Data, ETL, Streaming Pipelines
                   </p>
                 </CardContent>
               </Card>
@@ -53,7 +53,7 @@ export default function About() {
                   <Brain className='h-12 w-12 mx-auto mb-4 text-purple-600' />
                   <h3 className='font-semibold mb-3'>AI & Analytics</h3>
                   <p className='text-sm text-muted-foreground leading-relaxed'>
-                    LLM Integration, AI-powered Tools
+                    LLM Integration, AI-driven Workflows
                   </p>
                 </CardContent>
               </Card>
@@ -65,7 +65,7 @@ export default function About() {
                   <Code className='h-12 w-12 mx-auto mb-4 text-green-600' />
                   <h3 className='font-semibold mb-3'>Full-Stack Development</h3>
                   <p className='text-sm text-muted-foreground leading-relaxed'>
-                    Microservices, APIs, Cloud-native Web Apps
+                    APIs, Microservices, Web Platforms
                   </p>
                 </CardContent>
               </Card>
