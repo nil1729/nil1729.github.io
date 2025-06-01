@@ -155,7 +155,7 @@ export default function Projects() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center max-w-6xl mx-auto">
               {softwareProjects.map((project, index) => (
                 <AnimatedSection key={index} direction="up" delay={600 + index * 100}>
-                  <Card className="border-l-4 border-l-blue-600 hover:shadow-lg transition-shadow w-full max-w-sm h-auto md:h-96 flex flex-col">
+                  <Card className="border-l-4 border-l-blue-600 hover:shadow-lg transition-shadow w-full max-w-lg md:max-w-sm h-auto md:h-96 flex flex-col">
                     <CardHeader className="flex-shrink-0">
                       <CardTitle className="flex items-center text-lg">
                         <project.icon className="h-5 w-5 mr-2 text-blue-600" />
