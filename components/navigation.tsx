@@ -91,12 +91,14 @@ export default function Navigation() {
     >
       <div className="container px-4 md:px-6">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="font-bold text-xl">
-            Nilanjan Deb
-          </Link>
+          <div className="flex items-center">
+            <Link href="/" className="font-bold text-xl">
+              Nilanjan Deb
+            </Link>
+          </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Desktop Navigation - Centered */}
+          <div className="hidden md:flex items-center justify-center space-x-8 flex-1">
             {navItems.map((item) => {
               // If it's an external link (like blog), always show as Link
               if (item.isExternal) {
@@ -136,6 +138,10 @@ export default function Navigation() {
                 </Link>
               )
             })}
+          </div>
+
+          {/* Theme Toggle - Right aligned */}
+          <div className="hidden md:flex items-center">
             <ThemeToggle />
           </div>
 
