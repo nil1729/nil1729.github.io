@@ -1,75 +1,84 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { Brain, Code, Database, Zap } from "lucide-react"
-import { AnimatedSection } from "./animated-section"
+import { Card, CardContent } from "@/components/ui/card";
+import { Brain, Code, Database, Zap } from "lucide-react";
+import { AnimatedSection } from "./animated-section";
 
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-background">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-7xl mx-auto">
+    <section id='about' className='py-20 bg-background'>
+      <div className='container mx-auto px-4 md:px-6'>
+        <div className='max-w-7xl mx-auto'>
           <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">About Me</h2>
+            <h2 className='text-3xl md:text-4xl font-bold text-center mb-12'>About Me</h2>
           </AnimatedSection>
 
           <AnimatedSection delay={200}>
-            <div className="max-w-5xl mx-auto mb-12">
-              <p className="text-lg leading-relaxed mb-6">
-                My journey into data engineering and software development began at BITS Pilani, where I built a strong
-                foundation in Computer Science fundamentals. The rigorous curriculum in Data Structures, Algorithms,
-                Operating Systems, Databases, and Networks has been instrumental in shaping my analytical approach to
-                problem-solving and system design.
+            <div className='max-w-5xl mx-auto mb-12'>
+              <p className='text-lg leading-relaxed mb-6'>
+                My journey into data engineering and software development began at BITS Pilani,
+                where I built a strong foundation in Computer Science fundamentals. The rigorous
+                curriculum in Data Structures, Algorithms, Operating Systems, Databases, and
+                Networks has been instrumental in shaping my analytical approach to problem-solving
+                and system design.
               </p>
-              <p className="text-lg leading-relaxed mb-6">
-                I believe that understanding core CS concepts is crucial for building robust, scalable systems. Whether
-                I'm optimizing a Spark Streaming pipeline or designing a full-stack application, I leverage these
-                fundamentals to create efficient algorithms, design scalable architectures, and ensure optimal
-                performance.
+              <p className='text-lg leading-relaxed mb-6'>
+                I believe that understanding core CS concepts is crucial for building robust,
+                scalable systems. Whether I'm optimizing a Spark Streaming pipeline or designing a
+                full-stack application, I leverage these fundamentals to create efficient
+                algorithms, design scalable architectures, and ensure optimal performance.
               </p>
-              <p className="text-lg leading-relaxed">
-                My passion lies in transforming complex data challenges into actionable solutions. I thrive on data
-                integration, ETL processes, real-time streaming, and performance optimization while maintaining the
-                highest standards of security and reliability.
+              <p className='text-lg leading-relaxed'>
+                My passion lies in transforming complex data challenges into actionable solutions. I
+                thrive on data integration, ETL processes, real-time streaming, and performance
+                optimization while maintaining the highest standards of security and reliability.
               </p>
             </div>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center max-w-6xl mx-auto">
-            <AnimatedSection direction="up" delay={300}>
-              <Card className="text-center w-full max-w-xs h-52 flex flex-col">
-                <CardContent className="p-6 flex-1 flex flex-col justify-center">
-                  <Database className="h-12 w-12 mx-auto mb-4 text-blue-600" />
-                  <h3 className="font-semibold mb-3">Data Engineering</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">Big Data, ETL, Real-time Streaming</p>
+          <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center max-w-6xl mx-auto'>
+            <AnimatedSection direction='up' delay={300}>
+              <Card className='text-center w-full max-w-xs h-52 flex flex-col'>
+                <CardContent className='p-6 flex-1 flex flex-col justify-center'>
+                  <Database className='h-12 w-12 mx-auto mb-4 text-blue-600' />
+                  <h3 className='font-semibold mb-3'>Data Engineering</h3>
+                  <p className='text-sm text-muted-foreground leading-relaxed'>
+                    Big Data, ETL, Real-time Streaming
+                  </p>
                 </CardContent>
               </Card>
             </AnimatedSection>
 
-            <AnimatedSection direction="up" delay={400}>
-              <Card className="text-center w-full max-w-xs h-52 flex flex-col">
-                <CardContent className="p-6 flex-1 flex flex-col justify-center">
-                  <Brain className="h-12 w-12 mx-auto mb-4 text-purple-600" />
-                  <h3 className="font-semibold mb-3">AI & Analytics</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">LLM Integration, AI-powered Tools</p>
+            <AnimatedSection direction='up' delay={400}>
+              <Card className='text-center w-full max-w-xs h-52 flex flex-col'>
+                <CardContent className='p-6 flex-1 flex flex-col justify-center'>
+                  <Brain className='h-12 w-12 mx-auto mb-4 text-purple-600' />
+                  <h3 className='font-semibold mb-3'>AI & Analytics</h3>
+                  <p className='text-sm text-muted-foreground leading-relaxed'>
+                    LLM Integration, AI-powered Tools
+                  </p>
                 </CardContent>
               </Card>
             </AnimatedSection>
 
-            <AnimatedSection direction="up" delay={500}>
-              <Card className="text-center w-full max-w-xs h-52 flex flex-col">
-                <CardContent className="p-6 flex-1 flex flex-col justify-center">
-                  <Code className="h-12 w-12 mx-auto mb-4 text-green-600" />
-                  <h3 className="font-semibold mb-3">Full-Stack Development</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">Scalable Web Applications</p>
+            <AnimatedSection direction='up' delay={500}>
+              <Card className='text-center w-full max-w-xs h-52 flex flex-col'>
+                <CardContent className='p-6 flex-1 flex flex-col justify-center'>
+                  <Code className='h-12 w-12 mx-auto mb-4 text-green-600' />
+                  <h3 className='font-semibold mb-3'>Full-Stack Development</h3>
+                  <p className='text-sm text-muted-foreground leading-relaxed'>
+                    Microservices, APIs, Cloud-native Web Apps
+                  </p>
                 </CardContent>
               </Card>
             </AnimatedSection>
 
-            <AnimatedSection direction="up" delay={600}>
-              <Card className="text-center w-full max-w-xs h-52 flex flex-col">
-                <CardContent className="p-6 flex-1 flex flex-col justify-center">
-                  <Zap className="h-12 w-12 mx-auto mb-4 text-orange-600" />
-                  <h3 className="font-semibold mb-3">System Design</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">LLD, HLD, Performance Optimization</p>
+            <AnimatedSection direction='up' delay={600}>
+              <Card className='text-center w-full max-w-xs h-52 flex flex-col'>
+                <CardContent className='p-6 flex-1 flex flex-col justify-center'>
+                  <Zap className='h-12 w-12 mx-auto mb-4 text-orange-600' />
+                  <h3 className='font-semibold mb-3'>System Design</h3>
+                  <p className='text-sm text-muted-foreground leading-relaxed'>
+                    LLD, HLD, Performance Optimization
+                  </p>
                 </CardContent>
               </Card>
             </AnimatedSection>
@@ -77,5 +86,5 @@ export default function About() {
         </div>
       </div>
     </section>
-  )
+  );
 }
