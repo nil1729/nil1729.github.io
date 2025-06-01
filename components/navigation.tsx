@@ -46,6 +46,7 @@ export default function Navigation() {
     { href: "#experience", label: "Experience" },
     { href: "#projects", label: "Projects" },
     { href: "#skills", label: "Skills" },
+    { href: "/blog", label: "Blog", isExternal: true },
     { href: "#contact", label: "Contact" },
   ]
 
@@ -63,16 +64,26 @@ export default function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                onClick={(e) => scrollToSection(e, item.href)}
-              >
-                {item.label}
-              </a>
-            ))}
+            {navItems.map((item) =>
+              item.isExternal ? (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={(e) => scrollToSection(e, item.href)}
+                >
+                  {item.label}
+                </a>
+              ),
+            )}
             <ThemeToggle />
           </div>
 
@@ -100,19 +111,30 @@ export default function Navigation() {
         {isOpen && (
           <div className="md:hidden border-t bg-background/95 backdrop-blur-sm">
             <div className="py-4 space-y-2">
-              {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="block px-4 py-2 text-muted-foreground hover:text-foreground transition-colors"
-                  onClick={(e) => {
-                    scrollToSection(e, item.href)
-                    setIsOpen(false)
-                  }}
-                >
-                  {item.label}
-                </a>
-              ))}
+              {navItems.map((item) =>
+                item.isExternal ? (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="block px-4 py-2 text-muted-foreground hover:text-foreground transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    className="block px-4 py-2 text-muted-foreground hover:text-foreground transition-colors"
+                    onClick={(e) => {
+                      scrollToSection(e, item.href)
+                      setIsOpen(false)
+                    }}
+                  >
+                    {item.label}
+                  </a>
+                ),
+              )}
 
               {/* Mobile Theme Options */}
               <div className="px-4 py-2 border-t">
