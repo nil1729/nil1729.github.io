@@ -8,8 +8,8 @@ import { AnimatedSection } from "./animated-section"
 export default function Hero() {
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800">
-      <div className="container px-4 md:px-6">
-        <div className="space-y-6 max-w-4xl mx-auto text-center">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="space-y-6 max-w-5xl mx-auto text-center">
           <AnimatedSection direction="down" delay={100}>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -25,7 +25,7 @@ export default function Hero() {
           </AnimatedSection>
 
           <AnimatedSection delay={500}>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
               Data Engineer & Software Developer specializing in Big Data, AI-driven analytics, and full-stack
               application development. Passionate about leveraging big data technologies and AI to drive insights,
               optimize performance, and build secure, scalable systems.

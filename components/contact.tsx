@@ -9,13 +9,13 @@ import { AnimatedSection } from "./animated-section"
 export default function Contact() {
   return (
     <section id="contact" className="py-20 bg-background">
-      <div className="container px-4 md:px-6">
-        <div className="max-w-4xl mx-auto">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Get In Touch</h2>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 gap-8 justify-items-center">
+          <div className="grid md:grid-cols-2 gap-8 justify-items-center max-w-5xl mx-auto">
             {/* Contact Information */}
             <div className="space-y-6 w-full max-w-md h-full">
               <AnimatedSection delay={200}>

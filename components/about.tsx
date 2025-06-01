@@ -5,14 +5,14 @@ import { AnimatedSection } from "./animated-section"
 export default function About() {
   return (
     <section id="about" className="py-20 bg-background">
-      <div className="container px-4 md:px-6">
-        <div className="max-w-4xl mx-auto">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">About Me</h2>
           </AnimatedSection>
 
           <AnimatedSection delay={200}>
-            <div className="max-w-4xl mx-auto mb-12">
+            <div className="max-w-5xl mx-auto mb-12">
               <p className="text-lg leading-relaxed mb-6">
                 My journey into data engineering and software development began at BITS Pilani, where I built a strong
                 foundation in Computer Science fundamentals. The rigorous curriculum in Data Structures, Algorithms,
@@ -33,7 +33,7 @@ export default function About() {
             </div>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center max-w-6xl mx-auto">
             <AnimatedSection direction="up" delay={300}>
               <Card className="text-center w-full max-w-xs h-52 flex flex-col">
                 <CardContent className="p-6 flex-1 flex flex-col justify-center">

@@ -72,13 +72,13 @@ export default function Skills() {
 
   return (
     <section id="skills" className="py-20 bg-slate-50 dark:bg-slate-900">
-      <div className="container px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Technical Skills</h2>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center max-w-6xl mx-auto">
             {skillCategories.map((category, index) => (
               <AnimatedSection key={index} direction="up" delay={200 + index * 100}>
                 <Card className="hover:shadow-lg transition-shadow w-full max-w-sm h-48 flex flex-col">
@@ -107,7 +107,7 @@ export default function Skills() {
             <AnimatedSection delay={1100}>
               <h3 className="text-2xl font-bold text-center mb-8">Core Competencies</h3>
             </AnimatedSection>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center max-w-6xl mx-auto">
               <AnimatedSection direction="up" delay={1200}>
                 <Card className="text-center bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 w-full max-w-xs h-48 flex flex-col">
                   <CardContent className="p-6 flex-1 flex flex-col justify-center">

@@ -6,15 +6,15 @@ import { AnimatedSection } from "./animated-section"
 export default function Experience() {
   return (
     <section id="experience" className="py-20 bg-slate-50 dark:bg-slate-900">
-      <div className="container px-4 md:px-6">
-        <div className="max-w-6xl mx-auto">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Professional Experience</h2>
           </AnimatedSection>
 
           <div className="space-y-8 flex flex-col items-center">
             {/* InMobi Group */}
-            <AnimatedSection delay={200} className="w-full max-w-5xl">
+            <AnimatedSection delay={200} className="w-full max-w-6xl">
               <Card className="border-l-4 border-l-blue-600">
                 <CardHeader>
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
@@ -97,7 +97,7 @@ export default function Experience() {
             </AnimatedSection>
 
             {/* Helioweb */}
-            <AnimatedSection delay={800} className="w-full max-w-5xl">
+            <AnimatedSection delay={800} className="w-full max-w-6xl">
               <Card className="border-l-4 border-l-green-600">
                 <CardHeader>
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
@@ -159,7 +159,7 @@ export default function Experience() {
             </AnimatedSection>
 
             {/* Key Responsibilities */}
-            <AnimatedSection delay={1300} className="w-full max-w-5xl">
+            <AnimatedSection delay={1300} className="w-full max-w-6xl">
               <Card className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20">
                 <CardHeader>
                   <CardTitle className="flex items-center">

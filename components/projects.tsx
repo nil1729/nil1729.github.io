@@ -89,7 +89,7 @@ export default function Projects() {
 
   return (
     <section id="projects" className="py-20 bg-background">
-      <div className="container px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Featured Projects</h2>
@@ -103,7 +103,7 @@ export default function Projects() {
                 Data Engineering & AI
               </h3>
             </AnimatedSection>
-            <div className="grid md:grid-cols-2 gap-6 justify-items-center">
+            <div className="grid md:grid-cols-2 gap-6 justify-items-center max-w-6xl mx-auto">
               {dataAIProjects.map((project, index) => (
                 <AnimatedSection key={index} direction="up" delay={300 + index * 100}>
                   <Card className="border-l-4 border-l-purple-600 hover:shadow-lg transition-shadow w-full max-w-lg h-80 flex flex-col">
@@ -150,7 +150,7 @@ export default function Projects() {
                 Software Engineering & Full-Stack
               </h3>
             </AnimatedSection>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center max-w-6xl mx-auto">
               {softwareProjects.map((project, index) => (
                 <AnimatedSection key={index} direction="up" delay={600 + index * 100}>
                   <Card className="border-l-4 border-l-blue-600 hover:shadow-lg transition-shadow w-full max-w-sm h-96 flex flex-col">
