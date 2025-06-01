@@ -1,12 +1,76 @@
+"use client"
+
+import type React from "react"
+
+import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, Linkedin, Github, Globe, Send } from "lucide-react"
+import { Mail, Linkedin, Github, Globe, Send, CheckCircle, AlertCircle } from "lucide-react"
 import Link from "next/link"
 import { AnimatedSection } from "./animated-section"
 
+interface FormData {
+  name: string
+  email: string
+  subject: string
+  message: string
+}
+
+interface FormStatus {
+  type: "idle" | "loading" | "success" | "error"
+  message: string
+}
+
 export default function Contact() {
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  })
+
+  const [status, setStatus] = useState<FormStatus>({
+    type: "idle",
+    message: "",
+  })
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+
+    setStatus({ type: "loading", message: "Sending message..." })
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const result = await response.json()
+
+      if (response.ok) {
+        setStatus({ type: "success", message: result.message })
+        setFormData({ name: "", email: "", subject: "", message: "" })
+      } else {
+        setStatus({ type: "error", message: result.error || "Failed to send message" })
+      }
+    } catch (error) {
+      setStatus({ type: "error", message: "Network error. Please try again." })
+    }
+  }
+
   return (
     <section id="contact" className="py-20 bg-background">
       <div className="container mx-auto px-4 md:px-6">
@@ -109,36 +173,101 @@ export default function Contact() {
                   <CardTitle>Send a Message</CardTitle>
                 </CardHeader>
                 <CardContent className="flex-1">
-                  <form className="space-y-4 h-full flex flex-col">
+                  <form onSubmit={handleSubmit} className="space-y-4 h-full flex flex-col">
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
                         <label htmlFor="name" className="text-sm font-medium mb-2 block">
-                          Name
+                          Name *
                         </label>
-                        <Input id="name" placeholder="Your name" />
+                        <Input
+                          id="name"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleInputChange}
+                          placeholder="Your name"
+                          required
+                          disabled={status.type === "loading"}
+                        />
                       </div>
                       <div>
                         <label htmlFor="email" className="text-sm font-medium mb-2 block">
-                          Email
+                          Email *
                         </label>
-                        <Input id="email" type="email" placeholder="your.email@example.com" />
+                        <Input
+                          id="email"
+                          name="email"
+                          type="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          placeholder="your.email@example.com"
+                          required
+                          disabled={status.type === "loading"}
+                        />
                       </div>
                     </div>
                     <div>
                       <label htmlFor="subject" className="text-sm font-medium mb-2 block">
-                        Subject
+                        Subject *
                       </label>
-                      <Input id="subject" placeholder="What's this about?" />
+                      <Input
+                        id="subject"
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleInputChange}
+                        placeholder="What's this about?"
+                        required
+                        disabled={status.type === "loading"}
+                      />
                     </div>
                     <div className="flex-1">
                       <label htmlFor="message" className="text-sm font-medium mb-2 block">
-                        Message
+                        Message *
                       </label>
-                      <Textarea id="message" placeholder="Your message..." rows={5} className="h-32" />
+                      <Textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        placeholder="Your message..."
+                        rows={5}
+                        className="h-32"
+                        required
+                        disabled={status.type === "loading"}
+                      />
                     </div>
-                    <Button type="submit" className="w-full mt-auto">
-                      <Send className="mr-2 h-4 w-4" />
-                      Send Message
+
+                    {/* Status Message */}
+                    {status.type !== "idle" && (
+                      <div
+                        className={`flex items-center gap-2 p-3 rounded-md ${
+                          status.type === "success"
+                            ? "bg-green-50 text-green-700 dark:bg-green-900/20 dark:text-green-400"
+                            : status.type === "error"
+                              ? "bg-red-50 text-red-700 dark:bg-red-900/20 dark:text-red-400"
+                              : "bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-400"
+                        }`}
+                      >
+                        {status.type === "success" && <CheckCircle className="h-4 w-4" />}
+                        {status.type === "error" && <AlertCircle className="h-4 w-4" />}
+                        {status.type === "loading" && (
+                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-current"></div>
+                        )}
+                        <span className="text-sm">{status.message}</span>
+                      </div>
+                    )}
+
+                    <Button type="submit" className="w-full mt-auto" disabled={status.type === "loading"}>
+                      {status.type === "loading" ? (
+                        <>
+                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="mr-2 h-4 w-4" />
+                          Send Message
+                        </>
+                      )}
                     </Button>
                   </form>
                 </CardContent>
