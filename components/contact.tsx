@@ -17,7 +17,7 @@ export default function Contact() {
 
           <div className="grid md:grid-cols-2 gap-8 justify-items-center">
             {/* Contact Information */}
-            <div className="space-y-6 w-full max-w-md">
+            <div className="space-y-6 w-full max-w-md h-full">
               <AnimatedSection delay={200}>
                 <div>
                   <h3 className="text-xl font-semibold mb-4">Let's Connect</h3>
@@ -28,7 +28,7 @@ export default function Contact() {
                 </div>
               </AnimatedSection>
 
-              <div className="space-y-4">
+              <div className="space-y-4 flex-1">
                 <AnimatedSection direction="right" delay={300}>
                   <Card className="hover:shadow-md transition-shadow">
                     <CardContent className="flex items-center p-4">
@@ -103,13 +103,13 @@ export default function Contact() {
             </div>
 
             {/* Contact Form */}
-            <AnimatedSection direction="left" delay={700} className="w-full max-w-md">
-              <Card>
-                <CardHeader>
+            <AnimatedSection direction="left" delay={700} className="w-full max-w-md h-full">
+              <Card className="h-full flex flex-col">
+                <CardHeader className="flex-shrink-0">
                   <CardTitle>Send a Message</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <form className="space-y-4">
+                <CardContent className="flex-1">
+                  <form className="space-y-4 h-full flex flex-col">
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
                         <label htmlFor="name" className="text-sm font-medium mb-2 block">
@@ -130,13 +130,13 @@ export default function Contact() {
                       </label>
                       <Input id="subject" placeholder="What's this about?" />
                     </div>
-                    <div>
+                    <div className="flex-1">
                       <label htmlFor="message" className="text-sm font-medium mb-2 block">
                         Message
                       </label>
-                      <Textarea id="message" placeholder="Your message..." rows={5} />
+                      <Textarea id="message" placeholder="Your message..." rows={5} className="h-32" />
                     </div>
-                    <Button type="submit" className="w-full">
+                    <Button type="submit" className="w-full mt-auto">
                       <Send className="mr-2 h-4 w-4" />
                       Send Message
                     </Button>

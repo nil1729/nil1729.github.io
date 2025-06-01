@@ -106,8 +106,8 @@ export default function Projects() {
             <div className="grid md:grid-cols-2 gap-6 justify-items-center">
               {dataAIProjects.map((project, index) => (
                 <AnimatedSection key={index} direction="up" delay={300 + index * 100}>
-                  <Card className="border-l-4 border-l-purple-600 hover:shadow-lg transition-shadow w-full max-w-lg">
-                    <CardHeader>
+                  <Card className="border-l-4 border-l-purple-600 hover:shadow-lg transition-shadow w-full max-w-lg h-80 flex flex-col">
+                    <CardHeader className="flex-shrink-0">
                       <CardTitle className="flex items-center">
                         <project.icon className="h-5 w-5 mr-2 text-purple-600" />
                         {project.title}
@@ -116,10 +116,10 @@ export default function Projects() {
                         {project.category}
                       </Badge>
                     </CardHeader>
-                    <CardContent className="space-y-4">
+                    <CardContent className="space-y-4 flex-1 flex flex-col">
                       <p className="text-muted-foreground">{project.description}</p>
 
-                      <div>
+                      <div className="flex-1">
                         <h4 className="font-semibold mb-2">Key Highlights:</h4>
                         <ul className="text-sm text-muted-foreground space-y-1">
                           {project.highlights.map((highlight, i) => (
@@ -128,7 +128,7 @@ export default function Projects() {
                         </ul>
                       </div>
 
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-2 mt-auto">
                         {project.technologies.map((tech) => (
                           <Badge key={tech} variant="secondary">
                             {tech}
@@ -153,17 +153,17 @@ export default function Projects() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
               {softwareProjects.map((project, index) => (
                 <AnimatedSection key={index} direction="up" delay={600 + index * 100}>
-                  <Card className="border-l-4 border-l-blue-600 hover:shadow-lg transition-shadow w-full max-w-sm">
-                    <CardHeader>
+                  <Card className="border-l-4 border-l-blue-600 hover:shadow-lg transition-shadow w-full max-w-sm h-96 flex flex-col">
+                    <CardHeader className="flex-shrink-0">
                       <CardTitle className="flex items-center text-lg">
                         <project.icon className="h-5 w-5 mr-2 text-blue-600" />
                         {project.title}
                       </CardTitle>
                     </CardHeader>
-                    <CardContent className="space-y-4">
+                    <CardContent className="space-y-4 flex-1 flex flex-col">
                       <p className="text-muted-foreground text-sm">{project.description}</p>
 
-                      <div>
+                      <div className="flex-1">
                         <h4 className="font-semibold mb-2 text-sm">Key Features:</h4>
                         <ul className="text-xs text-muted-foreground space-y-1">
                           {project.highlights.map((highlight, i) => (
@@ -172,21 +172,23 @@ export default function Projects() {
                         </ul>
                       </div>
 
-                      <div className="flex flex-wrap gap-1">
-                        {project.technologies.map((tech) => (
-                          <Badge key={tech} variant="secondary" className="text-xs">
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
+                      <div className="space-y-3 mt-auto">
+                        <div className="flex flex-wrap gap-1">
+                          {project.technologies.map((tech) => (
+                            <Badge key={tech} variant="secondary" className="text-xs">
+                              {tech}
+                            </Badge>
+                          ))}
+                        </div>
 
-                      <div className="flex gap-2 pt-2">
-                        <Button size="sm" variant="outline" asChild>
-                          <Link href={project.github} target="_blank">
-                            <Github className="h-3 w-3 mr-1" />
-                            Code
-                          </Link>
-                        </Button>
+                        <div className="flex gap-2">
+                          <Button size="sm" variant="outline" asChild>
+                            <Link href={project.github} target="_blank">
+                              <Github className="h-3 w-3 mr-1" />
+                              Code
+                            </Link>
+                          </Button>
+                        </div>
                       </div>
                     </CardContent>
                   </Card>
