@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowDown, Download, Mail, Github, Linkedin } from "lucide-react"
+import { ArrowDown, ExternalLink, Mail, Github, Linkedin } from "lucide-react"
 import Link from "next/link"
 import { AnimatedSection } from "./animated-section"
 
@@ -47,9 +47,9 @@ export default function Hero() {
                 </a>
               </Button>
               <Button size="lg" variant="outline" className="w-full sm:w-auto" asChild>
-                <Link href="/resume.pdf" target="_blank">
-                  <Download className="mr-2 h-4 w-4" />
-                  Download Resume
+                <Link href="https://bit.ly/nilanjandeb" target="_blank">
+                  <ExternalLink className="mr-2 h-4 w-4" />
+                  View Resume
                 </Link>
               </Button>
               <Button size="lg" variant="outline" className="w-full sm:w-auto" asChild>
