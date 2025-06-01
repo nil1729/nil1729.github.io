@@ -54,8 +54,8 @@ export default function BlogPage() {
     <main className="min-h-screen bg-background pt-16">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800">
-        <div className="container px-4 md:px-6">
-          <div className="max-w-4xl mx-auto text-center">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="max-w-5xl mx-auto text-center">
             <AnimatedSection>
               <Link
                 href="/"
@@ -82,7 +82,7 @@ export default function BlogPage() {
             </AnimatedSection>
 
             <AnimatedSection delay={600}>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
                 Welcome to my technical blog where I share my daily learnings, insights, and practical experiences in
                 Data Engineering and Artificial Intelligence. From building scalable data pipelines to implementing
                 AI-powered analytics, I document my journey and share knowledge with the community.
@@ -94,8 +94,8 @@ export default function BlogPage() {
 
       {/* Coming Soon Banner */}
       <section className="py-16 bg-background">
-        <div className="container px-4 md:px-6">
-          <div className="max-w-4xl mx-auto">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="max-w-5xl mx-auto">
             <AnimatedSection delay={800}>
               <Card className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 border-2 border-dashed border-blue-300 dark:border-blue-700">
                 <CardContent className="p-8 text-center">
@@ -103,7 +103,7 @@ export default function BlogPage() {
                     <Bell className="h-16 w-16 text-blue-600 animate-pulse" />
                   </div>
                   <h3 className="text-2xl md:text-3xl font-bold mb-4">Blog Coming Soon!</h3>
-                  <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
+                  <p className="text-lg text-muted-foreground mb-6 max-w-3xl mx-auto">
                     I'm currently working on creating high-quality content that covers my daily learnings in Data
                     Engineering and AI. Each post will include practical examples, code snippets, and real-world
                     applications from my professional experience.
@@ -128,29 +128,31 @@ export default function BlogPage() {
 
       {/* Upcoming Topics */}
       <section className="py-16 bg-slate-50 dark:bg-slate-900">
-        <div className="container px-4 md:px-6">
-          <div className="max-w-6xl mx-auto">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="max-w-7xl mx-auto">
             <AnimatedSection delay={1000}>
               <h3 className="text-3xl font-bold text-center mb-12">Upcoming Topics</h3>
             </AnimatedSection>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center max-w-6xl mx-auto">
               {upcomingTopics.map((topic, index) => (
                 <AnimatedSection key={index} direction="up" delay={1200 + index * 100}>
-                  <Card className="hover:shadow-lg transition-shadow h-full">
-                    <CardContent className="p-6">
+                  <Card className="hover:shadow-lg transition-shadow w-full max-w-sm h-64 flex flex-col">
+                    <CardContent className="p-6 flex-1 flex flex-col">
                       <div className="flex items-start mb-4">
-                        <topic.icon className="h-8 w-8 text-blue-600 mr-3 mt-1" />
-                        <div className="flex-1">
+                        <topic.icon className="h-8 w-8 text-blue-600 mr-3 mt-1 flex-shrink-0" />
+                        <div className="flex-1 min-w-0">
                           <span className="text-xs font-medium text-blue-600 bg-blue-50 dark:bg-blue-900/20 px-2 py-1 rounded">
                             {topic.category}
                           </span>
                         </div>
                       </div>
-                      <h4 className="font-semibold text-lg mb-3">{topic.title}</h4>
-                      <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{topic.description}</p>
-                      <div className="flex items-center text-xs text-muted-foreground">
-                        <Calendar className="h-3 w-3 mr-1" />
+                      <h4 className="font-semibold text-lg mb-3 line-clamp-2">{topic.title}</h4>
+                      <p className="text-muted-foreground text-sm mb-4 leading-relaxed flex-1 line-clamp-3">
+                        {topic.description}
+                      </p>
+                      <div className="flex items-center text-xs text-muted-foreground mt-auto">
+                        <Calendar className="h-3 w-3 mr-1 flex-shrink-0" />
                         {topic.estimatedDate}
                       </div>
                     </CardContent>
@@ -164,21 +166,21 @@ export default function BlogPage() {
 
       {/* Focus Areas */}
       <section className="py-16 bg-background">
-        <div className="container px-4 md:px-6">
-          <div className="max-w-4xl mx-auto">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="max-w-6xl mx-auto">
             <AnimatedSection delay={1800}>
               <h3 className="text-2xl font-bold text-center mb-8">What You Can Expect</h3>
             </AnimatedSection>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-8 justify-items-center max-w-5xl mx-auto">
               <AnimatedSection direction="right" delay={2000}>
-                <Card className="border-l-4 border-l-blue-600">
-                  <CardContent className="p-6">
+                <Card className="border-l-4 border-l-blue-600 w-full max-w-lg h-80 flex flex-col">
+                  <CardContent className="p-6 flex-1 flex flex-col">
                     <div className="flex items-center mb-4">
-                      <Database className="h-8 w-8 text-blue-600 mr-3" />
+                      <Database className="h-8 w-8 text-blue-600 mr-3 flex-shrink-0" />
                       <h4 className="font-semibold text-lg">Data Engineering</h4>
                     </div>
-                    <ul className="space-y-2 text-muted-foreground">
+                    <ul className="space-y-2 text-muted-foreground flex-1">
                       <li>• Real-time streaming architectures</li>
                       <li>• Data pipeline optimization techniques</li>
                       <li>• Modern data lake implementations</li>
@@ -190,13 +192,13 @@ export default function BlogPage() {
               </AnimatedSection>
 
               <AnimatedSection direction="left" delay={2200}>
-                <Card className="border-l-4 border-l-purple-600">
-                  <CardContent className="p-6">
+                <Card className="border-l-4 border-l-purple-600 w-full max-w-lg h-80 flex flex-col">
+                  <CardContent className="p-6 flex-1 flex flex-col">
                     <div className="flex items-center mb-4">
-                      <Brain className="h-8 w-8 text-purple-600 mr-3" />
+                      <Brain className="h-8 w-8 text-purple-600 mr-3 flex-shrink-0" />
                       <h4 className="font-semibold text-lg">AI & Machine Learning</h4>
                     </div>
-                    <ul className="space-y-2 text-muted-foreground">
+                    <ul className="space-y-2 text-muted-foreground flex-1">
                       <li>• LLM integration patterns</li>
                       <li>• AI-powered analytics solutions</li>
                       <li>• Machine learning in production</li>
