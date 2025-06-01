@@ -81,15 +81,15 @@ export default function Skills() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center max-w-6xl mx-auto">
             {skillCategories.map((category, index) => (
               <AnimatedSection key={index} direction="up" delay={200 + index * 100}>
-                <Card className="hover:shadow-lg transition-shadow w-full max-w-sm h-56 flex flex-col">
+                <Card className="hover:shadow-lg transition-shadow w-full h-64 flex flex-col">
                   <CardHeader className="pb-3 flex-shrink-0">
-                    <CardTitle className="flex items-center text-lg min-h-[2rem]">
+                    <CardTitle className="flex items-center text-lg">
                       <category.icon className={`h-5 w-5 mr-2 flex-shrink-0 ${category.color}`} />
-                      <span className="line-clamp-2">{category.title}</span>
+                      <span className="line-clamp-1">{category.title}</span>
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="flex-1 flex items-start overflow-hidden">
-                    <div className="flex flex-wrap gap-2 max-h-full overflow-hidden">
+                    <div className="flex flex-wrap gap-2 overflow-y-auto max-h-full pr-2">
                       {category.skills.map((skill) => (
                         <Badge key={skill} variant="secondary" className="text-xs whitespace-nowrap">
                           {skill}
@@ -109,10 +109,10 @@ export default function Skills() {
             </AnimatedSection>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center max-w-6xl mx-auto">
               <AnimatedSection direction="up" delay={1200}>
-                <Card className="text-center bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 w-full max-w-xs h-56 flex flex-col">
+                <Card className="text-center bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 w-full h-64 flex flex-col">
                   <CardContent className="p-6 flex-1 flex flex-col justify-center">
                     <Database className="h-12 w-12 mx-auto mb-4 text-blue-600 flex-shrink-0" />
-                    <h4 className="font-semibold mb-3 min-h-[1.5rem]">Data Architecture</h4>
+                    <h4 className="font-semibold mb-3">Data Architecture</h4>
                     <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
                       Designing scalable data pipelines and lake architectures
                     </p>
@@ -121,10 +121,10 @@ export default function Skills() {
               </AnimatedSection>
 
               <AnimatedSection direction="up" delay={1300}>
-                <Card className="text-center bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 w-full max-w-xs h-56 flex flex-col">
+                <Card className="text-center bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 w-full h-64 flex flex-col">
                   <CardContent className="p-6 flex-1 flex flex-col justify-center">
                     <Brain className="h-12 w-12 mx-auto mb-4 text-purple-600 flex-shrink-0" />
-                    <h4 className="font-semibold mb-3 min-h-[1.5rem]">AI Integration</h4>
+                    <h4 className="font-semibold mb-3">AI Integration</h4>
                     <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
                       Implementing AI-powered analytics and LLM solutions
                     </p>
@@ -133,10 +133,10 @@ export default function Skills() {
               </AnimatedSection>
 
               <AnimatedSection direction="up" delay={1400}>
-                <Card className="text-center bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 w-full max-w-xs h-56 flex flex-col">
+                <Card className="text-center bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 w-full h-64 flex flex-col">
                   <CardContent className="p-6 flex-1 flex flex-col justify-center">
                     <Settings className="h-12 w-12 mx-auto mb-4 text-green-600 flex-shrink-0" />
-                    <h4 className="font-semibold mb-3 min-h-[1.5rem]">System Design</h4>
+                    <h4 className="font-semibold mb-3">System Design</h4>
                     <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
                       Low-level and high-level system architecture design
                     </p>
@@ -145,10 +145,10 @@ export default function Skills() {
               </AnimatedSection>
 
               <AnimatedSection direction="up" delay={1500}>
-                <Card className="text-center bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 w-full max-w-xs h-56 flex flex-col">
+                <Card className="text-center bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 w-full h-64 flex flex-col">
                   <CardContent className="p-6 flex-1 flex flex-col justify-center">
                     <BarChart3 className="h-12 w-12 mx-auto mb-4 text-orange-600 flex-shrink-0" />
-                    <h4 className="font-semibold mb-3 min-h-[1.5rem]">Performance Optimization</h4>
+                    <h4 className="font-semibold mb-3">Performance Optimization</h4>
                     <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
                       Optimizing systems for speed, efficiency, and cost
                     </p>
