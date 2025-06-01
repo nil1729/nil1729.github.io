@@ -42,14 +42,14 @@ export default function Hero() {
                     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
                   }}
                 >
-                  View Projects
+                  Explore My Work
                   <ArrowDown className="ml-2 h-4 w-4" />
                 </a>
               </Button>
               <Button size="lg" variant="outline" className="w-full sm:w-auto" asChild>
                 <Link href="https://bit.ly/nilanjandeb" target="_blank">
                   <ExternalLink className="mr-2 h-4 w-4" />
-                  View Resume
+                  My Resume
                 </Link>
               </Button>
               <Button size="lg" variant="outline" className="w-full sm:w-auto" asChild>
