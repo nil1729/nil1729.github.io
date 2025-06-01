@@ -174,7 +174,7 @@ export default function BlogPage() {
 
             <div className="grid md:grid-cols-2 gap-8 justify-items-center max-w-5xl mx-auto">
               <AnimatedSection direction="right" delay={2000}>
-                <Card className="border-l-4 border-l-blue-600 w-full max-w-lg h-80 flex flex-col">
+                <Card className="border-l-4 border-l-blue-600 w-full h-80 flex flex-col">
                   <CardContent className="p-6 flex-1 flex flex-col">
                     <div className="flex items-center mb-4">
                       <Database className="h-8 w-8 text-blue-600 mr-3 flex-shrink-0" />
@@ -192,7 +192,7 @@ export default function BlogPage() {
               </AnimatedSection>
 
               <AnimatedSection direction="left" delay={2200}>
-                <Card className="border-l-4 border-l-purple-600 w-full max-w-lg h-80 flex flex-col">
+                <Card className="border-l-4 border-l-purple-600 w-full h-80 flex flex-col">
                   <CardContent className="p-6 flex-1 flex flex-col">
                     <div className="flex items-center mb-4">
                       <Brain className="h-8 w-8 text-purple-600 mr-3 flex-shrink-0" />
