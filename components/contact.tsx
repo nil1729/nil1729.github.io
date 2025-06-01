@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, Linkedin, Github, Globe, Send, CheckCircle, AlertCircle } from "lucide-react"
+import { Mail, Linkedin, Github, Phone, Send, CheckCircle, AlertCircle } from "lucide-react"
 import Link from "next/link"
 import { AnimatedSection } from "./animated-section"
 
@@ -149,15 +149,14 @@ export default function Contact() {
                 <AnimatedSection direction="right" delay={600}>
                   <Card className="hover:shadow-md transition-shadow">
                     <CardContent className="flex items-center p-4">
-                      <Globe className="h-5 w-5 mr-3 text-blue-600" />
+                      <Phone className="h-5 w-5 mr-3 text-blue-600" />
                       <div>
-                        <p className="font-medium">Website</p>
+                        <p className="font-medium">Phone</p>
                         <Link
-                          href="https://nilanjandeb.com"
-                          target="_blank"
+                          href="tel:+917411261729"
                           className="text-muted-foreground hover:text-foreground transition-colors"
                         >
-                          nilanjandeb.com
+                          +91-74112-61729
                         </Link>
                       </div>
                     </CardContent>
