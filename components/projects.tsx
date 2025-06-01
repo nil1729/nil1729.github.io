@@ -106,35 +106,33 @@ export default function Projects() {
             <div className="grid md:grid-cols-2 gap-6 justify-items-center max-w-6xl mx-auto">
               {dataAIProjects.map((project, index) => (
                 <AnimatedSection key={index} direction="up" delay={300 + index * 100}>
-                  <Card className="border-l-4 border-l-purple-600 hover:shadow-lg transition-shadow w-full h-auto md:h-80 flex flex-col">
-                    <CardHeader className="flex-shrink-0 pb-3">
-                      <CardTitle className="flex items-center text-base md:text-lg line-clamp-1">
-                        <project.icon className="h-5 w-5 mr-2 text-purple-600 flex-shrink-0" />
-                        <span className="truncate">{project.title}</span>
+                  <Card className="border-l-4 border-l-purple-600 hover:shadow-lg transition-shadow w-full max-w-lg h-auto md:h-80 flex flex-col">
+                    <CardHeader className="flex-shrink-0">
+                      <CardTitle className="flex items-center">
+                        <project.icon className="h-5 w-5 mr-2 text-purple-600" />
+                        {project.title}
                       </CardTitle>
                       <Badge variant="outline" className="w-fit">
                         {project.category}
                       </Badge>
                     </CardHeader>
-                    <CardContent className="space-y-3 flex-1 flex flex-col pt-0">
-                      <p className="text-muted-foreground text-sm line-clamp-2 md:line-clamp-none">
+                    <CardContent className="space-y-4 flex-1 flex flex-col">
+                      <p className="text-muted-foreground text-sm md:text-base line-clamp-3 md:line-clamp-none">
                         {project.description}
                       </p>
 
                       <div className="flex-1">
-                        <h4 className="font-semibold mb-1 text-sm">Key Highlights:</h4>
-                        <ul className="text-xs md:text-sm text-muted-foreground space-y-0.5">
+                        <h4 className="font-semibold mb-2">Key Highlights:</h4>
+                        <ul className="text-xs md:text-sm text-muted-foreground space-y-1">
                           {project.highlights.map((highlight, i) => (
-                            <li key={i} className="line-clamp-1">
-                              • {highlight}
-                            </li>
+                            <li key={i}>• {highlight}</li>
                           ))}
                         </ul>
                       </div>
 
-                      <div className="flex flex-wrap gap-1 mt-auto">
+                      <div className="flex flex-wrap gap-1 md:gap-2 mt-auto">
                         {project.technologies.map((tech) => (
-                          <Badge key={tech} variant="secondary" className="text-xs py-0">
+                          <Badge key={tech} variant="secondary" className="text-xs">
                             {tech}
                           </Badge>
                         ))}
@@ -157,40 +155,38 @@ export default function Projects() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center max-w-6xl mx-auto">
               {softwareProjects.map((project, index) => (
                 <AnimatedSection key={index} direction="up" delay={600 + index * 100}>
-                  <Card className="border-l-4 border-l-blue-600 hover:shadow-lg transition-shadow w-full h-auto md:h-96 flex flex-col">
-                    <CardHeader className="flex-shrink-0 pb-3">
-                      <CardTitle className="flex items-center text-base md:text-lg line-clamp-1">
-                        <project.icon className="h-5 w-5 mr-2 text-blue-600 flex-shrink-0" />
-                        <span className="truncate">{project.title}</span>
+                  <Card className="border-l-4 border-l-blue-600 hover:shadow-lg transition-shadow w-full max-w-sm h-auto md:h-96 flex flex-col">
+                    <CardHeader className="flex-shrink-0">
+                      <CardTitle className="flex items-center text-lg">
+                        <project.icon className="h-5 w-5 mr-2 text-blue-600" />
+                        {project.title}
                       </CardTitle>
                     </CardHeader>
-                    <CardContent className="space-y-3 flex-1 flex flex-col pt-0">
-                      <p className="text-muted-foreground text-xs md:text-sm line-clamp-2 md:line-clamp-none">
+                    <CardContent className="space-y-4 flex-1 flex flex-col">
+                      <p className="text-muted-foreground text-xs md:text-sm line-clamp-3 md:line-clamp-none">
                         {project.description}
                       </p>
 
                       <div className="flex-1">
-                        <h4 className="font-semibold mb-1 text-xs md:text-sm">Key Features:</h4>
-                        <ul className="text-xs text-muted-foreground space-y-0.5">
+                        <h4 className="font-semibold mb-2 text-sm">Key Features:</h4>
+                        <ul className="text-xs text-muted-foreground space-y-1">
                           {project.highlights.map((highlight, i) => (
-                            <li key={i} className="line-clamp-1">
-                              • {highlight}
-                            </li>
+                            <li key={i}>• {highlight}</li>
                           ))}
                         </ul>
                       </div>
 
-                      <div className="space-y-2 mt-auto">
+                      <div className="space-y-3 mt-auto">
                         <div className="flex flex-wrap gap-1">
                           {project.technologies.map((tech) => (
-                            <Badge key={tech} variant="secondary" className="text-xs py-0">
+                            <Badge key={tech} variant="secondary" className="text-xs">
                               {tech}
                             </Badge>
                           ))}
                         </div>
 
                         <div className="flex gap-2">
-                          <Button size="sm" variant="outline" asChild className="h-7 text-xs">
+                          <Button size="sm" variant="outline" asChild>
                             <Link href={project.github} target="_blank">
                               <Github className="h-3 w-3 mr-1" />
                               Code
