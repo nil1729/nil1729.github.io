@@ -93,12 +93,6 @@ body {
   }
 }
 
-/* View Transitions */
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: 0.5s;
-}
-
 /* Custom animation for section transitions */
 @keyframes fade-in-up {
   from {
@@ -158,4 +152,16 @@ html {
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Enhanced button hover effects */
+button {
+  transition: all 0.2s ease;
+}
+
+/* Smooth transitions for all interactive elements */
+a,
+button,
+.card {
+  transition: all 0.3s ease;
 }
