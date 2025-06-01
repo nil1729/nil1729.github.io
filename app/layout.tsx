@@ -90,7 +90,7 @@ export const metadata: Metadata = {
   other: {
     "google-site-verification": "your-google-verification-code-here",
   },
-    generator: 'v0.dev'
+  generator: "v0.dev",
 }
 
 const jsonLd = {
@@ -142,7 +142,7 @@ export default function RootLayout({
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange={false}>
           <Navigation />
           {children}
           <Footer />

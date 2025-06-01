@@ -6,15 +6,20 @@ import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 
 export function ThemeToggle() {
-  const { setTheme, resolvedTheme } = useTheme()
+  const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     setMounted(true)
   }, [])
 
-  const toggleTheme = () => {
-    setTheme(resolvedTheme === "light" ? "dark" : "light")
+  const handleToggle = () => {
+    console.log("Current theme:", theme) // Debug log
+    if (theme === "light") {
+      setTheme("dark")
+    } else {
+      setTheme("light")
+    }
   }
 
   if (!mounted) {
@@ -26,18 +31,21 @@ export function ThemeToggle() {
     )
   }
 
+  const isDark = theme === "dark"
+
   return (
     <Button
       variant="ghost"
       size="sm"
-      className="w-9 px-0"
-      onClick={toggleTheme}
-      aria-label={`Switch to ${resolvedTheme === "light" ? "dark" : "light"} mode`}
+      className="w-9 px-0 hover:bg-accent"
+      onClick={handleToggle}
+      type="button"
+      aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
     >
-      {resolvedTheme === "light" ? (
-        <Moon className="h-4 w-4 transition-all duration-300" />
+      {isDark ? (
+        <Sun className="h-4 w-4 transition-transform duration-200" />
       ) : (
-        <Sun className="h-4 w-4 transition-all duration-300" />
+        <Moon className="h-4 w-4 transition-transform duration-200" />
       )}
       <span className="sr-only">Toggle theme</span>
     </Button>
