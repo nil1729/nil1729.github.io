@@ -9,14 +9,12 @@ export default function Experience() {
       <div className="container px-4 md:px-6">
         <div className="max-w-6xl mx-auto">
           <AnimatedSection>
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold">Professional Experience</h2>
-            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Professional Experience</h2>
           </AnimatedSection>
 
-          <div className="space-y-8">
+          <div className="space-y-8 flex flex-col items-center">
             {/* InMobi Group */}
-            <AnimatedSection delay={200}>
+            <AnimatedSection delay={200} className="w-full max-w-5xl">
               <Card className="border-l-4 border-l-blue-600">
                 <CardHeader>
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
@@ -62,9 +60,9 @@ export default function Experience() {
                   </div>
 
                   <AnimatedSection delay={600}>
-                    <div className="text-center">
+                    <div>
                       <h4 className="font-semibold mb-3">Key Achievements:</h4>
-                      <ul className="text-left max-w-3xl mx-auto space-y-2 text-muted-foreground">
+                      <ul className="space-y-2 text-muted-foreground">
                         <li>• Architected real-time data streaming pipelines using Spark Streaming and Kafka</li>
                         <li>• Implemented CDC pipeline with Apache Hudi for efficient data lake management</li>
                         <li>• Developed Trino gateway with Apache Iceberg for optimized query performance</li>
@@ -76,7 +74,7 @@ export default function Experience() {
                   </AnimatedSection>
 
                   <AnimatedSection delay={700}>
-                    <div className="flex flex-wrap gap-2 justify-center">
+                    <div className="flex flex-wrap gap-2">
                       {[
                         "Apache Spark",
                         "Kafka",
@@ -99,7 +97,7 @@ export default function Experience() {
             </AnimatedSection>
 
             {/* Helioweb */}
-            <AnimatedSection delay={800}>
+            <AnimatedSection delay={800} className="w-full max-w-5xl">
               <Card className="border-l-4 border-l-green-600">
                 <CardHeader>
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
@@ -136,9 +134,9 @@ export default function Experience() {
                   </div>
 
                   <AnimatedSection delay={1100}>
-                    <div className="text-center">
+                    <div>
                       <h4 className="font-semibold mb-3">Key Projects:</h4>
-                      <ul className="text-left max-w-3xl mx-auto space-y-2 text-muted-foreground">
+                      <ul className="space-y-2 text-muted-foreground">
                         <li>• Developed P2P delivery platform with real-time order tracking</li>
                         <li>• Built comprehensive order management system for manufacturing</li>
                         <li>• Created student management portal with advanced analytics</li>
@@ -148,7 +146,7 @@ export default function Experience() {
                   </AnimatedSection>
 
                   <AnimatedSection delay={1200}>
-                    <div className="flex flex-wrap gap-2 justify-center">
+                    <div className="flex flex-wrap gap-2">
                       {["React", "Node.js", "MongoDB", "Express.js", "Vue.js", "PostgreSQL", "Docker"].map((tech) => (
                         <Badge key={tech} variant="secondary">
                           {tech}
@@ -161,7 +159,7 @@ export default function Experience() {
             </AnimatedSection>
 
             {/* Key Responsibilities */}
-            <AnimatedSection delay={1300}>
+            <AnimatedSection delay={1300} className="w-full max-w-5xl">
               <Card className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20">
                 <CardHeader>
                   <CardTitle className="flex items-center">

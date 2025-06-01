@@ -12,16 +12,14 @@ export default function Contact() {
       <div className="container px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
           <AnimatedSection>
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold">Get In Touch</h2>
-            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Get In Touch</h2>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 justify-items-center">
             {/* Contact Information */}
-            <div className="space-y-6">
+            <div className="space-y-6 w-full max-w-md">
               <AnimatedSection delay={200}>
-                <div className="text-center">
+                <div>
                   <h3 className="text-xl font-semibold mb-4">Let's Connect</h3>
                   <p className="text-muted-foreground mb-6">
                     I'm always interested in discussing data engineering challenges, AI innovations, and opportunities
@@ -105,7 +103,7 @@ export default function Contact() {
             </div>
 
             {/* Contact Form */}
-            <AnimatedSection direction="left" delay={700}>
+            <AnimatedSection direction="left" delay={700} className="w-full max-w-md">
               <Card>
                 <CardHeader>
                   <CardTitle>Send a Message</CardTitle>

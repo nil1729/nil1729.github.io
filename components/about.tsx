@@ -12,7 +12,7 @@ export default function About() {
           </AnimatedSection>
 
           <AnimatedSection delay={200}>
-            <div className="text-center max-w-4xl mx-auto mb-12">
+            <div className="max-w-4xl mx-auto mb-12">
               <p className="text-lg leading-relaxed mb-6">
                 My journey into data engineering and software development began at BITS Pilani, where I built a strong
                 foundation in Computer Science fundamentals. The rigorous curriculum in Data Structures, Algorithms,
@@ -33,7 +33,7 @@ export default function About() {
             </div>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
             <AnimatedSection direction="up" delay={300}>
               <Card className="text-center">
                 <CardContent className="pt-6">

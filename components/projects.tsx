@@ -98,17 +98,15 @@ export default function Projects() {
           {/* Data & AI Projects */}
           <div className="mb-16">
             <AnimatedSection delay={200}>
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold flex items-center justify-center">
-                  <Brain className="h-6 w-6 mr-3 text-purple-600" />
-                  Data Engineering & AI
-                </h3>
-              </div>
+              <h3 className="text-2xl font-bold mb-8 flex items-center justify-center">
+                <Brain className="h-6 w-6 mr-3 text-purple-600" />
+                Data Engineering & AI
+              </h3>
             </AnimatedSection>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-6 justify-items-center">
               {dataAIProjects.map((project, index) => (
                 <AnimatedSection key={index} direction="up" delay={300 + index * 100}>
-                  <Card className="border-l-4 border-l-purple-600 hover:shadow-lg transition-shadow">
+                  <Card className="border-l-4 border-l-purple-600 hover:shadow-lg transition-shadow w-full max-w-lg">
                     <CardHeader>
                       <CardTitle className="flex items-center">
                         <project.icon className="h-5 w-5 mr-2 text-purple-600" />
@@ -121,16 +119,16 @@ export default function Projects() {
                     <CardContent className="space-y-4">
                       <p className="text-muted-foreground">{project.description}</p>
 
-                      <div className="text-center">
+                      <div>
                         <h4 className="font-semibold mb-2">Key Highlights:</h4>
-                        <ul className="text-left max-w-xs mx-auto text-sm text-muted-foreground space-y-1">
+                        <ul className="text-sm text-muted-foreground space-y-1">
                           {project.highlights.map((highlight, i) => (
                             <li key={i}>• {highlight}</li>
                           ))}
                         </ul>
                       </div>
 
-                      <div className="flex flex-wrap gap-2 justify-center">
+                      <div className="flex flex-wrap gap-2">
                         {project.technologies.map((tech) => (
                           <Badge key={tech} variant="secondary">
                             {tech}
@@ -147,17 +145,15 @@ export default function Projects() {
           {/* Software Engineering Projects */}
           <div>
             <AnimatedSection delay={500}>
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold flex items-center justify-center">
-                  <Code className="h-6 w-6 mr-3 text-blue-600" />
-                  Software Engineering & Full-Stack
-                </h3>
-              </div>
+              <h3 className="text-2xl font-bold mb-8 flex items-center justify-center">
+                <Code className="h-6 w-6 mr-3 text-blue-600" />
+                Software Engineering & Full-Stack
+              </h3>
             </AnimatedSection>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
               {softwareProjects.map((project, index) => (
                 <AnimatedSection key={index} direction="up" delay={600 + index * 100}>
-                  <Card className="border-l-4 border-l-blue-600 hover:shadow-lg transition-shadow">
+                  <Card className="border-l-4 border-l-blue-600 hover:shadow-lg transition-shadow w-full max-w-sm">
                     <CardHeader>
                       <CardTitle className="flex items-center text-lg">
                         <project.icon className="h-5 w-5 mr-2 text-blue-600" />
@@ -167,16 +163,16 @@ export default function Projects() {
                     <CardContent className="space-y-4">
                       <p className="text-muted-foreground text-sm">{project.description}</p>
 
-                      <div className="text-center">
+                      <div>
                         <h4 className="font-semibold mb-2 text-sm">Key Features:</h4>
-                        <ul className="text-left max-w-xs mx-auto text-xs text-muted-foreground space-y-1">
+                        <ul className="text-xs text-muted-foreground space-y-1">
                           {project.highlights.map((highlight, i) => (
                             <li key={i}>• {highlight}</li>
                           ))}
                         </ul>
                       </div>
 
-                      <div className="flex flex-wrap gap-1 justify-center">
+                      <div className="flex flex-wrap gap-1">
                         {project.technologies.map((tech) => (
                           <Badge key={tech} variant="secondary" className="text-xs">
                             {tech}
