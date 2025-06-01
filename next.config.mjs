@@ -9,8 +9,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Remove output: 'export' for server deployment with API routes
-  // output: 'export',
+  // Removed output: 'export' to enable API routes
   trailingSlash: true,
 };
 
