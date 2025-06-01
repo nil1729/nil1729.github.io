@@ -35,41 +35,41 @@ export default function About() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
             <AnimatedSection direction="up" delay={300}>
-              <Card className="text-center w-full max-w-xs h-44 flex flex-col">
-                <CardContent className="pt-6 pb-6 flex-1 flex flex-col justify-center">
+              <Card className="text-center w-full max-w-xs h-52 flex flex-col">
+                <CardContent className="p-6 flex-1 flex flex-col justify-center">
                   <Database className="h-12 w-12 mx-auto mb-4 text-blue-600" />
-                  <h3 className="font-semibold mb-2">Data Engineering</h3>
-                  <p className="text-sm text-muted-foreground">Big Data, ETL, Real-time Streaming</p>
+                  <h3 className="font-semibold mb-3">Data Engineering</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Big Data, ETL, Real-time Streaming</p>
                 </CardContent>
               </Card>
             </AnimatedSection>
 
             <AnimatedSection direction="up" delay={400}>
-              <Card className="text-center w-full max-w-xs h-44 flex flex-col">
-                <CardContent className="pt-6 pb-6 flex-1 flex flex-col justify-center">
+              <Card className="text-center w-full max-w-xs h-52 flex flex-col">
+                <CardContent className="p-6 flex-1 flex flex-col justify-center">
                   <Brain className="h-12 w-12 mx-auto mb-4 text-purple-600" />
-                  <h3 className="font-semibold mb-2">AI & Analytics</h3>
-                  <p className="text-sm text-muted-foreground">LLM Integration, AI-powered Tools</p>
+                  <h3 className="font-semibold mb-3">AI & Analytics</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">LLM Integration, AI-powered Tools</p>
                 </CardContent>
               </Card>
             </AnimatedSection>
 
             <AnimatedSection direction="up" delay={500}>
-              <Card className="text-center w-full max-w-xs h-44 flex flex-col">
-                <CardContent className="pt-6 pb-6 flex-1 flex flex-col justify-center">
+              <Card className="text-center w-full max-w-xs h-52 flex flex-col">
+                <CardContent className="p-6 flex-1 flex flex-col justify-center">
                   <Code className="h-12 w-12 mx-auto mb-4 text-green-600" />
-                  <h3 className="font-semibold mb-2">Full-Stack Development</h3>
-                  <p className="text-sm text-muted-foreground">Scalable Web Applications</p>
+                  <h3 className="font-semibold mb-3">Full-Stack Development</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Scalable Web Applications</p>
                 </CardContent>
               </Card>
             </AnimatedSection>
 
             <AnimatedSection direction="up" delay={600}>
-              <Card className="text-center w-full max-w-xs h-44 flex flex-col">
-                <CardContent className="pt-6 pb-6 flex-1 flex flex-col justify-center">
+              <Card className="text-center w-full max-w-xs h-52 flex flex-col">
+                <CardContent className="p-6 flex-1 flex flex-col justify-center">
                   <Zap className="h-12 w-12 mx-auto mb-4 text-orange-600" />
-                  <h3 className="font-semibold mb-2">System Design</h3>
-                  <p className="text-sm text-muted-foreground">LLD, HLD, Performance Optimization</p>
+                  <h3 className="font-semibold mb-3">System Design</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">LLD, HLD, Performance Optimization</p>
                 </CardContent>
               </Card>
             </AnimatedSection>
