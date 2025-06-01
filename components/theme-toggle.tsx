@@ -6,22 +6,25 @@ import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 
 export function ThemeToggle() {
-  const { theme, setTheme } = useTheme()
+  const { theme, setTheme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     setMounted(true)
   }, [])
 
-  const handleToggle = () => {
-    console.log("Current theme:", theme) // Debug log
-    if (theme === "light") {
-      setTheme("dark")
-    } else {
-      setTheme("light")
-    }
+  const handleClick = () => {
+    console.log("Button clicked!")
+    console.log("Current theme:", theme)
+    console.log("Resolved theme:", resolvedTheme)
+
+    // Force the theme change
+    const newTheme = resolvedTheme === "dark" ? "light" : "dark"
+    console.log("Setting theme to:", newTheme)
+    setTheme(newTheme)
   }
 
+  // Don't render until mounted to avoid hydration mismatch
   if (!mounted) {
     return (
       <Button variant="ghost" size="sm" className="w-9 px-0">
@@ -31,22 +34,19 @@ export function ThemeToggle() {
     )
   }
 
-  const isDark = theme === "dark"
+  const currentTheme = resolvedTheme || theme || "light"
+  const isDark = currentTheme === "dark"
 
   return (
     <Button
       variant="ghost"
       size="sm"
       className="w-9 px-0 hover:bg-accent"
-      onClick={handleToggle}
+      onClick={handleClick}
       type="button"
       aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
     >
-      {isDark ? (
-        <Sun className="h-4 w-4 transition-transform duration-200" />
-      ) : (
-        <Moon className="h-4 w-4 transition-transform duration-200" />
-      )}
+      {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
       <span className="sr-only">Toggle theme</span>
     </Button>
   )
