@@ -4,7 +4,7 @@ import type React from "react"
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
@@ -30,6 +30,7 @@ export default function Navigation() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const pathname = usePathname()
+  const router = useRouter()
 
   useEffect(() => {
     setMounted(true)
@@ -42,6 +43,33 @@ export default function Navigation() {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  // Handle navigation to home page sections from other pages
+  const handleSectionNavigation = (sectionId: string) => {
+    if (pathname === "/") {
+      // If already on home page, just scroll
+      const element = document.getElementById(sectionId)
+      if (element) {
+        window.scrollTo({
+          top: element.offsetTop - 80,
+          behavior: "smooth",
+        })
+      }
+    } else {
+      // If on another page, navigate to home and then scroll
+      router.push("/")
+      // Wait for navigation to complete, then scroll
+      setTimeout(() => {
+        const element = document.getElementById(sectionId)
+        if (element) {
+          window.scrollTo({
+            top: element.offsetTop - 80,
+            behavior: "smooth",
+          })
+        }
+      }, 100)
+    }
+  }
 
   const navItems = [
     { href: "#about", label: "About", homeOnly: true },
@@ -83,38 +111,25 @@ export default function Navigation() {
                 )
               }
 
-              // If it's a home-only section and we're not on home page, link to home with hash
-              if (item.homeOnly && !isHomePage) {
+              // For home sections, use button with click handler
+              if (item.homeOnly) {
+                const sectionId = item.href.replace("#", "")
                 return (
-                  <Link
+                  <button
                     key={item.href}
-                    href={`/${item.href}`}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    onClick={() => handleSectionNavigation(sectionId)}
+                    className="text-muted-foreground hover:text-foreground transition-colors bg-transparent border-none cursor-pointer"
                   >
                     {item.label}
-                  </Link>
+                  </button>
                 )
               }
 
-              // If we're on home page, use scroll behavior
-              if (isHomePage) {
-                return (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
-                    onClick={(e) => scrollToSection(e, item.href)}
-                  >
-                    {item.label}
-                  </a>
-                )
-              }
-
-              // Default case - shouldn't reach here but fallback to Link
+              // Fallback
               return (
                 <Link
                   key={item.href}
-                  href={`/${item.href}`}
+                  href={item.href}
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {item.label}
@@ -163,42 +178,28 @@ export default function Navigation() {
                   )
                 }
 
-                // If it's a home-only section and we're not on home page, link to home with hash
-                if (item.homeOnly && !isHomePage) {
+                // For home sections, use button with click handler
+                if (item.homeOnly) {
+                  const sectionId = item.href.replace("#", "")
                   return (
-                    <Link
+                    <button
                       key={item.href}
-                      href={`/${item.href}`}
-                      className="block px-4 py-2 text-muted-foreground hover:text-foreground transition-colors"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
-                  )
-                }
-
-                // If we're on home page, use scroll behavior
-                if (isHomePage) {
-                  return (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      className="block px-4 py-2 text-muted-foreground hover:text-foreground transition-colors"
-                      onClick={(e) => {
-                        scrollToSection(e, item.href)
+                      onClick={() => {
+                        handleSectionNavigation(sectionId)
                         setIsOpen(false)
                       }}
+                      className="block w-full text-left px-4 py-2 text-muted-foreground hover:text-foreground transition-colors bg-transparent border-none cursor-pointer"
                     >
                       {item.label}
-                    </a>
+                    </button>
                   )
                 }
 
-                // Default case - shouldn't reach here but fallback to Link
+                // Fallback
                 return (
                   <Link
                     key={item.href}
-                    href={`/${item.href}`}
+                    href={item.href}
                     className="block px-4 py-2 text-muted-foreground hover:text-foreground transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
