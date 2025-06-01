@@ -3,6 +3,35 @@ import { Button } from "@/components/ui/button"
 import { BookOpen, Brain, Database, Calendar, ArrowLeft, Bell } from "lucide-react"
 import Link from "next/link"
 import { AnimatedSection } from "@/components/animated-section"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Blog - Data Engineering & AI Insights",
+  description:
+    "Technical blog by Nilanjan Deb covering Data Engineering, AI, Machine Learning, Apache Spark, Kafka, and real-world applications. Daily learnings and practical examples from a Data Engineer at InMobi.",
+  keywords: [
+    "Data Engineering Blog",
+    "AI Blog",
+    "Machine Learning Blog",
+    "Apache Spark Tutorial",
+    "Kafka Tutorial",
+    "Technical Blog",
+    "Data Pipeline",
+    "Real-time Streaming",
+    "LLM Integration",
+    "Big Data",
+    "Nilanjan Deb Blog",
+  ],
+  openGraph: {
+    title: "Blog - Nilanjan Deb | Data Engineering & AI Insights",
+    description: "Technical insights and daily learnings in Data Engineering and AI from an experienced Data Engineer",
+    url: "https://nilanjandeb.com/blog",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://nilanjandeb.com/blog",
+  },
+}
 
 export default function BlogPage() {
   const upcomingTopics = [
