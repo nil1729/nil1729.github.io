@@ -78,10 +78,10 @@ export default function Skills() {
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Technical Skills</h2>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto">
             {skillCategories.map((category, index) => (
               <AnimatedSection key={index} direction="up" delay={200 + index * 100}>
-                <Card className="hover:shadow-lg transition-shadow w-full h-64 flex flex-col">
+                <Card className="hover:shadow-lg transition-shadow w-full h-48 flex flex-col">
                   <CardHeader className="pb-3 flex-shrink-0">
                     <CardTitle className="flex items-center text-lg">
                       <category.icon className={`h-5 w-5 mr-2 flex-shrink-0 ${category.color}`} />
@@ -107,9 +107,9 @@ export default function Skills() {
             <AnimatedSection delay={1100}>
               <h3 className="text-2xl font-bold text-center mb-8">Core Competencies</h3>
             </AnimatedSection>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mx-auto">
               <AnimatedSection direction="up" delay={1200}>
-                <Card className="text-center bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 w-full h-64 flex flex-col">
+                <Card className="text-center bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 w-full h-48 flex flex-col">
                   <CardContent className="p-6 flex-1 flex flex-col justify-center">
                     <Database className="h-12 w-12 mx-auto mb-4 text-blue-600 flex-shrink-0" />
                     <h4 className="font-semibold mb-3">Data Architecture</h4>
@@ -121,7 +121,7 @@ export default function Skills() {
               </AnimatedSection>
 
               <AnimatedSection direction="up" delay={1300}>
-                <Card className="text-center bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 w-full h-64 flex flex-col">
+                <Card className="text-center bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 w-full h-48 flex flex-col">
                   <CardContent className="p-6 flex-1 flex flex-col justify-center">
                     <Brain className="h-12 w-12 mx-auto mb-4 text-purple-600 flex-shrink-0" />
                     <h4 className="font-semibold mb-3">AI Integration</h4>
@@ -133,7 +133,7 @@ export default function Skills() {
               </AnimatedSection>
 
               <AnimatedSection direction="up" delay={1400}>
-                <Card className="text-center bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 w-full h-64 flex flex-col">
+                <Card className="text-center bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 w-full h-48 flex flex-col">
                   <CardContent className="p-6 flex-1 flex flex-col justify-center">
                     <Settings className="h-12 w-12 mx-auto mb-4 text-green-600 flex-shrink-0" />
                     <h4 className="font-semibold mb-3">System Design</h4>
@@ -145,7 +145,7 @@ export default function Skills() {
               </AnimatedSection>
 
               <AnimatedSection direction="up" delay={1500}>
-                <Card className="text-center bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 w-full h-64 flex flex-col">
+                <Card className="text-center bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 w-full h-48 flex flex-col">
                   <CardContent className="p-6 flex-1 flex flex-col justify-center">
                     <BarChart3 className="h-12 w-12 mx-auto mb-4 text-orange-600 flex-shrink-0" />
                     <h4 className="font-semibold mb-3">Performance Optimization</h4>
