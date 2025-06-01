@@ -165,3 +165,48 @@ button,
 .card {
   transition: all 0.3s ease;
 }
+
+/* Theme transition animations */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Prevent transition on theme change for specific elements */
+.no-transition * {
+  transition: none !important;
+}
+
+/* Enhanced theme toggle animations */
+.theme-toggle-icon {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth backdrop blur transitions */
+.backdrop-blur-sm {
+  transition: backdrop-filter 0.3s ease;
+}
+
+/* Enhanced card transitions for theme changes */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Smooth gradient transitions */
+.bg-gradient-to-br {
+  transition: background 0.3s ease;
+}
+
+/* Navigation background transitions */
+nav {
+  transition: background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+/* Button hover states with theme awareness */
+button:hover {
+  transition: all 0.2s ease;
+}
+
+/* Ensure icons transition smoothly */
+svg {
+  transition: color 0.3s ease, transform 0.3s ease;
+}

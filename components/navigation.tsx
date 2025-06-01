@@ -5,7 +5,9 @@ import type React from "react"
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Moon, Sun } from "lucide-react"
+import { useTheme } from "next-themes"
+import { ThemeToggle } from "./theme-toggle"
 
 // Add a smooth scroll function
 const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -24,6 +26,12 @@ const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) =
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,12 +73,27 @@ export default function Navigation() {
                 {item.label}
               </a>
             ))}
+            <ThemeToggle />
           </div>
 
-          {/* Mobile Navigation Toggle */}
-          <Button variant="ghost" size="sm" className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
+          {/* Mobile Navigation Controls */}
+          <div className="md:hidden flex items-center space-x-2">
+            {/* Mobile Theme Toggle */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+              className="w-9 px-0"
+            >
+              {mounted && <>{theme === "light" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}</>}
+              <span className="sr-only">Toggle theme</span>
+            </Button>
+
+            {/* Mobile Menu Toggle */}
+            <Button variant="ghost" size="sm" onClick={() => setIsOpen(!isOpen)}>
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </Button>
+          </div>
         </div>
 
         {/* Mobile Navigation Menu */}
@@ -90,6 +113,49 @@ export default function Navigation() {
                   {item.label}
                 </a>
               ))}
+
+              {/* Mobile Theme Options */}
+              <div className="px-4 py-2 border-t">
+                <p className="text-sm font-medium text-muted-foreground mb-2">Theme</p>
+                <div className="space-y-1">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => {
+                      setTheme("light")
+                      setIsOpen(false)
+                    }}
+                    className={`w-full justify-start ${theme === "light" ? "bg-accent" : ""}`}
+                  >
+                    <Sun className="h-4 w-4 mr-2" />
+                    Light
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => {
+                      setTheme("dark")
+                      setIsOpen(false)
+                    }}
+                    className={`w-full justify-start ${theme === "dark" ? "bg-accent" : ""}`}
+                  >
+                    <Moon className="h-4 w-4 mr-2" />
+                    Dark
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => {
+                      setTheme("system")
+                      setIsOpen(false)
+                    }}
+                    className={`w-full justify-start ${theme === "system" ? "bg-accent" : ""}`}
+                  >
+                    <div className="mr-2 h-4 w-4 rounded-sm border border-border" />
+                    System
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         )}
