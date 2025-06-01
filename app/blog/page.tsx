@@ -172,15 +172,15 @@ export default function BlogPage() {
               <h3 className="text-2xl font-bold text-center mb-8">What You Can Expect</h3>
             </AnimatedSection>
 
-            <div className="grid md:grid-cols-2 gap-8 justify-items-center max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-4 justify-items-center max-w-4xl mx-auto">
               <AnimatedSection direction="right" delay={2000}>
-                <Card className="border-l-4 border-l-blue-600 w-full h-80 flex flex-col">
+                <Card className="border-l-4 border-l-blue-600 w-full max-w-md h-72 flex flex-col">
                   <CardContent className="p-6 flex-1 flex flex-col">
                     <div className="flex items-center mb-4">
                       <Database className="h-8 w-8 text-blue-600 mr-3 flex-shrink-0" />
                       <h4 className="font-semibold text-lg">Data Engineering</h4>
                     </div>
-                    <ul className="space-y-2 text-muted-foreground flex-1">
+                    <ul className="space-y-2 text-muted-foreground flex-1 text-sm">
                       <li>• Real-time streaming architectures</li>
                       <li>• Data pipeline optimization techniques</li>
                       <li>• Modern data lake implementations</li>
@@ -192,13 +192,13 @@ export default function BlogPage() {
               </AnimatedSection>
 
               <AnimatedSection direction="left" delay={2200}>
-                <Card className="border-l-4 border-l-purple-600 w-full h-80 flex flex-col">
+                <Card className="border-l-4 border-l-purple-600 w-full max-w-md h-72 flex flex-col">
                   <CardContent className="p-6 flex-1 flex flex-col">
                     <div className="flex items-center mb-4">
                       <Brain className="h-8 w-8 text-purple-600 mr-3 flex-shrink-0" />
                       <h4 className="font-semibold text-lg">AI & Machine Learning</h4>
                     </div>
-                    <ul className="space-y-2 text-muted-foreground flex-1">
+                    <ul className="space-y-2 text-muted-foreground flex-1 text-sm">
                       <li>• LLM integration patterns</li>
                       <li>• AI-powered analytics solutions</li>
                       <li>• Machine learning in production</li>
