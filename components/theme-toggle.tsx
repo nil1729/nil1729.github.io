@@ -14,17 +14,10 @@ export function ThemeToggle() {
   }, [])
 
   const handleClick = () => {
-    console.log("Button clicked!")
-    console.log("Current theme:", theme)
-    console.log("Resolved theme:", resolvedTheme)
-
-    // Force the theme change
     const newTheme = resolvedTheme === "dark" ? "light" : "dark"
-    console.log("Setting theme to:", newTheme)
     setTheme(newTheme)
   }
 
-  // Don't render until mounted to avoid hydration mismatch
   if (!mounted) {
     return (
       <Button variant="ghost" size="sm" className="w-9 px-0">

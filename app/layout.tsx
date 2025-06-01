@@ -140,6 +140,18 @@ export default function RootLayout({
         <meta name="theme-color" content="#3b82f6" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              console.log('%c nil1729 ', 'background: linear-gradient(45deg, #667eea 0%, #764ba2 100%); color: white; padding: 8px 16px; border-radius: 8px; font-size: 16px; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);');
+              console.log('%c🚀 Data Engineer & Software Developer', 'color: #667eea; font-size: 14px; font-weight: 600;');
+              console.log('%c💼 Currently at InMobi Group', 'color: #764ba2; font-size: 12px;');
+              console.log('%c🔗 GitHub: https://github.com/nil1729', 'color: #333; font-size: 12px;');
+              console.log('%c📧 Connect: https://nilanjandeb.com', 'color: #333; font-size: 12px;');
+              console.log('%c\\n🛠️ Built with Next.js, TypeScript & v0.dev', 'color: #888; font-size: 11px; font-style: italic;');
+            `,
+          }}
+        />
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} storageKey="nilanjan-theme">
