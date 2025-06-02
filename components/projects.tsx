@@ -20,8 +20,7 @@ export default function Projects() {
   const dataAIProjects = [
     {
       title: "AI-Powered Analytics Platform",
-      description:
-        "Integrated Vanna.AI for an AI-powered analytics tool, enabling users to query databases using natural language and gain data insights at InMobi",
+      description: "Integrated Vanna.AI for AI analytics: natural language DB queries & insights",
       icon: Brain,
       technologies: ["Vanna.AI", "LLM", "Python", "Apache Spark"],
       category: "Professional Project",
