@@ -13,6 +13,7 @@ function createEmailTemplate(name: string, email: string, subject: string, messa
     to: process.env.INBOX_EMAIL_ADDRESS,
     cc: email,
     from: `${process.env.SENDER_EMAIL_NAME} <${process.env.SENDER_EMAIL_ADDRESS}>`,
+    replyTo: process.env.INBOX_EMAIL_ADDRESS,
     subject: `Contact Request Received: ${subject}`,
     html: `
       <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff;">
@@ -85,21 +86,33 @@ function createEmailTemplate(name: string, email: string, subject: string, messa
 
           <!-- What to Expect -->
           <div style="background-color: #f0f9ff; padding: 20px; border-radius: 10px; border: 1px solid #bae6fd; margin-bottom: 24px;">
-            <h4 style="color: #0369a1; margin: 0 0 12px 0; font-size: 16px; font-weight: 600;">What to Expect Next</h4>
-            <div style="display: grid; gap: 12px;">
-              <div style="display: flex; align-items: flex-start; gap: 12px;">
-                <span style="background-color: #3b82f6; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; flex-shrink: 0; margin-top: 2px;">1</span>
-                <p style="margin: 0; color: #374151; font-size: 14px; line-height: 1.5;">I'll review your message and respond personally within 24 hours</p>
-              </div>
-              <div style="display: flex; align-items: flex-start; gap: 12px;">
-                <span style="background-color: #10b981; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; flex-shrink: 0; margin-top: 2px;">2</span>
-                <p style="margin: 0; color: #374151; font-size: 14px; line-height: 1.5;">We'll discuss your project requirements and objectives</p>
-              </div>
-              <div style="display: flex; align-items: flex-start; gap: 12px;">
-                <span style="background-color: #f59e0b; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; flex-shrink: 0; margin-top: 2px;">3</span>
-                <p style="margin: 0; color: #374151; font-size: 14px; line-height: 1.5;">I'll provide a tailored proposal with next steps</p>
-              </div>
-            </div>
+            <h4 style="color: #0369a1; margin: 0 0 16px 0; font-size: 16px; font-weight: 600;">What to Expect Next</h4>
+            <table style="width: 100%; border-collapse: collapse;">
+              <tr>
+                <td style="width: 32px; padding: 0 12px 12px 0; vertical-align: top;">
+                  <div style="background-color: #3b82f6; color: white; border-radius: 50%; width: 24px; height: 24px; text-align: center; line-height: 24px; font-size: 12px; font-weight: bold;">1</div>
+                </td>
+                <td style="padding-bottom: 12px; vertical-align: top;">
+                  <p style="margin: 0; color: #374151; font-size: 14px; line-height: 1.5;">I'll review your message and respond personally within 24 hours</p>
+                </td>
+              </tr>
+              <tr>
+                <td style="width: 32px; padding: 0 12px 12px 0; vertical-align: top;">
+                  <div style="background-color: #10b981; color: white; border-radius: 50%; width: 24px; height: 24px; text-align: center; line-height: 24px; font-size: 12px; font-weight: bold;">2</div>
+                </td>
+                <td style="padding-bottom: 12px; vertical-align: top;">
+                  <p style="margin: 0; color: #374151; font-size: 14px; line-height: 1.5;">We'll discuss your project requirements and objectives</p>
+                </td>
+              </tr>
+              <tr>
+                <td style="width: 32px; padding: 0 12px 0 0; vertical-align: top;">
+                  <div style="background-color: #f59e0b; color: white; border-radius: 50%; width: 24px; height: 24px; text-align: center; line-height: 24px; font-size: 12px; font-weight: bold;">3</div>
+                </td>
+                <td style="vertical-align: top;">
+                  <p style="margin: 0; color: #374151; font-size: 14px; line-height: 1.5;">I'll provide a tailored proposal with next steps</p>
+                </td>
+              </tr>
+            </table>
           </div>
 
           <!-- Footer -->
