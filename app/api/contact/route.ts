@@ -123,7 +123,7 @@ function createEmailTemplate(name: string, email: string, subject: string, messa
             </p>
             <p style="color: #9ca3af; font-size: 12px; margin: 0; line-height: 1.5;">
               🌐 <a href="https://nilanjandeb.com" style="color: #3b82f6; text-decoration: none;">nilanjandeb.com</a> | 
-              📧 <a href="mailto:${process.env.SENDER_EMAIL_ADDRESS || 'contact@nilanjandeb.com'}" style="color: #3b82f6; text-decoration: none;">Get in touch</a>
+              📧 <a href="mailto:${process.env.INBOX_EMAIL_ADDRESS}" style="color: #3b82f6; text-decoration: none;">Get in touch</a>
             </p>
           </div>
         </div>
