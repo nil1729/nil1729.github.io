@@ -14,7 +14,7 @@ function createEmailTemplate(name: string, email: string, subject: string, messa
     cc: email,
     from: `${process.env.SENDER_EMAIL_NAME} <${process.env.SENDER_EMAIL_ADDRESS}>`,
     replyTo: process.env.INBOX_EMAIL_ADDRESS,
-    subject: `Contact Request Received: ${subject}`,
+    subject: `[${name}] Thank you for your inquiry: ${subject}`,
     html: `
       <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff;">
         <!-- Header -->
