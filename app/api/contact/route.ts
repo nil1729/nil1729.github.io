@@ -76,7 +76,7 @@ function createEmailTemplate(name: string, email: string, subject: string, messa
             <div style="text-align: center;">
               <a href="https://calendar.notion.so/meet/nil1729/discovery" 
                  style="display: inline-block; background-color: #ffffff; color: #667eea; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px; margin: 0 auto;">
-                📅 Schedule a Discovery Call
+                📅 Schedule a Call
               </a>
             </div>
             <p style="color: #e2e8f0; text-align: center; margin: 16px 0 0 0; font-size: 14px;">
