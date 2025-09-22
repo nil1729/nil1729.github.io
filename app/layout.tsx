@@ -1,12 +1,13 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import Navigation from "@/components/navigation"
-import Footer from "@/components/footer"
+import type React from "react";
+import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import Navigation from "@/components/navigation";
+import Footer from "@/components/footer";
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nilanjandeb.com"),
@@ -91,7 +92,7 @@ export const metadata: Metadata = {
     "google-site-verification": "your-google-verification-code-here",
   },
   generator: "v0.dev",
-}
+};
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -122,24 +123,23 @@ const jsonLd = {
     "@type": "WebPage",
     "@id": "https://nilanjandeb.com",
   },
-}
+};
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className="scroll-smooth">
+    <html lang='en' suppressHydrationWarning className='scroll-smooth'>
       <head>
-        <link rel="canonical" href="https://nilanjandeb.com" />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#3b82f6" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <link rel='canonical' href='https://nilanjandeb.com' />
+        <link rel='icon' href='/favicon.ico' sizes='any' />
+        <link rel='icon' href='/favicon.svg' type='image/svg+xml' />
+        <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
+        <link rel='manifest' href='/manifest.json' />
+        <meta name='theme-color' content='#3b82f6' />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -149,12 +149,18 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem={true} storageKey="nilanjan-theme">
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='system'
+          enableSystem={true}
+          storageKey='nilanjan-theme'
+        >
           <Navigation />
           {children}
           <Footer />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
-  )
+  );
 }
