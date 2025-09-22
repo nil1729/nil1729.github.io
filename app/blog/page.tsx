@@ -139,7 +139,7 @@ export default function BlogPage() {
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Button size="lg" className="w-full sm:w-auto" asChild>
-                      <Link href="mailto:nilanjan1729nsvian@gmail.com?subject=Blog Updates Notification">
+                      <Link href="mailto:nilanjan172nsvian@gmail.com?subject=Blog Updates Notification">
                         <Bell className="mr-2 h-4 w-4" />
                         Notify Me When Live
                       </Link>

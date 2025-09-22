@@ -100,10 +100,10 @@ export default function Contact() {
                       <div>
                         <p className="font-medium">Email</p>
                         <Link
-                          href="mailto:nilanjan1729nsvian@gmail.com"
+                          href="mailto:nilanjan172nsvian@gmail.com"
                           className="text-muted-foreground hover:text-foreground transition-colors"
                         >
-                          nilanjan1729nsvian@gmail.com
+                          nilanjan172nsvian@gmail.com
                         </Link>
                       </div>
                     </CardContent>
@@ -153,10 +153,10 @@ export default function Contact() {
                       <div>
                         <p className="font-medium">Phone</p>
                         <Link
-                          href="tel:+917411261729"
+                          href="tel:+919366496119"
                           className="text-muted-foreground hover:text-foreground transition-colors"
                         >
-                          +91-74112-61729
+                          +91-93664-96119
                         </Link>
                       </div>
                     </CardContent>
