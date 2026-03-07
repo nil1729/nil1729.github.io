@@ -5,13 +5,13 @@ import {
   ExternalLink,
   Github,
   Brain,
-  Code,
   Database,
-  Gamepad2,
-  Music,
-  Calendar,
   ShoppingCart,
-  BarChart3,
+  Shield,
+  Activity,
+  Terminal,
+  Network,
+  Server,
 } from "lucide-react";
 import Link from "next/link";
 import { AnimatedSection } from "./animated-section";
@@ -20,183 +20,128 @@ export default function Projects() {
   const dataAIProjects = [
     {
       title: "AI-Powered Analytics Platform",
-      description: "Integrated Vanna.AI for AI analytics: natural language DB queries & insights",
+      description: "Deployed Vanna.AI to enable natural language querying over data warehouse — analysts query data without writing SQL",
       icon: Brain,
-      technologies: ["Vanna.AI", "LLM", "Python", "Apache Spark"],
-      category: "Professional Project",
-      highlights: ["Real-time analytics", "AI-driven insights", "Automated reporting"],
+      technologies: ["Vanna.AI", "LLM", "Python", "Apache Spark", "Trino"],
+      category: "Professional",
+      highlights: ["Natural language to SQL", "Integrated with Trino query engine", "Improved analyst productivity"],
     },
     {
       title: "Real-time Data Streaming Pipeline",
-      description: "Architected high-performance streaming pipeline reducing data latency by 98%",
+      description: "Replaced hourly batch jobs with Spark Streaming + Kafka, cutting data latency from 1 hour to under 1 minute",
       icon: Database,
-      technologies: ["Apache Spark", "Kafka", "Trino", "Apache Iceberg"],
-      category: "Professional Project",
-      highlights: ["98% latency reduction", "Real-time processing", "Scalable architecture"],
+      technologies: ["Apache Spark", "Kafka", "Trino", "Apache Iceberg", "Hudi"],
+      category: "Professional",
+      highlights: ["98% latency reduction", "OLAP-ready Iceberg tables", "CDC with Debezium"],
+    },
+    {
+      title: "Trino Monitoring Stack",
+      description: "Production-grade observability for Trino clusters — JMX metrics scraped by Prometheus and visualized in Grafana",
+      icon: Activity,
+      technologies: ["Trino", "JMX", "Prometheus", "Grafana", "Docker"],
+      category: "Open Source",
+      github: "https://github.com/nil1729/trino-jmx-monitoring",
+      highlights: ["Cluster-level JMX metrics", "Pre-built Grafana dashboards", "Query performance tracking"],
+    },
+    {
+      title: "Trino + Apache Ranger Security",
+      description: "Fine-grained authorization for Trino using Apache Ranger — table, column, and row-level access policies via Docker",
+      icon: Shield,
+      technologies: ["Trino", "Apache Ranger", "Docker", "SQL"],
+      category: "Open Source",
+      github: "https://github.com/nil1729/trino-ranger-demo",
+      highlights: ["Column & row-level policies", "Ranger admin UI", "Reproducible Docker setup"],
+    },
+    {
+      title: "Trino + Hive Data Lakehouse",
+      description: "End-to-end local data lakehouse setup — Trino query engine over Hive Metastore with MinIO object storage",
+      icon: Server,
+      technologies: ["Trino", "Hive Metastore", "MinIO", "Docker Compose"],
+      category: "Open Source",
+      github: "https://github.com/nil1729/trino-hive-demo",
+      highlights: ["Local lakehouse environment", "Hive Metastore integration", "S3-compatible storage"],
     },
   ];
 
-  const softwareProjects = [
+  const systemsProjects = [
     {
-      title: "Remote Code Execution Platform",
-      description:
-        "Secure, scalable platform for executing code remotely with advanced concurrency management",
-      icon: Code,
-      technologies: ["Node.js", "Redis", "Docker", "WebSockets"],
-      github: "https://github.com/nil1729/remote-code-execution",
-      highlights: ["Concurrent execution", "Security sandboxing", "Real-time results"],
+      title: "Remote Code Execution Engine",
+      description: "Microservice that securely executes arbitrary code in isolated environments with concurrency control and resource limits",
+      icon: Terminal,
+      technologies: ["Node.js", "Docker", "Redis", "Express.js"],
+      github: "https://github.com/nil1729/code-execution-backend",
+      highlights: ["Sandboxed execution", "Concurrent job management", "Resource isolation"],
     },
     {
-      title: "Multiplayer Game Engine",
-      description:
-        "Real-time multiplayer game with state synchronization and low-latency communication",
-      icon: Gamepad2,
-      technologies: ["Socket.IO", "React", "Node.js", "Redis"],
-      github: "https://github.com/nil1729/multiplayer-game",
-      highlights: ["Real-time sync", "State management", "Low latency"],
-    },
-    {
-      title: "Music Download Service",
-      description: "High-performance music streaming and download service with intelligent caching",
-      icon: Music,
-      technologies: ["Node.js", "Redis", "Docker", "API Integration"],
-      github: "https://github.com/nil1729/music-dl",
-      highlights: ["API optimization", "Intelligent caching", "High throughput"],
-    },
-    {
-      title: "Timetable Companion",
-      description:
-        "Comprehensive academic scheduling application with smart notifications and analytics",
-      icon: Calendar,
-      technologies: ["Vue.js", "Node.js", "MongoDB", "Nginx"],
-      github: "https://github.com/nil1729/timetable-companion",
-      highlights: ["Smart scheduling", "Analytics dashboard", "User-friendly interface"],
+      title: "Multiplayer Real-time Game Server",
+      description: "In-memory game server for multiplayer Tic-Tac-Toe — real-time state sync across clients with Socket.IO",
+      icon: Network,
+      technologies: ["Socket.IO", "Node.js", "React", "In-memory state"],
+      github: "https://github.com/nil1729/in-memory-socket-server",
+      highlights: ["Real-time bidirectional events", "In-memory game state", "Room-based matchmaking"],
     },
     {
       title: "Food Ordering Platform",
-      description:
-        "Full-featured e-commerce platform with real-time order tracking and payment integration",
+      description: "Full-stack food ordering app with cart management, restaurant listings, auth, and order tracking",
       icon: ShoppingCart,
-      technologies: ["Node.js", "MongoDB", "Vue.js", "Firebase"],
+      technologies: ["Vue.js", "Node.js", "MongoDB", "Express.js", "Firebase"],
       github: "https://github.com/nil1729/food-order-app",
-      highlights: ["E-commerce features", "Real-time tracking", "Payment integration"],
-    },
-    {
-      title: "Interactive Polling System",
-      description: "Dynamic polling application with real-time results visualization and analytics",
-      icon: BarChart3,
-      technologies: ["Node.js", "MongoDB", "Chart.js", "WebSockets"],
-      github: "https://github.com/nil1729/poll-application",
-      highlights: ["Real-time visualization", "Interactive charts", "Live polling"],
+      highlights: ["56 GitHub stars", "End-to-end full-stack", "Firebase auth & storage"],
     },
   ];
 
   return (
-    <section id='projects' className='py-20 bg-background'>
-      <div className='container mx-auto px-4 md:px-6'>
-        <div className='max-w-7xl mx-auto'>
+    <section id='projects' className='py-24 bg-background'>
+      <div className='container mx-auto px-6 md:px-8'>
+        <div className='max-w-5xl mx-auto'>
           <AnimatedSection>
-            <h2 className='text-3xl md:text-4xl font-bold text-center mb-12'>Featured Projects</h2>
+            <div className="mb-12 text-center">
+              <p className="text-xs font-mono text-muted-foreground tracking-widest uppercase mb-3">Projects</p>
+              <h2 className='text-3xl md:text-4xl font-bold tracking-tight'>Featured Projects</h2>
+            </div>
           </AnimatedSection>
 
-          {/* Data & AI Projects */}
-          <div className='mb-16'>
+          {/* Data Engineering & AI Projects */}
+          <div className='mb-14'>
             <AnimatedSection delay={200}>
-              <h3 className='text-2xl font-bold mb-8 flex items-center justify-center'>
-                <Brain className='h-6 w-6 mr-3 text-purple-600' />
+              <h3 className='text-xs font-mono text-muted-foreground tracking-widest uppercase mb-6'>
                 Data Engineering & AI
               </h3>
             </AnimatedSection>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center max-w-6xl mx-auto'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
               {dataAIProjects.map((project, index) => (
                 <AnimatedSection key={index} direction='up' delay={300 + index * 100}>
-                  <Card className='border-l-4 border-l-purple-600 hover:shadow-lg transition-shadow w-full max-w-lg h-auto md:h-80 flex flex-col'>
-                    <CardHeader className='flex-shrink-0'>
-                      <CardTitle className='flex items-center'>
-                        <project.icon className='h-5 w-5 mr-2 text-purple-600' />
-                        {project.title}
-                      </CardTitle>
-                      <Badge variant='outline' className='w-fit'>
-                        {project.category}
-                      </Badge>
+                  <Card className='flex flex-col h-full'>
+                    <CardHeader className='flex-shrink-0 pb-3'>
+                      <div className="flex items-start justify-between gap-2">
+                        <CardTitle className='flex items-center text-base'>
+                          <project.icon className='h-4 w-4 mr-2 text-muted-foreground shrink-0' />
+                          {project.title}
+                        </CardTitle>
+                        <Badge variant='outline' className='text-xs shrink-0'>{project.category}</Badge>
+                      </div>
                     </CardHeader>
                     <CardContent className='space-y-4 flex-1 flex flex-col'>
-                      <p className='text-muted-foreground text-sm md:text-base line-clamp-3 md:line-clamp-none'>
-                        {project.description}
-                      </p>
-
-                      <div className='flex-1'>
-                        <h4 className='font-semibold mb-2'>Key Highlights:</h4>
-                        <ul className='text-xs md:text-sm text-muted-foreground space-y-1'>
-                          {project.highlights.map((highlight, i) => (
-                            <li key={i}>• {highlight}</li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      <div className='flex flex-wrap gap-1 md:gap-2 mt-auto'>
-                        {project.technologies.map((tech) => (
-                          <Badge key={tech} variant='secondary' className='text-xs'>
-                            {tech}
-                          </Badge>
+                      <p className='text-sm text-muted-foreground'>{project.description}</p>
+                      <ul className='text-xs text-muted-foreground space-y-1 flex-1'>
+                        {project.highlights.map((highlight, i) => (
+                          <li key={i}>• {highlight}</li>
                         ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </AnimatedSection>
-              ))}
-            </div>
-          </div>
-
-          {/* Software Engineering Projects */}
-          <div>
-            <AnimatedSection delay={500}>
-              <h3 className='text-2xl font-bold mb-8 flex items-center justify-center'>
-                <Code className='h-6 w-6 mr-3 text-blue-600' />
-                Software Engineering & Full-Stack Development
-              </h3>
-            </AnimatedSection>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center max-w-6xl mx-auto'>
-              {softwareProjects.map((project, index) => (
-                <AnimatedSection key={index} direction='up' delay={600 + index * 100}>
-                  <Card className='border-l-4 border-l-blue-600 hover:shadow-lg transition-shadow w-full max-w-lg md:max-w-sm h-auto md:h-96 flex flex-col'>
-                    <CardHeader className='flex-shrink-0'>
-                      <CardTitle className='flex items-center text-lg'>
-                        <project.icon className='h-5 w-5 mr-2 text-blue-600' />
-                        {project.title}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className='space-y-4 flex-1 flex flex-col'>
-                      <p className='text-muted-foreground text-xs md:text-sm line-clamp-3 md:line-clamp-none'>
-                        {project.description}
-                      </p>
-
-                      <div className='flex-1'>
-                        <h4 className='font-semibold mb-2 text-sm'>Key Features:</h4>
-                        <ul className='text-xs text-muted-foreground space-y-1'>
-                          {project.highlights.map((highlight, i) => (
-                            <li key={i}>• {highlight}</li>
-                          ))}
-                        </ul>
-                      </div>
-
+                      </ul>
                       <div className='space-y-3 mt-auto'>
-                        <div className='flex flex-wrap gap-1'>
+                        <div className='flex flex-wrap gap-1.5'>
                           {project.technologies.map((tech) => (
-                            <Badge key={tech} variant='secondary' className='text-xs'>
-                              {tech}
-                            </Badge>
+                            <Badge key={tech} variant='secondary' className='text-xs'>{tech}</Badge>
                           ))}
                         </div>
-
-                        <div className='flex gap-2'>
+                        {'github' in project && project.github && (
                           <Button size='sm' variant='outline' asChild>
                             <Link href={project.github} target='_blank'>
-                              <Github className='h-3 w-3 mr-1' />
+                              <Github className='h-3 w-3 mr-1.5' />
                               Code
                             </Link>
                           </Button>
-                        </div>
+                        )}
                       </div>
                     </CardContent>
                   </Card>
@@ -205,13 +150,57 @@ export default function Projects() {
             </div>
           </div>
 
-          <AnimatedSection delay={1200}>
+          {/* Systems Engineering Projects */}
+          <div>
+            <AnimatedSection delay={900}>
+              <h3 className='text-xs font-mono text-muted-foreground tracking-widest uppercase mb-6'>
+                Distributed Systems
+              </h3>
+            </AnimatedSection>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
+              {systemsProjects.map((project, index) => (
+                <AnimatedSection key={index} direction='up' delay={1000 + index * 100}>
+                  <Card className='flex flex-col h-full'>
+                    <CardHeader className='flex-shrink-0 pb-3'>
+                      <CardTitle className='flex items-center text-base'>
+                        <project.icon className='h-4 w-4 mr-2 text-muted-foreground shrink-0' />
+                        {project.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className='space-y-4 flex-1 flex flex-col'>
+                      <p className='text-sm text-muted-foreground'>{project.description}</p>
+                      <ul className='text-xs text-muted-foreground space-y-1 flex-1'>
+                        {project.highlights.map((highlight, i) => (
+                          <li key={i}>• {highlight}</li>
+                        ))}
+                      </ul>
+                      <div className='space-y-3 mt-auto'>
+                        <div className='flex flex-wrap gap-1.5'>
+                          {project.technologies.map((tech) => (
+                            <Badge key={tech} variant='secondary' className='text-xs'>{tech}</Badge>
+                          ))}
+                        </div>
+                        <Button size='sm' variant='outline' asChild>
+                          <Link href={project.github} target='_blank'>
+                            <Github className='h-3 w-3 mr-1.5' />
+                            Code
+                          </Link>
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </AnimatedSection>
+              ))}
+            </div>
+          </div>
+
+          <AnimatedSection delay={1400}>
             <div className='text-center mt-12'>
-              <Button size='lg' variant='outline' asChild>
+              <Button variant='outline' asChild>
                 <Link href='https://github.com/nil1729' target='_blank'>
                   <Github className='mr-2 h-4 w-4' />
-                  View All Projects on GitHub
-                  <ExternalLink className='ml-2 h-4 w-4' />
+                  View All on GitHub
+                  <ExternalLink className='ml-2 h-3.5 w-3.5' />
                 </Link>
               </Button>
             </div>

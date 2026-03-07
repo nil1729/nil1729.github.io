@@ -2,13 +2,14 @@ import type React from "react";
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Inter } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
+const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nilanjandeb.com"),
@@ -92,7 +93,6 @@ export const metadata: Metadata = {
   other: {
     "google-site-verification": "your-google-verification-code-here",
   },
-  generator: "v0.dev",
 };
 
 const jsonLd = {
@@ -101,10 +101,10 @@ const jsonLd = {
   name: "Nilanjan Deb",
   url: "https://nilanjandeb.com",
   image: "https://nilanjandeb.com/profile-image.jpg",
-  jobTitle: "Data Engineer & Software Developer",
+  jobTitle: "Software Engineer",
   worksFor: {
     "@type": "Organization",
-    name: "InMobi Group",
+    name: "Harness",
   },
   alumniOf: {
     "@type": "EducationalOrganization",
@@ -135,7 +135,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel='icon' href='/favicon.svg' type='image/svg+xml' />
         <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
         <link rel='manifest' href='/manifest.json' />
-        <meta name='theme-color' content='#3b82f6' />
+        <meta name='theme-color' content='#ffffff' media='(prefers-color-scheme: light)' />
+        <meta name='theme-color' content='#0a0a0a' media='(prefers-color-scheme: dark)' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <script
           type='application/ld+json'
@@ -149,7 +150,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className={inter.className}>
+      <body className={`${geistSans.variable} ${geistMono.variable} font-sans`}>
         <ThemeProvider
           attribute='class'
           defaultTheme='system'

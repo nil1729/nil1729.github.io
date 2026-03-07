@@ -1,87 +1,79 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowDown, ExternalLink, Mail, Github, Linkedin } from "lucide-react"
+import { ArrowDown, ExternalLink, Github, Linkedin } from "lucide-react"
 import Link from "next/link"
 import { AnimatedSection } from "./animated-section"
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="space-y-6 max-w-5xl mx-auto text-center">
+    <section className="min-h-screen flex flex-col items-center justify-center bg-background">
+      <div className="container mx-auto px-6 md:px-8">
+        <div className="max-w-3xl mx-auto space-y-8 text-center">
           <AnimatedSection direction="down" delay={100}>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Nilanjan Deb
-              </span>
+            <span className="inline-block text-xs font-mono text-muted-foreground tracking-widest uppercase border border-border rounded-full px-4 py-1.5">
+              Software Engineer · Data & AI
+            </span>
+          </AnimatedSection>
+
+          <AnimatedSection direction="down" delay={200}>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground">
+              Nilanjan Deb
             </h1>
           </AnimatedSection>
 
-          <AnimatedSection delay={300}>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-muted-foreground">
-              Architecting Intelligent Data Solutions & Scalable Software
-            </h2>
-          </AnimatedSection>
-
-          <AnimatedSection delay={500}>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Data Engineer & Software Developer specializing in Big Data, AI-driven analytics, and full-stack
-              application development. Passionate about leveraging big data technologies and AI to drive insights,
-              optimize performance, and build secure, scalable systems.
+          <AnimatedSection delay={350}>
+            <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
+              Software Engineer at Harness working on cloud cost management. Previously built
+              scalable data pipelines and AI-driven analytics at Glance. BITS Pilani alumni.
             </p>
           </AnimatedSection>
 
-          <AnimatedSection delay={700}>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6">
-              <Button size="lg" className="w-full sm:w-auto" asChild>
-                <a
-                  href="#projects"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
-                  }}
-                >
-                  Explore My Work
-                  <ArrowDown className="ml-2 h-4 w-4" />
-                </a>
+          <AnimatedSection delay={500}>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center items-center pt-2">
+              <Button
+                size="lg"
+                className="w-full sm:w-auto"
+                onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+              >
+                View Projects
+                <ArrowDown className="ml-2 h-4 w-4" />
               </Button>
               <Button size="lg" variant="outline" className="w-full sm:w-auto" asChild>
-                <Link href="https://bit.ly/nilanjandeb" target="_blank">
+                <Link href="https://bit.ly/nilanjandeb" target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="mr-2 h-4 w-4" />
-                  My Resume
+                  Resume
                 </Link>
-              </Button>
-              <Button size="lg" variant="outline" className="w-full sm:w-auto" asChild>
-                <a
-                  href="#contact"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
-                  }}
-                >
-                  <Mail className="mr-2 h-4 w-4" />
-                  Get in Touch
-                </a>
               </Button>
             </div>
           </AnimatedSection>
 
-          <AnimatedSection delay={900}>
-            <div className="flex justify-center gap-6 pt-8">
+          <AnimatedSection delay={650}>
+            <div className="flex items-center justify-center gap-5 pt-2">
               <Link
                 href="https://github.com/nil1729"
                 target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
-                <Github className="h-6 w-6" />
+                <Github className="h-5 w-5" />
               </Link>
               <Link
                 href="https://linkedin.com/in/nil1729"
                 target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
-                <Linkedin className="h-6 w-6" />
+                <Linkedin className="h-5 w-5" />
+              </Link>
+              <span className="text-border select-none">|</span>
+              <Link
+                href="mailto:hello@nilanjandeb.com"
+                className="text-sm font-mono text-muted-foreground hover:text-foreground transition-colors"
+              >
+                hello@nilanjandeb.com
               </Link>
             </div>
           </AnimatedSection>
