@@ -19,6 +19,7 @@ export default function Hero() {
           <AnimatedSection direction="down" delay={200}>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground">
               Nilanjan Deb
+              <span className="sr-only"> — Data Engineer &amp; Software Developer</span>
             </h1>
           </AnimatedSection>
 
@@ -67,13 +68,6 @@ export default function Hero() {
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 <Linkedin className="h-5 w-5" />
-              </Link>
-              <span className="text-border select-none">|</span>
-              <Link
-                href="mailto:hello@nilanjandeb.com"
-                className="text-sm font-mono text-muted-foreground hover:text-foreground transition-colors"
-              >
-                hello@nilanjandeb.com
               </Link>
             </div>
           </AnimatedSection>

@@ -11,119 +11,63 @@ interface ContactFormData {
 function createEmailTemplate(name: string, email: string, subject: string, message: string) {
   return {
     to: process.env.INBOX_EMAIL_ADDRESS,
-    cc: email,
+    bcc: email,
     from: `${process.env.SENDER_EMAIL_NAME} <${process.env.SENDER_EMAIL_ADDRESS}>`,
     replyTo: process.env.INBOX_EMAIL_ADDRESS,
-    subject: `[${name}] Thank you for your inquiry: ${subject}`,
+    subject: `Re: ${subject}`,
     html: `
       <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff;">
         <!-- Header -->
-        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px 20px; text-align: center; border-radius: 12px 12px 0 0;">
-          <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 600;">Thank You for Your Message!</h1>
-          <p style="color: #e2e8f0; margin: 8px 0 0 0; font-size: 14px;">Your inquiry has been received and we'll respond soon</p>
+        <div style="background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); padding: 28px 24px; border-radius: 12px 12px 0 0;">
+          <p style="color: #94a3b8; margin: 0 0 4px 0; font-size: 12px; font-family: monospace; letter-spacing: 0.05em;">nilanjandeb.com</p>
+          <h1 style="color: #f1f5f9; margin: 0; font-size: 20px; font-weight: 600;">Message received. I'll get back to you soon.</h1>
         </div>
 
         <!-- Main Content -->
-        <div style="padding: 30px 20px;">
-          <!-- Personal Greeting -->
-          <div style="margin-bottom: 24px;">
-            <p style="color: #374151; font-size: 16px; line-height: 1.6; margin: 0;">
-              Hi <strong style="color: #1e293b;">${name}</strong>,
-            </p>
-            <p style="color: #374151; font-size: 16px; line-height: 1.6; margin: 12px 0 0 0;">
-              Thank you for reaching out through my website. I've received your message and wanted to confirm the details with you.
-            </p>
-          </div>
+        <div style="padding: 28px 24px;">
+          <!-- Greeting -->
+          <p style="color: #374151; font-size: 15px; line-height: 1.7; margin: 0 0 16px 0;">
+            Hey <strong>${name}</strong>,
+          </p>
+          <p style="color: #374151; font-size: 15px; line-height: 1.7; margin: 0 0 24px 0;">
+            Got your message. Just a heads up that it's in my inbox. I read every one personally and tend to reply within a day or two, usually sooner.
+          </p>
 
-          <!-- Message Summary -->
-          <div style="background-color: #f8fafc; padding: 24px; border-radius: 10px; margin-bottom: 24px; border-left: 4px solid #3b82f6;">
-            <h2 style="color: #1e293b; margin: 0 0 16px 0; font-size: 18px; font-weight: 600;">Your Message Summary</h2>
-            <div style="display: grid; gap: 12px;">
-              <div>
-                <span style="font-weight: 600; color: #374151;">Subject:</span>
-                <span style="color: #6b7280; margin-left: 8px;">${subject}</span>
-              </div>
-              <div>
-                <span style="font-weight: 600; color: #374151;">Your Email:</span>
-                <span style="color: #6b7280; margin-left: 8px;">${email}</span>
-              </div>
-              <div>
-                <span style="font-weight: 600; color: #374151;">Date Submitted:</span>
-                <span style="color: #6b7280; margin-left: 8px;">${new Date().toLocaleDateString('en-US', { 
-                  weekday: 'long',
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
-                })}</span>
-              </div>
+          <!-- Message Echo -->
+          <div style="background-color: #f8fafc; padding: 20px; border-radius: 8px; margin-bottom: 24px; border-left: 3px solid #3b82f6;">
+            <p style="color: #64748b; font-size: 12px; font-family: monospace; margin: 0 0 12px 0; letter-spacing: 0.05em; text-transform: uppercase;">What you sent</p>
+            <div style="margin-bottom: 10px;">
+              <span style="font-size: 13px; color: #64748b;">Subject: </span>
+              <span style="font-size: 13px; font-weight: 600; color: #1e293b;">${subject}</span>
+            </div>
+            <div style="background-color: #ffffff; padding: 14px; border-radius: 6px; border: 1px solid #e2e8f0;">
+              <p style="line-height: 1.6; color: #374151; margin: 0; white-space: pre-wrap; font-size: 14px;">${message}</p>
             </div>
           </div>
 
-          <!-- Original Message -->
-          <div style="background-color: #ffffff; padding: 24px; border: 2px solid #e5e7eb; border-radius: 10px; margin-bottom: 24px;">
-            <h3 style="color: #1e293b; margin: 0 0 16px 0; font-size: 16px; font-weight: 600;">Your Message</h3>
-            <div style="background-color: #f9fafb; padding: 16px; border-radius: 6px; border-left: 3px solid #8b5cf6;">
-              <p style="line-height: 1.6; color: #374151; margin: 0; white-space: pre-wrap; font-style: italic;">"${message}"</p>
-            </div>
+          <!-- What I enjoy discussing -->
+          <div style="background-color: #f0fdf4; padding: 18px 20px; border-radius: 8px; border: 1px solid #bbf7d0; margin-bottom: 24px;">
+            <p style="color: #166534; font-size: 13px; font-weight: 600; margin: 0 0 10px 0;">What I genuinely enjoy digging into</p>
+            <ul style="color: #374151; font-size: 14px; line-height: 1.8; margin: 0; padding-left: 18px;">
+              <li>Tricky data pipeline problems: latency, throughput, correctness</li>
+              <li>System design trade-offs (when to use what and why)</li>
+              <li>LLM / AI integrations that go beyond the hello-world demo</li>
+              <li>Interesting engineering problems worth thinking through together</li>
+            </ul>
           </div>
 
-          <!-- Next Steps -->
-          <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 24px; border-radius: 10px; margin-bottom: 24px;">
-            <h3 style="color: #ffffff; margin: 0 0 16px 0; font-size: 18px; font-weight: 600; text-align: center;">Let's Connect!</h3>
-            <p style="color: #e2e8f0; text-align: center; margin: 0 0 20px 0; line-height: 1.5;">
-              I typically respond to all inquiries within 24 hours. To expedite our conversation, feel free to schedule a discovery call directly.
-            </p>
-            <div style="text-align: center;">
-              <a href="https://calendar.notion.so/meet/nil1729/discovery" 
-                 style="display: inline-block; background-color: #ffffff; color: #667eea; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px; margin: 0 auto;">
-                📅 Schedule a Call
-              </a>
-            </div>
-            <p style="color: #e2e8f0; text-align: center; margin: 16px 0 0 0; font-size: 14px;">
-              Or simply reply to this email - I'd love to hear more about your project!
-            </p>
-          </div>
-
-          <!-- What to Expect -->
-          <div style="background-color: #f0f9ff; padding: 20px; border-radius: 10px; border: 1px solid #bae6fd; margin-bottom: 24px;">
-            <h4 style="color: #0369a1; margin: 0 0 16px 0; font-size: 16px; font-weight: 600;">What to Expect Next</h4>
-            <table style="width: 100%; border-collapse: collapse;">
-              <tr>
-                <td style="width: 32px; padding: 0 12px 12px 0; vertical-align: top;">
-                  <div style="background-color: #3b82f6; color: white; border-radius: 50%; width: 24px; height: 24px; text-align: center; line-height: 24px; font-size: 12px; font-weight: bold;">1</div>
-                </td>
-                <td style="padding-bottom: 12px; vertical-align: top;">
-                  <p style="margin: 0; color: #374151; font-size: 14px; line-height: 1.5;">I'll review your message and respond personally within 24 hours</p>
-                </td>
-              </tr>
-              <tr>
-                <td style="width: 32px; padding: 0 12px 12px 0; vertical-align: top;">
-                  <div style="background-color: #10b981; color: white; border-radius: 50%; width: 24px; height: 24px; text-align: center; line-height: 24px; font-size: 12px; font-weight: bold;">2</div>
-                </td>
-                <td style="padding-bottom: 12px; vertical-align: top;">
-                  <p style="margin: 0; color: #374151; font-size: 14px; line-height: 1.5;">We'll discuss your project requirements and objectives</p>
-                </td>
-              </tr>
-              <tr>
-                <td style="width: 32px; padding: 0 12px 0 0; vertical-align: top;">
-                  <div style="background-color: #f59e0b; color: white; border-radius: 50%; width: 24px; height: 24px; text-align: center; line-height: 24px; font-size: 12px; font-weight: bold;">3</div>
-                </td>
-                <td style="vertical-align: top;">
-                  <p style="margin: 0; color: #374151; font-size: 14px; line-height: 1.5;">I'll provide a tailored proposal with next steps</p>
-                </td>
-              </tr>
-            </table>
-          </div>
+          <p style="color: #374151; font-size: 15px; line-height: 1.7; margin: 0 0 24px 0;">
+            If your message needs more context or you want to jump straight into a discussion, just reply here. Happy to dig in.
+          </p>
 
           <!-- Footer -->
-          <div style="text-align: center; padding: 20px; background-color: #f8fafc; border-radius: 8px;">
-            <p style="color: #6b7280; font-size: 14px; margin: 0 0 8px 0; font-weight: 500;">
-              Best regards,<br>
-              <strong style="color: #1e293b;">Nilanjan Deb</strong>
+          <div style="border-top: 1px solid #e5e7eb; padding-top: 20px;">
+            <p style="color: #6b7280; font-size: 14px; margin: 0 0 6px 0;">
+              Nilanjan
             </p>
-            <p style="color: #9ca3af; font-size: 12px; margin: 0; line-height: 1.5;">
-              🌐 <a href="https://nilanjandeb.com" style="color: #3b82f6; text-decoration: none;">nilanjandeb.com</a> | 
-              📧 <a href="mailto:${process.env.INBOX_EMAIL_ADDRESS}" style="color: #3b82f6; text-decoration: none;">Get in touch</a>
+            <p style="color: #9ca3af; font-size: 12px; margin: 0;">
+              <a href="https://nilanjandeb.com" style="color: #3b82f6; text-decoration: none;">nilanjandeb.com</a> &nbsp;·&nbsp;
+              <a href="https://github.com/nil1729" style="color: #3b82f6; text-decoration: none;">github.com/nil1729</a>
             </p>
           </div>
         </div>

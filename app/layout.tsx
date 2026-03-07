@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     template: "%s | Nilanjan Deb",
   },
   description:
-    "Experienced Data Engineer & Software Developer specializing in Big Data, Apache Spark, Kafka, AI-driven analytics, and full-stack development. Currently at InMobi Group, building scalable data pipelines and AI-powered solutions.",
+    "Data Engineer & Software Developer at Harness, specializing in Big Data, Apache Spark, Kafka, AI-driven analytics, and distributed systems. BITS Pilani alumni.",
   keywords: [
     "Nilanjan Deb",
     "Data Engineer",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     "Node.js",
     "Python",
     "Java",
-    "InMobi",
+    "Harness",
     "BITS Pilani",
     "Data Pipeline",
     "Real-time Streaming",
@@ -90,40 +90,62 @@ export const metadata: Metadata = {
   },
   category: "Technology",
   classification: "Portfolio Website",
-  other: {
-    "google-site-verification": "your-google-verification-code-here",
-  },
+  other: {},
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Nilanjan Deb",
-  url: "https://nilanjandeb.com",
-  image: "https://nilanjandeb.com/profile-image.jpg",
-  jobTitle: "Software Engineer",
-  worksFor: {
-    "@type": "Organization",
-    name: "Harness",
-  },
-  alumniOf: {
-    "@type": "EducationalOrganization",
-    name: "BITS Pilani",
-  },
-  knowsAbout: [
-    "Data Engineering",
-    "Big Data",
-    "Apache Spark",
-    "Kafka",
-    "Machine Learning",
-    "Software Development",
-    "System Design",
+  "@graph": [
+    {
+      "@type": "ProfilePage",
+      "@id": "https://nilanjandeb.com/#profilepage",
+      url: "https://nilanjandeb.com",
+      name: "Nilanjan Deb — Data Engineer & Software Developer",
+      mainEntity: { "@id": "https://nilanjandeb.com/#person" },
+    },
+    {
+      "@type": "Person",
+      "@id": "https://nilanjandeb.com/#person",
+      name: "Nilanjan Deb",
+      url: "https://nilanjandeb.com",
+      email: "hello@nilanjandeb.com",
+      jobTitle: "Software Engineer",
+      worksFor: {
+        "@type": "Organization",
+        name: "Harness",
+        url: "https://harness.io",
+      },
+      alumniOf: {
+        "@type": "EducationalOrganization",
+        name: "BITS Pilani",
+        url: "https://www.bits-pilani.ac.in",
+      },
+      knowsAbout: [
+        "Data Engineering",
+        "Big Data",
+        "Apache Spark",
+        "Apache Kafka",
+        "Apache Iceberg",
+        "Trino",
+        "Machine Learning",
+        "LLM Integration",
+        "Software Development",
+        "System Design",
+      ],
+      sameAs: [
+        "https://github.com/nil1729",
+        "https://www.linkedin.com/in/nil1729",
+        "https://twitter.com/nil1729",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://nilanjandeb.com/#website",
+      url: "https://nilanjandeb.com",
+      name: "Nilanjan Deb",
+      publisher: { "@id": "https://nilanjandeb.com/#person" },
+    },
   ],
-  sameAs: ["https://github.com/nil1729", "https://linkedin.com/in/nil1729"],
-  mainEntityOfPage: {
-    "@type": "WebPage",
-    "@id": "https://nilanjandeb.com",
-  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
