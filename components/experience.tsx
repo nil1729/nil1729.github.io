@@ -1,94 +1,50 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Calendar, TrendingUp, Users, Wrench } from "lucide-react"
+import { Calendar, Users, Wrench } from "lucide-react"
 import { AnimatedSection } from "./animated-section"
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-20 bg-slate-50 dark:bg-slate-900">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-7xl mx-auto">
+    <section id="experience" className="py-24 bg-muted/40">
+      <div className="container mx-auto px-6 md:px-8">
+        <div className="max-w-5xl mx-auto">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Professional Experience</h2>
+            <div className="mb-12 text-center">
+              <p className="text-xs font-mono text-muted-foreground tracking-widest uppercase mb-3">Experience</p>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Professional Experience</h2>
+            </div>
           </AnimatedSection>
 
-          <div className="space-y-8 flex flex-col items-center">
-            {/* InMobi Group */}
-            <AnimatedSection delay={200} className="w-full max-w-6xl">
-              <Card className="border-l-4 border-l-blue-600">
+          <div className="space-y-6">
+            {/* Harness */}
+            <AnimatedSection delay={200}>
+              <Card>
                 <CardHeader>
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
                     <div>
-                      <CardTitle className="text-xl md:text-2xl">Data Engineer</CardTitle>
-                      <p className="text-lg font-semibold text-blue-600">InMobi Group</p>
+                      <CardTitle className="text-xl">Software Engineer</CardTitle>
+                      <p className="text-sm font-semibold text-muted-foreground mt-1">Harness</p>
                     </div>
-                    <div className="flex items-center text-muted-foreground">
-                      <Calendar className="h-4 w-4 mr-2" />
-                      <span>Current Role</span>
+                    <div className="flex items-center text-sm text-muted-foreground shrink-0">
+                      <Calendar className="h-3.5 w-3.5 mr-1.5" />
+                      <span>Aug 2025 – Present</span>
                     </div>
                   </div>
                 </CardHeader>
-                <CardContent className="space-y-6">
-                  <div className="grid md:grid-cols-3 gap-6">
-                    <AnimatedSection direction="right" delay={300}>
-                      <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
-                        <div className="flex items-center mb-2">
-                          <TrendingUp className="h-5 w-5 text-green-600 mr-2" />
-                          <span className="font-semibold">98% Latency Reduction</span>
-                        </div>
-                        <p className="text-sm text-muted-foreground">From 1 hour to 1 minute</p>
-                      </div>
-                    </AnimatedSection>
-                    <AnimatedSection direction="right" delay={400}>
-                      <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
-                        <div className="flex items-center mb-2">
-                          <TrendingUp className="h-5 w-5 text-blue-600 mr-2" />
-                          <span className="font-semibold">70% Improvement</span>
-                        </div>
-                        <p className="text-sm text-muted-foreground">Data onboarding efficiency</p>
-                      </div>
-                    </AnimatedSection>
-                    <AnimatedSection direction="right" delay={500}>
-                      <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
-                        <div className="flex items-center mb-2">
-                          <TrendingUp className="h-5 w-5 text-purple-600 mr-2" />
-                          <span className="font-semibold">30% Cost Reduction</span>
-                        </div>
-                        <p className="text-sm text-muted-foreground">Infrastructure optimization</p>
-                      </div>
-                    </AnimatedSection>
-                  </div>
-
-                  <AnimatedSection delay={600}>
+                <CardContent className="space-y-4">
+                  <AnimatedSection delay={300}>
                     <div>
-                      <h4 className="font-semibold mb-3">Key Achievements:</h4>
-                      <ul className="space-y-2 text-muted-foreground">
-                        <li>• Architected real-time data streaming pipelines using Spark Streaming and Kafka</li>
-                        <li>• Implemented CDC pipeline with Apache Hudi for efficient data lake management</li>
-                        <li>• Developed Trino gateway with Apache Iceberg for optimized query performance</li>
-                        <li>• Integrated AI-powered analytics tools (Vanna.AI) with LLM for content generation</li>
-                        <li>• Designed and deployed infrastructure using Helm charts and Kubernetes</li>
-                        <li>• Implemented OPA (Open Policy Agent) with Trino for enhanced data security</li>
+                      <h4 className="text-sm font-semibold mb-3">Key Work</h4>
+                      <ul className="space-y-1.5 text-sm text-muted-foreground">
+                        <li>• Contributing to the CCM (Cloud Cost Management) team at Harness</li>
+                        <li>• Focused on the Billing Data Ingestion Pipeline for cloud cost analytics</li>
                       </ul>
                     </div>
                   </AnimatedSection>
-
-                  <AnimatedSection delay={700}>
+                  <AnimatedSection delay={400}>
                     <div className="flex flex-wrap gap-2">
-                      {[
-                        "Apache Spark",
-                        "Kafka",
-                        "Trino",
-                        "Apache Iceberg",
-                        "Hudi",
-                        "Vanna.AI",
-                        "LLM",
-                        "Kubernetes",
-                        "Helm",
-                      ].map((tech) => (
-                        <Badge key={tech} variant="secondary">
-                          {tech}
-                        </Badge>
+                      {["Cloud Cost Management", "Data Ingestion", "Billing Pipelines", "Java", "Spring Boot"].map((tech) => (
+                        <Badge key={tech} variant="secondary">{tech}</Badge>
                       ))}
                     </div>
                   </AnimatedSection>
@@ -96,61 +52,66 @@ export default function Experience() {
               </Card>
             </AnimatedSection>
 
-            {/* Helioweb */}
-            <AnimatedSection delay={800} className="w-full max-w-6xl">
-              <Card className="border-l-4 border-l-green-600">
+            {/* Glance */}
+            <AnimatedSection delay={600}>
+              <Card>
                 <CardHeader>
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
                     <div>
-                      <CardTitle className="text-xl md:text-2xl">Full Stack Engineer</CardTitle>
-                      <p className="text-lg font-semibold text-green-600">Helioweb</p>
+                      <CardTitle className="text-xl">Software Engineer</CardTitle>
+                      <p className="text-sm font-semibold text-muted-foreground mt-1">Glance</p>
                     </div>
-                    <div className="flex items-center text-muted-foreground">
-                      <Calendar className="h-4 w-4 mr-2" />
-                      <span>Previous Role</span>
+                    <div className="flex items-center text-sm text-muted-foreground shrink-0">
+                      <Calendar className="h-3.5 w-3.5 mr-1.5" />
+                      <span>Jul 2022 – Jul 2025</span>
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <AnimatedSection direction="right" delay={900}>
-                      <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
-                        <div className="flex items-center mb-2">
-                          <TrendingUp className="h-5 w-5 text-green-600 mr-2" />
-                          <span className="font-semibold">70% Efficiency Boost</span>
-                        </div>
-                        <p className="text-sm text-muted-foreground">Operational processes</p>
+                  <div className="grid md:grid-cols-3 gap-3">
+                    <AnimatedSection direction="right" delay={700}>
+                      <div className="bg-background border border-border p-4 rounded-lg">
+                        <p className="font-semibold text-sm mb-0.5">98% Latency Reduction</p>
+                        <p className="text-xs text-muted-foreground">From 1 hour to 1 minute</p>
                       </div>
                     </AnimatedSection>
-                    <AnimatedSection direction="right" delay={1000}>
-                      <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
-                        <div className="flex items-center mb-2">
-                          <TrendingUp className="h-5 w-5 text-blue-600 mr-2" />
-                          <span className="font-semibold">50% Admin Efficiency</span>
-                        </div>
-                        <p className="text-sm text-muted-foreground">Administrative workflows</p>
+                    <AnimatedSection direction="right" delay={800}>
+                      <div className="bg-background border border-border p-4 rounded-lg">
+                        <p className="font-semibold text-sm mb-0.5">70% Onboarding Improvement</p>
+                        <p className="text-xs text-muted-foreground">SQL query interface for analysts</p>
+                      </div>
+                    </AnimatedSection>
+                    <AnimatedSection direction="right" delay={900}>
+                      <div className="bg-background border border-border p-4 rounded-lg">
+                        <p className="font-semibold text-sm mb-0.5">30% Cost Reduction</p>
+                        <p className="text-xs text-muted-foreground">Infrastructure optimization</p>
                       </div>
                     </AnimatedSection>
                   </div>
+
+                  <AnimatedSection delay={1000}>
+                    <div>
+                      <h4 className="text-sm font-semibold mb-3">Key Achievements</h4>
+                      <ul className="space-y-1.5 text-sm text-muted-foreground">
+                        <li>• Implemented Spark Streaming with Kafka, reducing data latency from 1 hour to 1 minute using Iceberg tables</li>
+                        <li>• Architected and deployed a Trino gateway system, optimizing query performance and resource utilization</li>
+                        <li>• Engineered SQL query interface for analysts, reducing data onboarding time by 70% and improving metric reporting</li>
+                        <li>• Developed a CDC pipeline using Hudi and Debezium, transforming OLTP tables into OLAP for BI analytics</li>
+                        <li>• Implemented OPA with Trino for row-level filters and column masking to improve data security compliance</li>
+                        <li>• Standardized infrastructure with Helm charts, enabling one-click deployment of Trino, Superset, Hive Metastore, and Airflow</li>
+                        <li>• Designed an A/B testing experimentation platform, driving data-driven product decisions</li>
+                        <li>• Built a distributed job scheduling pipeline with BullMQ and Redis, reducing content onboarding time by 80%</li>
+                        <li>• Developed a content generation pipeline using Celery workers and LLM integration for articles and images</li>
+                        <li>• Deployed Vanna.AI for AI-powered analytics, improving data analyst productivity</li>
+                        <li>• Built enterprise configuration store with SSO authentication and rule-based ACLs</li>
+                      </ul>
+                    </div>
+                  </AnimatedSection>
 
                   <AnimatedSection delay={1100}>
-                    <div>
-                      <h4 className="font-semibold mb-3">Key Projects:</h4>
-                      <ul className="space-y-2 text-muted-foreground">
-                        <li>• Developed P2P delivery platform with real-time order tracking</li>
-                        <li>• Built comprehensive order management system for manufacturing</li>
-                        <li>• Created student management portal with advanced analytics</li>
-                        <li>• Implemented manufacturing web application with workflow automation</li>
-                      </ul>
-                    </div>
-                  </AnimatedSection>
-
-                  <AnimatedSection delay={1200}>
                     <div className="flex flex-wrap gap-2">
-                      {["React", "Node.js", "MongoDB", "Express.js", "Vue.js", "PostgreSQL", "Docker"].map((tech) => (
-                        <Badge key={tech} variant="secondary">
-                          {tech}
-                        </Badge>
+                      {["Apache Spark", "Kafka", "Trino", "Apache Iceberg", "Hudi", "Debezium", "Vanna.AI", "LLM", "BullMQ", "Redis", "Celery", "Helm", "OPA", "Airflow"].map((tech) => (
+                        <Badge key={tech} variant="secondary">{tech}</Badge>
                       ))}
                     </div>
                   </AnimatedSection>
@@ -158,33 +119,28 @@ export default function Experience() {
               </Card>
             </AnimatedSection>
 
-            {/* Key Responsibilities */}
-            <AnimatedSection delay={1300} className="w-full max-w-6xl">
-              <Card className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20">
-                <CardHeader>
-                  <CardTitle className="flex items-center">
-                    <Users className="h-5 w-5 mr-2" />
+            {/* Leadership */}
+            <AnimatedSection delay={1200}>
+              <Card className="bg-background/60">
+                <CardHeader className="pb-3">
+                  <CardTitle className="flex items-center text-sm font-semibold">
+                    <Users className="h-4 w-4 mr-2 text-muted-foreground" />
                     Leadership & Technical Responsibilities
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div className="flex items-center">
-                      <Wrench className="h-4 w-4 mr-2 text-blue-600" />
-                      <span className="text-sm">System Design (LLD/HLD)</span>
-                    </div>
-                    <div className="flex items-center">
-                      <Users className="h-4 w-4 mr-2 text-green-600" />
-                      <span className="text-sm">Team Mentoring</span>
-                    </div>
-                    <div className="flex items-center">
-                      <Wrench className="h-4 w-4 mr-2 text-purple-600" />
-                      <span className="text-sm">Code Reviews</span>
-                    </div>
-                    <div className="flex items-center">
-                      <Users className="h-4 w-4 mr-2 text-orange-600" />
-                      <span className="text-sm">Cross-functional Coordination</span>
-                    </div>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3">
+                    {[
+                      { icon: Wrench, label: "System Design (LLD/HLD)" },
+                      { icon: Users, label: "Team Mentoring" },
+                      { icon: Wrench, label: "Code Reviews" },
+                      { icon: Users, label: "Cross-functional Coordination" },
+                    ].map(({ icon: Icon, label }) => (
+                      <div key={label} className="flex items-center gap-2">
+                        <Icon className="h-3.5 w-3.5 text-muted-foreground shrink-0" />
+                        <span className="text-sm">{label}</span>
+                      </div>
+                    ))}
                   </div>
                 </CardContent>
               </Card>

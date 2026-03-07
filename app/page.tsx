@@ -5,14 +5,13 @@ import Hero from "@/components/hero"
 const About = lazy(() => import("@/components/about"))
 const Experience = lazy(() => import("@/components/experience"))
 const Projects = lazy(() => import("@/components/projects"))
-const Skills = lazy(() => import("@/components/skills"))
 const Contact = lazy(() => import("@/components/contact"))
 
 // Loading component
 function SectionLoader() {
   return (
     <div className="py-20 flex items-center justify-center">
-      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-foreground"></div>
     </div>
   )
 }
@@ -32,10 +31,6 @@ export default function Home() {
 
       <Suspense fallback={<SectionLoader />}>
         <Projects />
-      </Suspense>
-
-      <Suspense fallback={<SectionLoader />}>
-        <Skills />
       </Suspense>
 
       <Suspense fallback={<SectionLoader />}>

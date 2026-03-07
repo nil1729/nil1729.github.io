@@ -72,104 +72,105 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 bg-background">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-7xl mx-auto">
+    <section id="contact" className="py-24 bg-background">
+      <div className="container mx-auto px-6 md:px-8">
+        <div className="max-w-5xl mx-auto">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Get In Touch</h2>
+            <div className="mb-12 text-center">
+              <p className="text-xs font-mono text-muted-foreground tracking-widest uppercase mb-3">Contact</p>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Get In Touch</h2>
+            </div>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 gap-8 justify-items-center max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8">
             {/* Contact Information */}
-            <div className="space-y-6 w-full max-w-md h-full">
+            <div className="space-y-4">
               <AnimatedSection delay={200}>
-                <div>
-                  <h3 className="text-xl font-semibold mb-4">Let's Connect</h3>
-                  <p className="text-muted-foreground mb-6">
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold mb-2">Let's Connect</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     I'm always interested in discussing data engineering challenges, AI innovations, and opportunities
                     to build impactful solutions. Feel free to reach out!
                   </p>
                 </div>
               </AnimatedSection>
 
-              <div className="space-y-4 flex-1">
-                <AnimatedSection direction="right" delay={300}>
-                  <Card className="hover:shadow-md transition-shadow">
-                    <CardContent className="flex items-center p-4">
-                      <Mail className="h-5 w-5 mr-3 text-blue-600" />
-                      <div>
-                        <p className="font-medium">Email</p>
-                        <Link
-                          href="mailto:nilanjan172nsvian@gmail.com"
-                          className="text-muted-foreground hover:text-foreground transition-colors"
-                        >
-                          nilanjan172nsvian@gmail.com
-                        </Link>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </AnimatedSection>
+              <AnimatedSection direction="right" delay={300}>
+                <Card>
+                  <CardContent className="flex items-center p-4">
+                    <Mail className="h-4 w-4 mr-3 text-muted-foreground shrink-0" />
+                    <div>
+                      <p className="text-xs text-muted-foreground mb-0.5">Email</p>
+                      <Link
+                        href="mailto:hello@nilanjandeb.com"
+                        className="text-sm font-medium hover:text-muted-foreground transition-colors"
+                      >
+                        hello@nilanjandeb.com
+                      </Link>
+                    </div>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-                <AnimatedSection direction="right" delay={400}>
-                  <Card className="hover:shadow-md transition-shadow">
-                    <CardContent className="flex items-center p-4">
-                      <Linkedin className="h-5 w-5 mr-3 text-blue-600" />
-                      <div>
-                        <p className="font-medium">LinkedIn</p>
-                        <Link
-                          href="https://linkedin.com/in/nil1729"
-                          target="_blank"
-                          className="text-muted-foreground hover:text-foreground transition-colors"
-                        >
-                          linkedin.com/in/nil1729
-                        </Link>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </AnimatedSection>
+              <AnimatedSection direction="right" delay={400}>
+                <Card>
+                  <CardContent className="flex items-center p-4">
+                    <Linkedin className="h-4 w-4 mr-3 text-muted-foreground shrink-0" />
+                    <div>
+                      <p className="text-xs text-muted-foreground mb-0.5">LinkedIn</p>
+                      <Link
+                        href="https://linkedin.com/in/nil1729"
+                        target="_blank"
+                        className="text-sm font-medium hover:text-muted-foreground transition-colors"
+                      >
+                        linkedin.com/in/nil1729
+                      </Link>
+                    </div>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-                <AnimatedSection direction="right" delay={500}>
-                  <Card className="hover:shadow-md transition-shadow">
-                    <CardContent className="flex items-center p-4">
-                      <Github className="h-5 w-5 mr-3 text-blue-600" />
-                      <div>
-                        <p className="font-medium">GitHub</p>
-                        <Link
-                          href="https://github.com/nil1729"
-                          target="_blank"
-                          className="text-muted-foreground hover:text-foreground transition-colors"
-                        >
-                          github.com/nil1729
-                        </Link>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </AnimatedSection>
+              <AnimatedSection direction="right" delay={500}>
+                <Card>
+                  <CardContent className="flex items-center p-4">
+                    <Github className="h-4 w-4 mr-3 text-muted-foreground shrink-0" />
+                    <div>
+                      <p className="text-xs text-muted-foreground mb-0.5">GitHub</p>
+                      <Link
+                        href="https://github.com/nil1729"
+                        target="_blank"
+                        className="text-sm font-medium hover:text-muted-foreground transition-colors"
+                      >
+                        github.com/nil1729
+                      </Link>
+                    </div>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-                <AnimatedSection direction="right" delay={600}>
-                  <Card className="hover:shadow-md transition-shadow">
-                    <CardContent className="flex items-center p-4">
-                      <Phone className="h-5 w-5 mr-3 text-blue-600" />
-                      <div>
-                        <p className="font-medium">Phone</p>
-                        <Link
-                          href="tel:+919366496119"
-                          className="text-muted-foreground hover:text-foreground transition-colors"
-                        >
-                          +91-93664-96119
-                        </Link>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </AnimatedSection>
-              </div>
+              <AnimatedSection direction="right" delay={600}>
+                <Card>
+                  <CardContent className="flex items-center p-4">
+                    <Phone className="h-4 w-4 mr-3 text-muted-foreground shrink-0" />
+                    <div>
+                      <p className="text-xs text-muted-foreground mb-0.5">Phone</p>
+                      <Link
+                        href="tel:+919366496119"
+                        className="text-sm font-medium hover:text-muted-foreground transition-colors"
+                      >
+                        +91-93664-96119
+                      </Link>
+                    </div>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
             </div>
 
             {/* Contact Form */}
-            <AnimatedSection direction="left" delay={700} className="w-full max-w-md h-full">
+            <AnimatedSection direction="left" delay={700}>
               <Card className="h-full flex flex-col">
-                <CardHeader className="flex-shrink-0">
-                  <CardTitle>Send a Message</CardTitle>
+                <CardHeader className="flex-shrink-0 pb-3">
+                  <CardTitle className="text-base">Send a Message</CardTitle>
                 </CardHeader>
                 <CardContent className="flex-1">
                   <form onSubmit={handleSubmit} className="space-y-4 h-full flex flex-col">
