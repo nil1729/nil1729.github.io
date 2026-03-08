@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { AnimatedSection } from "./animated-section";
+import { siteConfig } from "@/lib/config";
 
 export default function Projects() {
   const dataAIProjects = [
@@ -197,7 +198,7 @@ export default function Projects() {
           <AnimatedSection delay={1400}>
             <div className='text-center mt-12'>
               <Button variant='outline' asChild>
-                <Link href='https://github.com/nil1729' target='_blank'>
+                <Link href={siteConfig.github} target='_blank'>
                   <Github className='mr-2 h-4 w-4' />
                   View All on GitHub
                   <ExternalLink className='ml-2 h-3.5 w-3.5' />

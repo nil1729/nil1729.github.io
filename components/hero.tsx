@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowDown, ExternalLink, Github, Linkedin } from "lucide-react"
 import Link from "next/link"
 import { AnimatedSection } from "./animated-section"
+import { siteConfig } from "@/lib/config"
 
 export default function Hero() {
   return (
@@ -19,7 +20,9 @@ export default function Hero() {
           <AnimatedSection direction="down" delay={200}>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground">
               Nilanjan Deb
-              <span className="sr-only"> — Data Engineer &amp; Software Developer</span>
+              <span className="block text-xl md:text-2xl font-medium text-muted-foreground mt-3 tracking-normal">
+                Data Engineer &amp; Software Developer
+              </span>
             </h1>
           </AnimatedSection>
 
@@ -41,7 +44,7 @@ export default function Hero() {
                 <ArrowDown className="ml-2 h-4 w-4" />
               </Button>
               <Button size="lg" variant="outline" className="w-full sm:w-auto" asChild>
-                <Link href="https://bit.ly/nilanjandeb" target="_blank" rel="noopener noreferrer">
+                <Link href={siteConfig.resumeUrl} target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="mr-2 h-4 w-4" />
                   Resume
                 </Link>
@@ -52,7 +55,7 @@ export default function Hero() {
           <AnimatedSection delay={650}>
             <div className="flex items-center justify-center gap-5 pt-2">
               <Link
-                href="https://github.com/nil1729"
+                href={siteConfig.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
@@ -61,7 +64,7 @@ export default function Hero() {
                 <Github className="h-5 w-5" />
               </Link>
               <Link
-                href="https://linkedin.com/in/nil1729"
+                href={siteConfig.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"

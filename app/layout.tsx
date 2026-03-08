@@ -1,5 +1,6 @@
 import type React from "react";
 import type { Metadata } from "next";
+import { siteConfig } from "@/lib/config";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | Nilanjan Deb",
   },
   description:
-    "Data Engineer & Software Developer at Harness, specializing in Big Data, Apache Spark, Kafka, AI-driven analytics, and distributed systems. BITS Pilani alumni.",
+    "Data Engineer & Software Developer at Harness, specializing in Big Data, Spark, Kafka, AI analytics, and distributed systems. BITS Pilani alumni.",
   keywords: [
     "Nilanjan Deb",
     "Data Engineer",
@@ -107,9 +108,13 @@ const jsonLd = {
       "@type": "Person",
       "@id": "https://nilanjandeb.com/#person",
       name: "Nilanjan Deb",
+      givenName: "Nilanjan",
+      familyName: "Deb",
       url: "https://nilanjandeb.com",
-      email: "hello@nilanjandeb.com",
-      jobTitle: "Software Engineer",
+      email: siteConfig.email,
+      image: "https://nilanjandeb.com/og-image.jpg",
+      description: "Data Engineer & Software Developer at Harness, specializing in Big Data, Apache Spark, Kafka, AI-driven analytics, and distributed systems. BITS Pilani alumni.",
+      jobTitle: "Data Engineer & Software Developer",
       worksFor: {
         "@type": "Organization",
         name: "Harness",
@@ -133,9 +138,9 @@ const jsonLd = {
         "System Design",
       ],
       sameAs: [
-        "https://github.com/nil1729",
-        "https://www.linkedin.com/in/nil1729",
-        "https://twitter.com/nil1729",
+        siteConfig.github,
+        siteConfig.linkedin,
+        siteConfig.twitter,
       ],
     },
     {
@@ -152,7 +157,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='en' suppressHydrationWarning className='scroll-smooth'>
       <head>
-        <link rel='canonical' href='https://nilanjandeb.com' />
         <link rel='icon' href='/favicon.ico' sizes='any' />
         <link rel='icon' href='/favicon.svg' type='image/svg+xml' />
         <link rel='apple-touch-icon' href='/apple-touch-icon.png' />

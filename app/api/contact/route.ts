@@ -10,8 +10,8 @@ interface ContactFormData {
 
 function createEmailTemplate(name: string, email: string, subject: string, message: string) {
   return {
-    to: process.env.INBOX_EMAIL_ADDRESS,
-    bcc: email,
+    to: email,
+    bcc: process.env.INBOX_EMAIL_ADDRESS,
     from: `${process.env.SENDER_EMAIL_NAME} <${process.env.SENDER_EMAIL_ADDRESS}>`,
     replyTo: process.env.INBOX_EMAIL_ADDRESS,
     subject: `Re: ${subject}`,

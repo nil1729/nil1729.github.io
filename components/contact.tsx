@@ -3,6 +3,7 @@
 import type React from "react"
 
 import { useState } from "react"
+import { siteConfig } from "@/lib/config"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -102,10 +103,10 @@ export default function Contact() {
                     <div>
                       <p className="text-xs text-muted-foreground mb-0.5">Email</p>
                       <Link
-                        href="mailto:hello@nilanjandeb.com"
+                        href={`mailto:${siteConfig.email}`}
                         className="text-sm font-medium hover:text-muted-foreground transition-colors"
                       >
-                        hello@nilanjandeb.com
+                        {siteConfig.email}
                       </Link>
                     </div>
                   </CardContent>
@@ -119,7 +120,7 @@ export default function Contact() {
                     <div>
                       <p className="text-xs text-muted-foreground mb-0.5">LinkedIn</p>
                       <Link
-                        href="https://linkedin.com/in/nil1729"
+                        href={siteConfig.linkedin}
                         target="_blank"
                         className="text-sm font-medium hover:text-muted-foreground transition-colors"
                       >
@@ -137,7 +138,7 @@ export default function Contact() {
                     <div>
                       <p className="text-xs text-muted-foreground mb-0.5">GitHub</p>
                       <Link
-                        href="https://github.com/nil1729"
+                        href={siteConfig.github}
                         target="_blank"
                         className="text-sm font-medium hover:text-muted-foreground transition-colors"
                       >
@@ -155,10 +156,10 @@ export default function Contact() {
                     <div>
                       <p className="text-xs text-muted-foreground mb-0.5">Phone</p>
                       <Link
-                        href="tel:+919366496119"
+                        href={siteConfig.phone.href}
                         className="text-sm font-medium hover:text-muted-foreground transition-colors"
                       >
-                        +91-93664-96119
+                        {siteConfig.phone.display}
                       </Link>
                     </div>
                   </CardContent>
