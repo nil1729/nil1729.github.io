@@ -75,7 +75,6 @@ export default function Navigation() {
     { href: "#about", label: "About", homeOnly: true },
     { href: "#experience", label: "Experience", homeOnly: true },
     { href: "#projects", label: "Projects", homeOnly: true },
-    { href: "/blog", label: "Blog", isExternal: true },
     { href: "#contact", label: "Contact", homeOnly: true },
   ];
 
