@@ -75,6 +75,7 @@ export default function Navigation() {
     { href: "#about", label: "About", homeOnly: true },
     { href: "#experience", label: "Experience", homeOnly: true },
     { href: "#projects", label: "Projects", homeOnly: true },
+    { href: "https://tools.nilanjandeb.com", label: "Tools ↗", isExternal: true },
     { href: "#contact", label: "Contact", homeOnly: true },
   ];
 
@@ -107,6 +108,8 @@ export default function Navigation() {
                       key={item.href}
                       href={item.href}
                       className='text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap'
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       {item.label}
                     </Link>
@@ -183,6 +186,8 @@ export default function Navigation() {
                       href={item.href}
                       className='block px-4 py-2 text-muted-foreground hover:text-foreground transition-colors'
                       onClick={() => setIsOpen(false)}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       {item.label}
                     </Link>
