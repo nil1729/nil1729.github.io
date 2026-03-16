@@ -3,14 +3,12 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/config";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
-
-const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
-const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nilanjandeb.com"),
@@ -176,7 +174,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} font-sans`}>
+      <body className={`${GeistSans.variable} ${GeistMono.variable} font-sans`}>
         <ThemeProvider
           attribute='class'
           defaultTheme='system'
