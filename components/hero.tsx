@@ -29,7 +29,7 @@ export default function Hero() {
           <AnimatedSection delay={350}>
             <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
               Software Engineer at Harness working on cloud cost management. Previously built
-              scalable data pipelines and AI-driven analytics at Glance. BITS Pilani alumni.
+              scalable data pipelines and AI-driven analytics at Glance. BITS Pilani Alumnus.
             </p>
           </AnimatedSection>
 
