@@ -3,7 +3,7 @@
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 import { useEffect, useState } from "react"
-import { Button } from "@/components/ui/button"
+import { PenBox } from "@/components/looseleaf/paper"
 
 export function ThemeToggle() {
   const { theme, setTheme, resolvedTheme } = useTheme()
@@ -13,34 +13,19 @@ export function ThemeToggle() {
     setMounted(true)
   }, [])
 
-  const handleClick = () => {
-    const newTheme = resolvedTheme === "dark" ? "light" : "dark"
-    setTheme(newTheme)
-  }
-
-  if (!mounted) {
-    return (
-      <Button variant="ghost" size="sm" className="w-9 px-0">
-        <div className="h-4 w-4" />
-        <span className="sr-only">Toggle theme</span>
-      </Button>
-    )
-  }
-
-  const currentTheme = resolvedTheme || theme || "light"
-  const isDark = currentTheme === "dark"
+  const isDark = (resolvedTheme || theme) === "dark"
 
   return (
-    <Button
-      variant="ghost"
-      size="sm"
-      className="w-9 px-0 hover:bg-accent"
-      onClick={handleClick}
+    <button
       type="button"
-      aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
+      className="ll-iconbtn"
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      aria-label={mounted ? `Switch to ${isDark ? "light" : "dark"} mode` : "Toggle theme"}
     >
-      {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-      <span className="sr-only">Toggle theme</span>
-    </Button>
+      <PenBox seed="theme-toggle" w={40} h={40} fill="var(--ll-slip)" strokeWidth={1.5} amp={0.7} sketch={false} />
+      <span className="ll-iconbtn-glyph">
+        {mounted ? isDark ? <Sun className="h-4 w-4" aria-hidden="true" /> : <Moon className="h-4 w-4" aria-hidden="true" /> : null}
+      </span>
+    </button>
   )
 }

@@ -1,16 +1,10 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
-import { siteConfig } from "@/lib/config"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
 import { Mail, Linkedin, Github, Phone, Send, CheckCircle, AlertCircle } from "lucide-react"
-import Link from "next/link"
-import { AnimatedSection } from "./animated-section"
+import { siteConfig } from "@/lib/config"
+import { PenButton, PenField, SectionHead, Sheet, Underline } from "@/components/looseleaf/paper"
 
 interface FormData {
   name: string
@@ -24,41 +18,32 @@ interface FormStatus {
   message: string
 }
 
-export default function Contact() {
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  })
+const channels = [
+  { Icon: Mail, label: "Email", text: siteConfig.email, href: `mailto:${siteConfig.email}`, external: false, rotate: -1.2 },
+  { Icon: Linkedin, label: "LinkedIn", text: "linkedin.com/in/nil1729", href: siteConfig.linkedin, external: true, rotate: 1 },
+  { Icon: Github, label: "GitHub", text: "github.com/nil1729", href: siteConfig.github, external: true, rotate: -0.8 },
+  { Icon: Phone, label: "Phone", text: siteConfig.phone.display, href: siteConfig.phone.href, external: false, rotate: 1.3 },
+]
 
-  const [status, setStatus] = useState<FormStatus>({
-    type: "idle",
-    message: "",
-  })
+export default function Contact() {
+  const [formData, setFormData] = useState<FormData>({ name: "", email: "", subject: "", message: "" })
+  const [status, setStatus] = useState<FormStatus>({ type: "idle", message: "" })
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }))
+    setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-
     setStatus({ type: "loading", message: "Sending message..." })
 
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       })
-
       const result = await response.json()
 
       if (response.ok) {
@@ -72,208 +57,102 @@ export default function Contact() {
     }
   }
 
+  const busy = status.type === "loading"
+
   return (
-    <section id="contact" className="py-24 bg-background">
-      <div className="container mx-auto px-6 md:px-8">
-        <div className="max-w-5xl mx-auto">
-          <AnimatedSection>
-            <div className="mb-12 text-center">
-              <p className="text-xs font-mono text-muted-foreground tracking-widest uppercase mb-3">Contact</p>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Get In Touch</h2>
-            </div>
-          </AnimatedSection>
+    <section id="contact" aria-labelledby="contact-title" className="px-6 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-6xl">
+        <SectionHead eyebrow="Contact" id="contact-title" className="mb-14">
+          Get In <Underline seed="h-contact">Touch</Underline>
+        </SectionHead>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Contact Information */}
-            <div className="space-y-4">
-              <AnimatedSection delay={200}>
-                <div className="mb-6">
-                  <h3 className="text-lg font-semibold mb-2">Let's Connect</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    I'm always interested in discussing data engineering challenges, AI innovations, and opportunities
-                    to build impactful solutions. Feel free to reach out!
-                  </p>
+        <div className="grid items-start gap-14 lg:grid-cols-12">
+          <div className="lg:col-span-5">
+            <h3 className="ll-card-title" style={{ fontSize: "1.5rem", color: "var(--ll-on-desk)" }}>
+              Let&apos;s Connect
+            </h3>
+            <p className="ll-lede mt-3">
+              I&apos;m always interested in discussing data engineering challenges, AI innovations, and opportunities to
+              build impactful solutions. Feel free to reach out!
+            </p>
+
+            <ul className="ll-slips">
+              {channels.map(({ Icon, label, text, href, external, rotate }, i) => (
+                <li key={label}>
+                  <Sheet stock="paper" seed={`slip-${label}`} rotate={rotate} index={i + 1}>
+                    <div className="ll-slip">
+                      <Icon className="h-5 w-5 shrink-0" aria-hidden="true" />
+                      <div>
+                        <p className="ll-slip-label">{label}</p>
+                        <a
+                          href={href}
+                          className="ll-link"
+                          {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                        >
+                          {text}
+                        </a>
+                      </div>
+                    </div>
+                  </Sheet>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="lg:col-span-7">
+            <Sheet stock="paper" seed="contact-form" still tape="both" rotate={0.5} index={5}>
+              <h3 className="ll-card-title" style={{ fontSize: "1.5rem" }}>
+                Send a Message
+              </h3>
+              <form onSubmit={handleSubmit} className="ll-form">
+                <div className="ll-form-row">
+                  <div>
+                    <label htmlFor="name">Name *</label>
+                    <PenField seed="f-name">
+                      <input id="name" name="name" value={formData.name} onChange={handleInputChange} placeholder="Your name" required disabled={busy} autoComplete="name" />
+                    </PenField>
+                  </div>
+                  <div>
+                    <label htmlFor="email">Email *</label>
+                    <PenField seed="f-email">
+                      <input id="email" name="email" type="email" value={formData.email} onChange={handleInputChange} placeholder="your.email@example.com" required disabled={busy} autoComplete="email" />
+                    </PenField>
+                  </div>
                 </div>
-              </AnimatedSection>
+                <div>
+                  <label htmlFor="subject">Subject *</label>
+                  <PenField seed="f-subject">
+                    <input id="subject" name="subject" value={formData.subject} onChange={handleInputChange} placeholder="What's this about?" required disabled={busy} />
+                  </PenField>
+                </div>
+                <div>
+                  <label htmlFor="message">Message *</label>
+                  <PenField seed="f-message" h={140}>
+                    <textarea id="message" name="message" value={formData.message} onChange={handleInputChange} placeholder="Your message..." rows={5} required disabled={busy} />
+                  </PenField>
+                </div>
 
-              <AnimatedSection direction="right" delay={300}>
-                <Card>
-                  <CardContent className="flex items-center p-4">
-                    <Mail className="h-4 w-4 mr-3 text-muted-foreground shrink-0" />
-                    <div>
-                      <p className="text-xs text-muted-foreground mb-0.5">Email</p>
-                      <Link
-                        href={`mailto:${siteConfig.email}`}
-                        className="text-sm font-medium hover:text-muted-foreground transition-colors"
-                      >
-                        {siteConfig.email}
-                      </Link>
-                    </div>
-                  </CardContent>
-                </Card>
-              </AnimatedSection>
+                {status.type !== "idle" && (
+                  <p
+                    className="ll-status"
+                    data-type={status.type}
+                    role={status.type === "error" ? "alert" : "status"}
+                  >
+                    {status.type === "success" && <CheckCircle className="h-4 w-4 shrink-0" aria-hidden="true" />}
+                    {status.type === "error" && <AlertCircle className="h-4 w-4 shrink-0" aria-hidden="true" />}
+                    {status.type === "loading" && <span className="ll-spinner" aria-hidden="true" />}
+                    <span>{status.message}</span>
+                  </p>
+                )}
 
-              <AnimatedSection direction="right" delay={400}>
-                <Card>
-                  <CardContent className="flex items-center p-4">
-                    <Linkedin className="h-4 w-4 mr-3 text-muted-foreground shrink-0" />
-                    <div>
-                      <p className="text-xs text-muted-foreground mb-0.5">LinkedIn</p>
-                      <Link
-                        href={siteConfig.linkedin}
-                        target="_blank"
-                        className="text-sm font-medium hover:text-muted-foreground transition-colors"
-                      >
-                        linkedin.com/in/nil1729
-                      </Link>
-                    </div>
-                  </CardContent>
-                </Card>
-              </AnimatedSection>
-
-              <AnimatedSection direction="right" delay={500}>
-                <Card>
-                  <CardContent className="flex items-center p-4">
-                    <Github className="h-4 w-4 mr-3 text-muted-foreground shrink-0" />
-                    <div>
-                      <p className="text-xs text-muted-foreground mb-0.5">GitHub</p>
-                      <Link
-                        href={siteConfig.github}
-                        target="_blank"
-                        className="text-sm font-medium hover:text-muted-foreground transition-colors"
-                      >
-                        github.com/nil1729
-                      </Link>
-                    </div>
-                  </CardContent>
-                </Card>
-              </AnimatedSection>
-
-              <AnimatedSection direction="right" delay={600}>
-                <Card>
-                  <CardContent className="flex items-center p-4">
-                    <Phone className="h-4 w-4 mr-3 text-muted-foreground shrink-0" />
-                    <div>
-                      <p className="text-xs text-muted-foreground mb-0.5">Phone</p>
-                      <Link
-                        href={siteConfig.phone.href}
-                        className="text-sm font-medium hover:text-muted-foreground transition-colors"
-                      >
-                        {siteConfig.phone.display}
-                      </Link>
-                    </div>
-                  </CardContent>
-                </Card>
-              </AnimatedSection>
-            </div>
-
-            {/* Contact Form */}
-            <AnimatedSection direction="left" delay={700}>
-              <Card className="h-full flex flex-col">
-                <CardHeader className="flex-shrink-0 pb-3">
-                  <CardTitle className="text-base">Send a Message</CardTitle>
-                </CardHeader>
-                <CardContent className="flex-1">
-                  <form onSubmit={handleSubmit} className="space-y-4 h-full flex flex-col">
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <label htmlFor="name" className="text-sm font-medium mb-2 block">
-                          Name *
-                        </label>
-                        <Input
-                          id="name"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          placeholder="Your name"
-                          required
-                          disabled={status.type === "loading"}
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="email" className="text-sm font-medium mb-2 block">
-                          Email *
-                        </label>
-                        <Input
-                          id="email"
-                          name="email"
-                          type="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          placeholder="your.email@example.com"
-                          required
-                          disabled={status.type === "loading"}
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <label htmlFor="subject" className="text-sm font-medium mb-2 block">
-                        Subject *
-                      </label>
-                      <Input
-                        id="subject"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleInputChange}
-                        placeholder="What's this about?"
-                        required
-                        disabled={status.type === "loading"}
-                      />
-                    </div>
-                    <div className="flex-1">
-                      <label htmlFor="message" className="text-sm font-medium mb-2 block">
-                        Message *
-                      </label>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        placeholder="Your message..."
-                        rows={5}
-                        className="h-32"
-                        required
-                        disabled={status.type === "loading"}
-                      />
-                    </div>
-
-                    {/* Status Message */}
-                    {status.type !== "idle" && (
-                      <div
-                        className={`flex items-center gap-2 p-3 rounded-md ${
-                          status.type === "success"
-                            ? "bg-green-50 text-green-700 dark:bg-green-900/20 dark:text-green-400"
-                            : status.type === "error"
-                              ? "bg-red-50 text-red-700 dark:bg-red-900/20 dark:text-red-400"
-                              : "bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-400"
-                        }`}
-                      >
-                        {status.type === "success" && <CheckCircle className="h-4 w-4" />}
-                        {status.type === "error" && <AlertCircle className="h-4 w-4" />}
-                        {status.type === "loading" && (
-                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-current"></div>
-                        )}
-                        <span className="text-sm">{status.message}</span>
-                      </div>
-                    )}
-
-                    <Button type="submit" className="w-full mt-auto" disabled={status.type === "loading"}>
-                      {status.type === "loading" ? (
-                        <>
-                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                          Sending...
-                        </>
-                      ) : (
-                        <>
-                          <Send className="mr-2 h-4 w-4" />
-                          Send Message
-                        </>
-                      )}
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-            </AnimatedSection>
+                <div>
+                  <PenButton type="submit" seed="btn-send" disabled={busy}>
+                    <Send aria-hidden="true" />
+                    {busy ? "Sending..." : "Send Message"}
+                  </PenButton>
+                </div>
+              </form>
+            </Sheet>
           </div>
         </div>
       </div>
