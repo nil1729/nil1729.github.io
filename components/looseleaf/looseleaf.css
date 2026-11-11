@@ -1,0 +1,580 @@
+/*
+ * Looseleaf-style "paper on a desk" look for the /blog page only.
+ *
+ * Palette, pen/paper idea and the Kevin Sans typeface are from Looseleaf
+ * (https://github.com/kevintngo/looseleaf, MIT - see LICENSE-looseleaf.txt).
+ * Everything is scoped under `.ll`, so nothing here can leak into the rest of
+ * the portfolio. Light mode = daylight desk; `.dark` = the same desk with the
+ * lamp off (paper stays paper).
+ */
+
+@font-face {
+  font-family: "Kevin Sans";
+  src: url("/fonts/KevinSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Kevin Sans";
+  src: url("/fonts/KevinSans-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.ll {
+  --ll-desk: #a8c8bb;
+  --ll-paper: #f8f5ee;
+  --ll-paper-shade: #ece6da;
+  --ll-slip: #fbf8f1;
+  --ll-card: #fbf6e9;
+  --ll-graph: #f4f7ef;
+  --ll-kraft: #dcc8a3;
+  --ll-pad: #f8f2de;
+
+  --ll-rule-red: #d9776a;
+  --ll-pad-rule: #b2c3dc;
+  --ll-check-rule: #7fa37c;
+
+  --ll-sticky-yellow: #f7e38a;
+  --ll-sticky-green: #cfe6a8;
+  --ll-sticky-orange: #f7c08e;
+  --ll-sticky-pink: #f6b8b0;
+  --ll-sticky-blue: #bcd8f0;
+
+  --ll-ink: #2a2420;
+  --ll-ink-soft: #4a423b;
+  --ll-ink-muted: #4a433c;
+  --ll-ink-you: #2c4f9e;
+  --ll-pencil: #6b6660;
+  --ll-pencil-text: #5a554e;
+  --ll-red: #c2412d;
+  --ll-green: #3b7a4b;
+  --ll-marker: #df6b3c;
+  --ll-hi-select: color-mix(in srgb, #f8dc4c 62%, transparent);
+  --ll-focus: #2c4f9e;
+
+  --ll-pen: #3a322c;
+
+  --ll-on-desk: var(--ll-ink);
+  --ll-on-desk-muted: var(--ll-ink-muted);
+  --ll-shade: 58 44 30;
+
+  --ll-drop: drop-shadow(0 1px 0.75px rgb(var(--ll-shade) / 0.22)) drop-shadow(0 8px 8px rgb(var(--ll-shade) / 0.14));
+
+  position: relative;
+  isolation: isolate;
+  overflow-x: clip;
+  min-height: 100vh;
+  font-family: "Kevin Sans", var(--font-geist-sans), system-ui, sans-serif;
+  color: var(--ll-on-desk);
+  background-color: var(--ll-desk);
+  /* linen weave + fibre noise, all in the background so it costs nothing at runtime */
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .2  0 0 0 0 .3  0 0 0 0 .25  0 0 0 .22 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>"),
+    repeating-linear-gradient(0deg, rgb(255 255 255 / 0.05) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgb(0 0 0 / 0.035) 0 1px, transparent 1px 3px);
+}
+
+.dark .ll {
+  --ll-desk: #1f2b27;
+  --ll-on-desk: #f1ece0;
+  --ll-on-desk-muted: #c4cfc8;
+  --ll-shade: 0 0 0;
+  --ll-drop: drop-shadow(0 1px 0.75px rgb(0 0 0 / 0.5)) drop-shadow(0 10px 10px rgb(0 0 0 / 0.38));
+}
+
+.ll *,
+.ll *::before,
+.ll *::after {
+  box-sizing: border-box;
+}
+
+.ll ::selection {
+  background: var(--ll-hi-select);
+  color: var(--ll-ink);
+}
+
+/* ---------------------------------------------------------------- type */
+
+.ll-title {
+  font-weight: 700;
+  font-size: clamp(3.4rem, 11vw, 7.2rem);
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.ll-h2 {
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.005em;
+}
+
+.ll-lede {
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  line-height: 1.6;
+  color: var(--ll-on-desk-muted);
+  max-width: 34rem;
+  text-wrap: pretty;
+}
+
+.ll-eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--ll-on-desk-muted);
+}
+
+.ll-link {
+  color: var(--ll-ink-you);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+}
+.dark .ll-link-desk {
+  color: #aec4f5;
+}
+.ll-link:hover {
+  text-decoration-thickness: 2.5px;
+}
+.ll-link:focus-visible,
+.ll-btn:focus-visible {
+  outline: 2px solid var(--ll-focus);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+.dark .ll-link-desk:focus-visible {
+  outline-color: #aec4f5;
+}
+
+/* ----------------------------------------------------------- pen layer */
+
+.ll-pen {
+  position: absolute;
+  inset: -3px;
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  overflow: visible;
+  pointer-events: none;
+}
+
+.ll-ul {
+  position: relative;
+  display: inline-block;
+}
+.ll-ul-svg {
+  position: absolute;
+  left: -2%;
+  bottom: -0.3em;
+  width: 104%;
+  height: 0.3em;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.ll-circled {
+  position: relative;
+  display: inline-block;
+  padding: 0 0.45em;
+  white-space: nowrap;
+}
+.ll-circled-svg {
+  position: absolute;
+  left: -0.15em;
+  top: -0.3em;
+  width: calc(100% + 0.3em);
+  height: calc(100% + 0.6em);
+  overflow: visible;
+  pointer-events: none;
+}
+
+.ll-hl {
+  color: var(--ll-ink);
+  padding: 0 0.3em;
+  margin: 0 -0.3em;
+  background-image: linear-gradient(
+    103deg,
+    transparent 0 0.25em,
+    var(--ll-hi-select) 0.45em,
+    var(--ll-hi-select) calc(100% - 0.5em),
+    transparent calc(100% - 0.2em)
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 0.8em;
+  background-position: 0 88%;
+  border-radius: 0.3em 0.7em 0.35em 0.55em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.ll-stamp {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.38rem 0.95rem;
+  color: var(--ll-stamp, var(--ll-red));
+  mix-blend-mode: multiply;
+  opacity: 0.92;
+}
+.ll-stamp-text {
+  position: relative;
+  /* border keeps the pure ink colour; text is deepened so it passes AA on every stock */
+  color: color-mix(in srgb, var(--ll-stamp, var(--ll-red)) 58%, #1a1613);
+  font-weight: 700;
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ll-check {
+  flex: none;
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-top: calc((var(--ll-lh, 2.05rem) - 1.4rem) / 2);
+  overflow: visible;
+}
+
+/* -------------------------------------------------------------- buttons */
+
+.ll-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.9rem;
+  padding: 0.65rem 1.5rem;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.2;
+  color: var(--ll-ink);
+  text-decoration: none;
+  isolation: isolate;
+  transition: translate 0.15s ease;
+}
+.ll-btn:hover {
+  translate: 0 -2px;
+}
+.ll-btn:active {
+  translate: 0 1px;
+}
+.ll-btn:hover .ll-pen {
+  filter: brightness(1.05) saturate(1.05);
+}
+.ll-btn-label {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  white-space: nowrap;
+}
+.ll-btn-label svg {
+  width: 1.05em;
+  height: 1.05em;
+}
+
+/* --------------------------------------------------------------- paper */
+
+.ll-sheet {
+  position: relative;
+  rotate: var(--ll-r, 0deg);
+  filter: var(--ll-drop);
+  transition:
+    translate 0.25s ease,
+    rotate 0.25s ease;
+  animation: ll-settle 0.7s cubic-bezier(0.2, 0.8, 0.25, 1) both;
+  animation-delay: calc(var(--ll-i, 0) * 70ms + 60ms);
+}
+.ll-sheet:hover {
+  translate: 0 -4px;
+  rotate: calc(var(--ll-r, 0deg) * 0.35);
+}
+
+@keyframes ll-settle {
+  from {
+    opacity: 0;
+    transform: translateY(-18px) scale(1.03);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.ll-face {
+  position: relative;
+  height: 100%;
+  padding: 1.6rem;
+  color: var(--ll-ink);
+  background-color: var(--ll-paper);
+}
+/* paper fibre */
+.ll-face::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  opacity: 0.55;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .45  0 0 0 0 .36  0 0 0 0 .24  0 0 0 .5 -.08'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+.ll-face > * {
+  position: relative;
+}
+
+.ll-sheet[data-stock="ruled"] .ll-face {
+  --ll-lh: 2.05rem;
+  background-color: var(--ll-pad);
+  /* top padding = rule offset + one line, so text sits on the rules */
+  padding: 2.4rem 1.6rem 1.2rem 4.1rem;
+  background-image:
+    linear-gradient(90deg, transparent 3.05rem, var(--ll-rule-red) 3.05rem, var(--ll-rule-red) calc(3.05rem + 1.5px), transparent calc(3.05rem + 1.5px)),
+    repeating-linear-gradient(to bottom, transparent 0 calc(var(--ll-lh) - 1px), var(--ll-pad-rule) calc(var(--ll-lh) - 1px) var(--ll-lh));
+  background-position: 0 0, 0 0.35rem;
+}
+.ll-sheet[data-stock="graph"] .ll-face {
+  --ll-lh: 2.6rem;
+  padding: 2.6rem;
+  background-color: var(--ll-graph);
+  background-image:
+    linear-gradient(rgb(127 163 124 / 0.38) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(127 163 124 / 0.38) 1px, transparent 1px);
+  background-size: 1.3rem 1.3rem;
+}
+.ll-sheet[data-stock="index"] .ll-face {
+  background-color: var(--ll-card);
+}
+.ll-sheet[data-stock="kraft"] .ll-face {
+  background-color: var(--ll-kraft);
+}
+.ll-sheet[data-stock^="sticky-"] .ll-face {
+  background-image: linear-gradient(180deg, transparent 0 86%, rgb(0 0 0 / 0.07) 100%);
+}
+.ll-sheet[data-stock="sticky-yellow"] .ll-face { background-color: var(--ll-sticky-yellow); }
+.ll-sheet[data-stock="sticky-green"] .ll-face { background-color: var(--ll-sticky-green); }
+.ll-sheet[data-stock="sticky-orange"] .ll-face { background-color: var(--ll-sticky-orange); }
+.ll-sheet[data-stock="sticky-pink"] .ll-face { background-color: var(--ll-sticky-pink); }
+.ll-sheet[data-stock="sticky-blue"] .ll-face { background-color: var(--ll-sticky-blue); }
+
+/* ---------------------------------------------------------------- tape */
+
+.ll-tape {
+  position: absolute;
+  z-index: 2;
+  width: 4.9rem;
+  height: 1.5rem;
+  rotate: var(--ll-tape-r, 0deg);
+  pointer-events: none;
+  background-image:
+    linear-gradient(180deg, rgb(255 255 255 / 0.35), transparent 30%, rgb(120 110 80 / 0.1)),
+    linear-gradient(90deg, rgb(226 232 204 / 0.74), rgb(236 228 196 / 0.7));
+}
+.ll-tape-top {
+  top: -0.75rem;
+  left: 50%;
+  margin-left: -2.45rem;
+}
+.ll-tape-corner {
+  top: -0.2rem;
+  left: -1.7rem;
+}
+.ll-tape-corner-r {
+  top: -0.2rem;
+  right: -1.7rem;
+}
+
+/* -------------------------------------------------------------- layout */
+
+.ll-board {
+  display: grid;
+  gap: 3rem 2.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 18.5rem), 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+@media (min-width: 1024px) {
+  .ll-board > :nth-child(3n + 2) {
+    margin-top: 1.75rem;
+  }
+  .ll-board > :nth-child(3n) {
+    margin-top: 0.5rem;
+  }
+}
+.ll-board > li {
+  display: flex;
+}
+.ll-board > li > .ll-sheet {
+  flex: 1;
+}
+
+.ll-note-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.9rem;
+}
+.ll-no {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--ll-ink-soft);
+}
+.ll-card-title {
+  font-weight: 700;
+  font-size: 1.35rem;
+  line-height: 1.15;
+  margin: 0 0 0.6rem;
+  text-wrap: balance;
+}
+.ll-card-body {
+  font-size: 0.98rem;
+  line-height: 1.5;
+  color: var(--ll-ink-soft);
+}
+.ll-card-foot {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.1rem;
+  padding-top: 0.8rem;
+  border-top: 1.5px dashed rgb(58 44 30 / 0.35);
+  font-size: 0.9rem;
+  color: var(--ll-ink-soft);
+}
+
+.ll-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ll-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  font-size: 1.02rem;
+  line-height: var(--ll-lh, 2.05rem);
+  min-height: var(--ll-lh, 2.05rem);
+}
+.ll-list li + li {
+  margin-top: 0;
+}
+.ll-notebook-title {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.55rem;
+  line-height: var(--ll-lh, 2.05rem);
+}
+
+@media (max-width: 640px) {
+  .ll-face {
+    padding: 1.35rem;
+  }
+  .ll-sheet[data-stock="graph"] .ll-face {
+    padding: 2.6rem 1.3rem;
+  }
+  .ll-sheet[data-stock="ruled"] .ll-face {
+    padding: 2.4rem 1.2rem 1.2rem 3.6rem;
+    background-image:
+      linear-gradient(90deg, transparent 2.6rem, var(--ll-rule-red) 2.6rem, var(--ll-rule-red) calc(2.6rem + 1.5px), transparent calc(2.6rem + 1.5px)),
+      repeating-linear-gradient(to bottom, transparent 0 calc(var(--ll-lh) - 1px), var(--ll-pad-rule) calc(var(--ll-lh) - 1px) var(--ll-lh));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ll-sheet {
+    animation: none;
+    transition: none;
+  }
+  .ll-btn {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .ll-face {
+    border: 1px solid CanvasText;
+  }
+}
+
+/* ------------------------------------------------------------------------
+ * Chrome adaptations. The global nav/footer are designed for a white page, so
+ * while the desk is on screen (and only then - `.ll` exists nowhere else) they
+ * borrow the desk colours instead of leaving a white bar and grey-on-green text.
+ * ---------------------------------------------------------------------- */
+body:has(.ll) nav [class*="text-muted-foreground"] {
+  color: #3a322c;
+}
+body:has(.ll) nav [class*="text-muted-foreground"]:hover {
+  color: #14110f;
+}
+body:has(.ll) nav[class*="bg-background"] {
+  background-color: rgb(168 200 187 / 0.94);
+  border-color: rgb(58 44 30 / 0.25);
+}
+body:has(.ll) footer {
+  background-color: #a8c8bb;
+  border-color: rgb(58 44 30 / 0.25);
+}
+body:has(.ll) footer p {
+  color: #3a322c;
+}
+html.dark body:has(.ll) nav [class*="text-muted-foreground"] {
+  color: #c4cfc8;
+}
+html.dark body:has(.ll) nav [class*="text-muted-foreground"]:hover {
+  color: #f1ece0;
+}
+html.dark body:has(.ll) nav[class*="bg-background"] {
+  background-color: rgb(31 43 39 / 0.94);
+  border-color: rgb(241 236 224 / 0.12);
+}
+html.dark body:has(.ll) footer {
+  background-color: #1f2b27;
+  border-color: rgb(241 236 224 / 0.12);
+}
+html.dark body:has(.ll) footer p {
+  color: #c4cfc8;
+}
+
+/* index card: the red header rule is a real border so it follows the stamp row if it wraps */
+.ll-sheet[data-stock="index"] .ll-note-meta {
+  padding-bottom: 0.7rem;
+  border-bottom: 1.5px solid var(--ll-rule-red);
+  margin-bottom: 1rem;
+}
+.ll-note-meta {
+  flex-wrap: wrap;
+}
+.ll-no {
+  white-space: nowrap;
+}
+
+/* stamps pressed straight onto the dark desk: light ink instead of multiply-on-dark */
+.dark .ll-stamp-desk {
+  mix-blend-mode: normal;
+  opacity: 1;
+  color: #e6efe9;
+}
+.dark .ll-stamp-desk .ll-pen path {
+  stroke: currentColor;
+}
+.dark .ll-stamp-desk .ll-stamp-text {
+  color: #e6efe9;
+}
+
+@media (max-width: 640px) {
+  .ll-tape-corner {
+    left: -0.8rem;
+  }
+  .ll-tape-corner-r {
+    right: -0.8rem;
+  }
+}
