@@ -3,9 +3,10 @@ import { preload } from "react-dom"
 import type { Metadata } from "next"
 import { ArrowLeft, Bell, Calendar } from "lucide-react"
 import { Circled, CheckBox, Highlight, PenButton, Sheet, Stamp, Underline, type Stock } from "@/components/looseleaf/paper"
-import "@/components/looseleaf/looseleaf.css"
 
 export const metadata: Metadata = {
+  // Not linked from anywhere until the first post is written, so keep it out of search results.
+  robots: { index: false, follow: false },
   title: "Blog - Data Engineering & AI Insights",
   description:
     "Technical blog by Nilanjan Deb covering Data Engineering, AI, Machine Learning, Apache Spark, Kafka, and real-world applications. Daily learnings and practical examples from a Data Engineer at Harness.",
@@ -119,7 +120,7 @@ export default function BlogPage() {
   preload("/fonts/KevinSans-Regular.woff2", { as: "font", type: "font/woff2", crossOrigin: "anonymous" })
 
   return (
-    <main className="ll pt-16">
+    <main className="pt-16">
       {/* ------------------------------------------------------------ hero */}
       <section aria-labelledby="blog-title" className="px-6 pb-20 pt-14 md:px-8 md:pb-28 md:pt-20">
         <div className="mx-auto grid max-w-6xl items-center gap-16 lg:grid-cols-12">

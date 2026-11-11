@@ -104,6 +104,8 @@ type SheetProps = {
   as?: ElementType
   /** stagger index for the entrance animation */
   index?: number
+  /** big content cards: no hover lift */
+  still?: boolean
   className?: string
   faceClassName?: string
   style?: CSSProperties
@@ -118,6 +120,7 @@ export function Sheet({
   torn = false,
   as: Tag = "div",
   index = 0,
+  still = false,
   className,
   faceClassName,
   style,
@@ -128,6 +131,7 @@ export function Sheet({
     <Tag
       className={cn("ll-sheet", className)}
       data-stock={stock}
+      data-still={still ? "" : undefined}
       style={{ "--ll-r": `${deg}deg`, "--ll-i": index, ...style } as Vars}
     >
       <div className={cn("ll-face", faceClassName)} style={{ clipPath: sheetClip(seed, { torn }) }}>
@@ -272,30 +276,103 @@ export function CheckBox({ seed }: { seed: string }) {
   )
 }
 
+/* --------------------------------------------------------------------- tags */
+
+/** Small pen-outlined label (tech chips). */
+export function Tag({ children, className }: { children: string; className?: string }) {
+  return (
+    <span className={cn("ll-tag", className)}>
+      <PenBox seed={`tag-${children}`} w={Math.max(60, children.length * 8 + 20)} h={26} strokeWidth={1.3} amp={0.5} sketch={false} />
+      <span className="ll-tag-text">{children}</span>
+    </span>
+  )
+}
+
+/** Wraps an <input>/<textarea> in a pen-drawn frame. Pass the control as children. */
+export function PenField({ seed, h = 44, children, className }: { seed: string; h?: number; children: ReactNode; className?: string }) {
+  return (
+    <div className={cn("ll-field", className)}>
+      <PenBox seed={seed} w={320} h={h} fill="var(--ll-slip)" strokeWidth={1.5} amp={0.8} sketch={false} />
+      {children}
+    </div>
+  )
+}
+
+/** Eyebrow + title block shared by every section. */
+export function SectionHead({
+  eyebrow,
+  id,
+  children,
+  lede,
+  className,
+}: {
+  eyebrow: string
+  id: string
+  children: ReactNode
+  lede?: ReactNode
+  className?: string
+}) {
+  return (
+    <header className={cn("ll-head", className)}>
+      <p className="ll-eyebrow">{eyebrow}</p>
+      <h2 id={id} className="ll-h2 mt-3">
+        {children}
+      </h2>
+      {lede ? <p className="ll-lede mt-6">{lede}</p> : null}
+    </header>
+  )
+}
+
 /* ------------------------------------------------------------------ buttons */
 
 type PenButtonProps = {
-  href: string
   seed: string
   tone?: "primary" | "paper"
+  size?: "md" | "sm"
   children: ReactNode
   className?: string
+  /** Renders a link when set, otherwise a <button>. */
+  href?: string
+  type?: "button" | "submit"
+  disabled?: boolean
+  onClick?: () => void
+  "aria-label"?: string
 }
 
-/** Link styled as a hand-drawn button. Internal paths use next/link, everything else a plain <a>. */
-export function PenButton({ href, seed, tone = "primary", children, className }: PenButtonProps) {
-  const Anchor = href.startsWith("/") ? Link : "a"
-  return (
-    <Anchor href={href} className={cn("ll-btn", className)} data-tone={tone}>
+/** Hand-drawn button. Internal paths use next/link, http(s) opens a new tab, everything else is a plain <a>. */
+export function PenButton({ href, seed, tone = "primary", size = "md", children, className, type = "button", disabled, onClick, ...rest }: PenButtonProps) {
+  const body = (
+    <>
       <PenBox
         seed={seed}
-        w={220}
-        h={48}
+        w={size === "sm" ? 130 : 220}
+        h={size === "sm" ? 36 : 48}
         fill={tone === "primary" ? "var(--ll-marker)" : "var(--ll-slip)"}
         strokeWidth={1.8}
         amp={0.9}
       />
       <span className="ll-btn-label">{children}</span>
-    </Anchor>
+    </>
+  )
+  const cls = cn("ll-btn", size === "sm" && "ll-btn-sm", className)
+  if (!href) {
+    return (
+      <button type={type} disabled={disabled} onClick={onClick} className={cls} data-tone={tone} {...rest}>
+        {body}
+      </button>
+    )
+  }
+  if (href.startsWith("/")) {
+    return (
+      <Link href={href} className={cls} data-tone={tone} {...rest}>
+        {body}
+      </Link>
+    )
+  }
+  const external = /^https?:/.test(href)
+  return (
+    <a href={href} className={cls} data-tone={tone} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})} {...rest}>
+      {body}
+    </a>
   )
 }

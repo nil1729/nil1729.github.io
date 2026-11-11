@@ -6,6 +6,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
+import "@/components/looseleaf/looseleaf.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
@@ -159,8 +160,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel='icon' href='/favicon.svg' type='image/svg+xml' />
         <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
         <link rel='manifest' href='/manifest.json' />
-        <meta name='theme-color' content='#ffffff' media='(prefers-color-scheme: light)' />
-        <meta name='theme-color' content='#0a0a0a' media='(prefers-color-scheme: dark)' />
+        <meta name='theme-color' content='#a8c8bb' media='(prefers-color-scheme: light)' />
+        <meta name='theme-color' content='#1f2b27' media='(prefers-color-scheme: dark)' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <script
           type='application/ld+json'
@@ -181,9 +182,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           enableSystem={true}
           storageKey='nilanjan-theme'
         >
-          <Navigation />
-          {children}
-          <Footer />
+          <div className='ll'>
+            <Navigation />
+            {children}
+            <Footer />
+          </div>
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />

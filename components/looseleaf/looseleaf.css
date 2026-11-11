@@ -374,7 +374,7 @@
   pointer-events: none;
   background-image:
     linear-gradient(180deg, rgb(255 255 255 / 0.35), transparent 30%, rgb(120 110 80 / 0.1)),
-    linear-gradient(90deg, rgb(226 232 204 / 0.74), rgb(236 228 196 / 0.7));
+    linear-gradient(90deg, rgb(238 232 200 / 0.9), rgb(244 236 206 / 0.86));
 }
 .ll-tape-top {
   top: -0.75rem;
@@ -504,46 +504,6 @@
   }
 }
 
-/* ------------------------------------------------------------------------
- * Chrome adaptations. The global nav/footer are designed for a white page, so
- * while the desk is on screen (and only then - `.ll` exists nowhere else) they
- * borrow the desk colours instead of leaving a white bar and grey-on-green text.
- * ---------------------------------------------------------------------- */
-body:has(.ll) nav [class*="text-muted-foreground"] {
-  color: #3a322c;
-}
-body:has(.ll) nav [class*="text-muted-foreground"]:hover {
-  color: #14110f;
-}
-body:has(.ll) nav[class*="bg-background"] {
-  background-color: rgb(168 200 187 / 0.94);
-  border-color: rgb(58 44 30 / 0.25);
-}
-body:has(.ll) footer {
-  background-color: #a8c8bb;
-  border-color: rgb(58 44 30 / 0.25);
-}
-body:has(.ll) footer p {
-  color: #3a322c;
-}
-html.dark body:has(.ll) nav [class*="text-muted-foreground"] {
-  color: #c4cfc8;
-}
-html.dark body:has(.ll) nav [class*="text-muted-foreground"]:hover {
-  color: #f1ece0;
-}
-html.dark body:has(.ll) nav[class*="bg-background"] {
-  background-color: rgb(31 43 39 / 0.94);
-  border-color: rgb(241 236 224 / 0.12);
-}
-html.dark body:has(.ll) footer {
-  background-color: #1f2b27;
-  border-color: rgb(241 236 224 / 0.12);
-}
-html.dark body:has(.ll) footer p {
-  color: #c4cfc8;
-}
-
 /* index card: the red header rule is a real border so it follows the stamp row if it wraps */
 .ll-sheet[data-stock="index"] .ll-note-meta {
   padding-bottom: 0.7rem;
@@ -576,5 +536,542 @@ html.dark body:has(.ll) footer p {
   }
   .ll-tape-corner-r {
     right: -0.8rem;
+  }
+}
+
+/* ======================================================================
+ * Site-wide pieces (nav, footer, home sections)
+ * ==================================================================== */
+
+.ll-sheet[data-still]:hover {
+  translate: none;
+  rotate: var(--ll-r, 0deg);
+}
+
+/* buttons that are real <button>s */
+button.ll-btn {
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.ll-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.ll-btn-sm {
+  min-height: 2.25rem;
+  padding: 0.35rem 1rem;
+  font-size: 0.9rem;
+}
+
+/* icon buttons (theme toggle, burger, socials) */
+.ll-iconbtn {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ll-ink);
+  cursor: pointer;
+  transition: translate 0.15s ease;
+}
+.ll-iconbtn:hover {
+  translate: 0 -2px;
+}
+.ll-iconbtn:focus-visible {
+  outline: 2px solid var(--ll-focus);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+.dark .ll-iconbtn:focus-visible,
+.dark .ll-navlink:focus-visible {
+  outline-color: #aec4f5;
+}
+.ll-iconbtn-glyph {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+}
+
+/* ------------------------------------------------------------------ nav */
+
+.ll-nav {
+  --ll-nav-ink: var(--ll-on-desk);
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+}
+.ll-nav[data-scrolled="true"] {
+  --ll-nav-ink: var(--ll-ink);
+}
+.ll-nav-paper {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  background-color: var(--ll-paper);
+  filter: drop-shadow(0 6px 8px rgb(var(--ll-shade) / 0.18));
+}
+.ll-nav[data-scrolled="true"] .ll-nav-paper {
+  opacity: 1;
+}
+.ll-nav-line {
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 12px;
+  overflow: visible;
+}
+.ll-nav-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+  width: min(72rem, calc(100% - 3rem));
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .ll-nav-inner {
+    width: min(72rem, calc(100% - 4rem));
+  }
+}
+.ll-nav-logo {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--ll-nav-ink);
+  text-decoration: none;
+}
+.ll-nav-links {
+  display: none;
+  position: absolute;
+  left: 50%;
+  translate: -50% 0;
+  align-items: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ll-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.ll-navlink {
+  display: inline-block;
+  line-height: 1.5;
+  vertical-align: middle;
+  padding: 0.35rem 0.2rem;
+  border: 0;
+  background: none;
+  font: inherit;
+  white-space: nowrap;
+  color: var(--ll-nav-ink);
+  text-decoration: none;
+  cursor: pointer;
+  background-image: linear-gradient(104deg, transparent 0 0.2em, var(--ll-hi-select) 0.35em, var(--ll-hi-select) calc(100% - 0.35em), transparent calc(100% - 0.15em));
+  background-repeat: no-repeat;
+  background-size: 0 0.8em;
+  background-position: 0 85%;
+  transition: background-size 0.2s ease;
+}
+.ll-navlink:hover {
+  background-size: 100% 0.8em;
+}
+.dark .ll-nav[data-scrolled="false"] .ll-navlink:hover {
+  color: var(--ll-ink);
+}
+.ll-navlink:focus-visible {
+  outline: 2px solid var(--ll-focus);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.ll-nav-menu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0.25rem 1.5rem 1rem;
+  list-style: none;
+}
+.ll-nav-menu .ll-navlink {
+  width: 100%;
+  padding: 0.7rem 0;
+  text-align: left;
+  font-size: 1.1rem;
+  background-image: none;
+}
+@media (min-width: 768px) {
+  .ll-nav-links {
+    display: flex;
+  }
+  .ll-nav-burger,
+  .ll-nav-menu {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------- footer */
+
+.ll-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 3rem 1.5rem 2.5rem;
+  text-align: center;
+  color: var(--ll-on-desk-muted);
+}
+.ll-footer p {
+  margin: 0;
+}
+.ll-footer-credit {
+  font-size: 0.85rem;
+}
+.ll-link-desk {
+  color: #1f3b7a;
+}
+
+/* ----------------------------------------------------------------- hero */
+
+.ll-facts {
+  display: grid;
+  gap: 1.15rem;
+  margin: 1.2rem 0 0;
+  padding: 0;
+}
+.ll-facts > div {
+  display: grid;
+  grid-template-columns: 4.4rem 1fr;
+  gap: 0.75rem;
+  align-items: baseline;
+}
+.ll-facts dt {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ll-ink-soft);
+}
+.ll-facts dd {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin: 0;
+}
+.ll-facts strong {
+  font-size: 1.05rem;
+}
+.ll-facts span {
+  font-size: 0.92rem;
+  line-height: 1.4;
+  color: var(--ll-ink-soft);
+}
+.ll-facts em {
+  font-style: normal;
+  font-size: 0.85rem;
+  color: var(--ll-ink-you);
+}
+
+/* ---------------------------------------------------------------- about */
+
+.ll-prose p {
+  margin: 0 0 var(--ll-lh, 2.05rem);
+  font-size: 1.02rem;
+  line-height: var(--ll-lh, 2.05rem);
+}
+.ll-prose p:last-child {
+  margin-bottom: 0;
+}
+.ll-pillars {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ll-pillars > li {
+  display: flex;
+}
+.ll-pillars .ll-sheet {
+  flex: 1;
+}
+
+/* ----------------------------------------------------------- experience */
+
+.ll-role-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.ll-when {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--ll-ink-soft);
+}
+.ll-minor {
+  margin: 0 0 0.9rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ll-ink-soft);
+}
+.ll-bullets {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+.ll-bullets li {
+  position: relative;
+  padding-left: 1.4rem;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  color: var(--ll-ink-soft);
+}
+.ll-bullets li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+  color: var(--ll-ink-you);
+}
+.ll-bullets-sm {
+  gap: 0.4rem;
+}
+.ll-bullets-sm li {
+  font-size: 0.9rem;
+}
+.ll-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ll-tag {
+  position: relative;
+  display: inline-flex;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.78rem;
+  color: var(--ll-ink-soft);
+}
+.ll-tag-text {
+  position: relative;
+  white-space: nowrap;
+}
+.ll-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13.5rem, 1fr));
+  gap: 1.5rem;
+  margin: 0 0 2.2rem;
+  padding: 0;
+  list-style: none;
+}
+.ll-metrics > li {
+  display: flex;
+}
+.ll-metrics .ll-sheet {
+  flex: 1;
+}
+.ll-metric-num {
+  margin: 0 0 0.7rem;
+  padding: 0.3rem 0;
+  font-size: 2.3rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.ll-metric-title {
+  margin: 0;
+  font-weight: 700;
+}
+.ll-metric-sub {
+  margin: 0.2rem 0 0;
+  font-size: 0.9rem;
+  color: var(--ll-ink-soft);
+}
+.ll-lead {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13.5rem, 1fr));
+  gap: 0.8rem 1.5rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.ll-lead li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* ------------------------------------------------------------- projects */
+
+.ll-board-proj {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+}
+.ll-proj {
+  display: flex;
+  flex-direction: column;
+}
+.ll-proj-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.9rem;
+}
+.ll-proj .ll-card-body {
+  margin-bottom: 1rem;
+}
+.ll-proj-tags {
+  margin-top: auto;
+  padding-top: 0.2rem;
+}
+.ll-proj-foot {
+  margin-top: 1.3rem;
+}
+
+/* -------------------------------------------------------------- contact */
+
+.ll-slips {
+  display: grid;
+  gap: 1.5rem;
+  margin: 2.2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.ll-slip {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+.ll-slip .ll-link {
+  font-size: 0.98rem;
+  overflow-wrap: anywhere;
+}
+.ll-slip-label {
+  margin: 0 0 0.15rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ll-ink-soft);
+}
+.ll-form {
+  display: grid;
+  gap: 1.2rem;
+  margin-top: 1.3rem;
+}
+.ll-form-row {
+  display: grid;
+  gap: 1.2rem;
+}
+@media (min-width: 640px) {
+  .ll-form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.ll-form label {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+.ll-field {
+  position: relative;
+}
+.ll-field input,
+.ll-field textarea {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--ll-ink-you);
+  caret-color: var(--ll-ink-you);
+}
+.ll-field textarea {
+  min-height: 8.75rem;
+  resize: none;
+}
+.ll-field ::placeholder {
+  color: var(--ll-pencil-text);
+  opacity: 0.85;
+}
+.ll-field:focus-within {
+  outline: 2px solid var(--ll-focus);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.ll-field:has(:disabled) {
+  opacity: 0.6;
+}
+.ll-status {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0.6rem 0.9rem;
+  border-radius: 3px;
+  font-size: 0.95rem;
+  color: var(--ll-ink);
+  background: var(--ll-sticky-blue);
+}
+.ll-status[data-type="success"] {
+  background: var(--ll-sticky-green);
+}
+.ll-status[data-type="error"] {
+  background: var(--ll-sticky-pink);
+}
+.ll-spinner {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: ll-spin 0.8s linear infinite;
+}
+@keyframes ll-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .ll-pillars {
+    gap: 1.25rem;
+  }
+  .ll-pillars .ll-face {
+    padding: 1.1rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ll-spinner {
+    animation-duration: 2s;
+  }
+  .ll-navlink,
+  .ll-nav-paper,
+  .ll-iconbtn {
+    transition: none;
   }
 }

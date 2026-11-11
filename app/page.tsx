@@ -1,41 +1,17 @@
-import { lazy, Suspense } from "react"
 import Hero from "@/components/hero"
-
-// Lazy load components for better performance
-const About = lazy(() => import("@/components/about"))
-const Experience = lazy(() => import("@/components/experience"))
-const Projects = lazy(() => import("@/components/projects"))
-const Contact = lazy(() => import("@/components/contact"))
-
-// Loading component
-function SectionLoader() {
-  return (
-    <div className="py-20 flex items-center justify-center">
-      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-foreground"></div>
-    </div>
-  )
-}
+import About from "@/components/about"
+import Experience from "@/components/experience"
+import Projects from "@/components/projects"
+import Contact from "@/components/contact"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background">
+    <main>
       <Hero />
-
-      <Suspense fallback={<SectionLoader />}>
-        <About />
-      </Suspense>
-
-      <Suspense fallback={<SectionLoader />}>
-        <Experience />
-      </Suspense>
-
-      <Suspense fallback={<SectionLoader />}>
-        <Projects />
-      </Suspense>
-
-      <Suspense fallback={<SectionLoader />}>
-        <Contact />
-      </Suspense>
+      <About />
+      <Experience />
+      <Projects />
+      <Contact />
     </main>
   )
 }
