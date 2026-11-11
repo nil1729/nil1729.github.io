@@ -276,18 +276,6 @@ export function CheckBox({ seed }: { seed: string }) {
   )
 }
 
-/* --------------------------------------------------------------------- tags */
-
-/** Small pen-outlined label (tech chips). */
-export function Tag({ children, className }: { children: string; className?: string }) {
-  return (
-    <span className={cn("ll-tag", className)}>
-      <PenBox seed={`tag-${children}`} w={Math.max(60, children.length * 8 + 20)} h={26} strokeWidth={1.3} amp={0.5} sketch={false} />
-      <span className="ll-tag-text">{children}</span>
-    </span>
-  )
-}
-
 /** Wraps an <input>/<textarea> in a pen-drawn frame. Pass the control as children. */
 export function PenField({ seed, h = 44, children, className }: { seed: string; h?: number; children: ReactNode; className?: string }) {
   return (

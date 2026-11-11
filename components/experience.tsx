@@ -1,7 +1,5 @@
 import { Calendar, Users, Wrench } from "lucide-react"
-import { Circled, SectionHead, Sheet, Stamp, Tag, Underline } from "@/components/looseleaf/paper"
-
-const harnessTags = ["Cloud Cost Management", "Data Ingestion", "Billing Pipelines", "Java", "Spring Boot"]
+import { Circled, SectionHead, Sheet, Stamp, Underline } from "@/components/looseleaf/paper"
 
 const metrics = [
   { value: "98%", title: "Latency Reduction", sub: "From 1 hour to 1 minute", stock: "sticky-yellow" as const, rotate: -2 },
@@ -21,10 +19,6 @@ const achievements = [
   "Developed a content generation pipeline using Celery workers and LLM integration for articles and images",
   "Deployed Vanna.AI for AI-powered analytics, improving data analyst productivity",
   "Built enterprise configuration store with SSO authentication and rule-based ACLs",
-]
-
-const glanceTags = [
-  "Apache Spark", "Kafka", "Trino", "Apache Iceberg", "Hudi", "Debezium", "Vanna.AI", "LLM", "BullMQ", "Redis", "Celery", "Helm", "OPA", "Airflow",
 ]
 
 const leadership = [
@@ -70,13 +64,6 @@ export default function Experience() {
               <li>Contributing to the CCM (Cloud Cost Management) team at Harness</li>
               <li>Focused on the Billing Data Ingestion Pipeline for cloud cost analytics</li>
             </ul>
-            <ul className="ll-tags" aria-label="Technologies">
-              {harnessTags.map((t) => (
-                <li key={t}>
-                  <Tag>{t}</Tag>
-                </li>
-              ))}
-            </ul>
           </Sheet>
 
           {/* Glance */}
@@ -103,13 +90,6 @@ export default function Experience() {
             <ul className="ll-bullets">
               {achievements.map((a) => (
                 <li key={a}>{a}</li>
-              ))}
-            </ul>
-            <ul className="ll-tags" aria-label="Technologies">
-              {glanceTags.map((t) => (
-                <li key={t}>
-                  <Tag>{t}</Tag>
-                </li>
               ))}
             </ul>
           </Sheet>

@@ -856,25 +856,6 @@ button.ll-btn {
 .ll-bullets-sm li {
   font-size: 0.9rem;
 }
-.ll-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.ll-tag {
-  position: relative;
-  display: inline-flex;
-  padding: 0.25rem 0.7rem;
-  font-size: 0.78rem;
-  color: var(--ll-ink-soft);
-}
-.ll-tag-text {
-  position: relative;
-  white-space: nowrap;
-}
 .ll-metrics {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(13.5rem, 1fr));
@@ -937,10 +918,6 @@ button.ll-btn {
 }
 .ll-proj .ll-card-body {
   margin-bottom: 1rem;
-}
-.ll-proj-tags {
-  margin-top: auto;
-  padding-top: 0.2rem;
 }
 .ll-proj-foot {
   margin-top: 1.3rem;

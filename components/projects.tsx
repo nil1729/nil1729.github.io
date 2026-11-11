@@ -1,12 +1,11 @@
 import { Activity, Brain, Database, ExternalLink, Github, Network, Server, Shield, ShoppingCart, Terminal } from "lucide-react"
-import { PenButton, SectionHead, Sheet, Stamp, Tag, Underline, type Stock } from "@/components/looseleaf/paper"
+import { PenButton, SectionHead, Sheet, Stamp, Underline, type Stock } from "@/components/looseleaf/paper"
 import { siteConfig } from "@/lib/config"
 
 type Project = {
   title: string
   description: string
   Icon: typeof Brain
-  technologies: string[]
   highlights: string[]
   category?: "Professional" | "Open Source"
   github?: string
@@ -17,7 +16,6 @@ const dataAIProjects: Project[] = [
     title: "AI-Powered Analytics Platform",
     description: "Deployed Vanna.AI to enable natural language querying over data warehouse — analysts query data without writing SQL",
     Icon: Brain,
-    technologies: ["Vanna.AI", "LLM", "Python", "Apache Spark", "Trino"],
     category: "Professional",
     highlights: ["Natural language to SQL", "Integrated with Trino query engine", "Improved analyst productivity"],
   },
@@ -25,7 +23,6 @@ const dataAIProjects: Project[] = [
     title: "Real-time Data Streaming Pipeline",
     description: "Replaced hourly batch jobs with Spark Streaming + Kafka, cutting data latency from 1 hour to under 1 minute",
     Icon: Database,
-    technologies: ["Apache Spark", "Kafka", "Trino", "Apache Iceberg", "Hudi"],
     category: "Professional",
     highlights: ["98% latency reduction", "OLAP-ready Iceberg tables", "CDC with Debezium"],
   },
@@ -33,7 +30,6 @@ const dataAIProjects: Project[] = [
     title: "Trino Monitoring Stack",
     description: "Production-grade observability for Trino clusters — JMX metrics scraped by Prometheus and visualized in Grafana",
     Icon: Activity,
-    technologies: ["Trino", "JMX", "Prometheus", "Grafana", "Docker"],
     category: "Open Source",
     github: "https://github.com/nil1729/trino-jmx-monitoring",
     highlights: ["Cluster-level JMX metrics", "Pre-built Grafana dashboards", "Query performance tracking"],
@@ -42,7 +38,6 @@ const dataAIProjects: Project[] = [
     title: "Trino + Apache Ranger Security",
     description: "Fine-grained authorization for Trino using Apache Ranger — table, column, and row-level access policies via Docker",
     Icon: Shield,
-    technologies: ["Trino", "Apache Ranger", "Docker", "SQL"],
     category: "Open Source",
     github: "https://github.com/nil1729/trino-ranger-demo",
     highlights: ["Column & row-level policies", "Ranger admin UI", "Reproducible Docker setup"],
@@ -51,7 +46,6 @@ const dataAIProjects: Project[] = [
     title: "Trino + Hive Data Lakehouse",
     description: "End-to-end local data lakehouse setup — Trino query engine over Hive Metastore with MinIO object storage",
     Icon: Server,
-    technologies: ["Trino", "Hive Metastore", "MinIO", "Docker Compose"],
     category: "Open Source",
     github: "https://github.com/nil1729/trino-hive-demo",
     highlights: ["Local lakehouse environment", "Hive Metastore integration", "S3-compatible storage"],
@@ -63,7 +57,6 @@ const systemsProjects: Project[] = [
     title: "Remote Code Execution Engine",
     description: "Microservice that securely executes arbitrary code in isolated environments with concurrency control and resource limits",
     Icon: Terminal,
-    technologies: ["Node.js", "Docker", "Redis", "Express.js"],
     github: "https://github.com/nil1729/code-execution-backend",
     highlights: ["Sandboxed execution", "Concurrent job management", "Resource isolation"],
   },
@@ -71,7 +64,6 @@ const systemsProjects: Project[] = [
     title: "Multiplayer Real-time Game Server",
     description: "In-memory game server for multiplayer Tic-Tac-Toe — real-time state sync across clients with Socket.IO",
     Icon: Network,
-    technologies: ["Socket.IO", "Node.js", "React", "In-memory state"],
     github: "https://github.com/nil1729/in-memory-socket-server",
     highlights: ["Real-time bidirectional events", "In-memory game state", "Room-based matchmaking"],
   },
@@ -79,7 +71,6 @@ const systemsProjects: Project[] = [
     title: "Food Ordering Platform",
     description: "Full-stack food ordering app with cart management, restaurant listings, auth, and order tracking",
     Icon: ShoppingCart,
-    technologies: ["Vue.js", "Node.js", "MongoDB", "Express.js", "Firebase"],
     github: "https://github.com/nil1729/food-order-app",
     highlights: ["56 GitHub stars", "End-to-end full-stack", "Firebase auth & storage"],
   },
@@ -115,13 +106,6 @@ function ProjectCard({ p, i, base }: { p: Project; i: number; base: number }) {
         <ul className="ll-bullets ll-bullets-sm">
           {p.highlights.map((h) => (
             <li key={h}>{h}</li>
-          ))}
-        </ul>
-        <ul className="ll-tags ll-proj-tags" aria-label="Technologies">
-          {p.technologies.map((t) => (
-            <li key={t}>
-              <Tag>{t}</Tag>
-            </li>
           ))}
         </ul>
         {p.github ? (
